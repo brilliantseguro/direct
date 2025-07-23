@@ -2,327 +2,330 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>¡Reclama tu Bono! | Ganamos.net</title>
+  <title>¡Reclama tu Bono! | Joker Jewels Casino</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Fonts casino y neon -->
-  <link href="https://fonts.googleapis.com/css2?family=Forum&family=Cinzel:wght@700&family=Orbitron:wght@700&family=Monoton&display=swap" rel="stylesheet">
+  <!-- PIXEL META OMITIDO POR BREVEDAD -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Luckiest+Guy&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       min-height: 100vh;
-      width: 100vw;
+      background: radial-gradient(ellipse at 60% 40%, #9D50BB 0%, #2a0845 100%);
+      font-family: 'Montserrat', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
       overflow-x: hidden;
-      font-family: 'Forum', 'Cinzel', serif;
-      position: relative;
-      background: #1e0533;
     }
-    /* Fondo casino con overlay */
-    body::before {
-      content: "";
+    /* EFECTO DE LUCES DE CASINO */
+    body::after {
+      content: '';
       position: fixed;
-      inset: 0;
-      z-index: 0;
-      background: 
-        linear-gradient(rgba(40,10,70,0.88) 0%, rgba(35,0,50,0.95) 100%),
-        url('Diseño sin título (3).png') center center / cover no-repeat;
-      filter: brightness(0.7) blur(0.5px);
       pointer-events: none;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      background:
+        radial-gradient(circle, #f5c32c40 0%, transparent 48%) 20% 14%/180px 90px no-repeat,
+        radial-gradient(circle, #5efff7a0 0%, transparent 56%) 78% 10%/170px 80px no-repeat,
+        radial-gradient(circle, #ff38819a 0%, transparent 64%) 45% 88%/190px 110px no-repeat;
+      z-index: 0;
+      animation: casinoLights 10s linear infinite alternate;
+      opacity: 0.75;
     }
-    .container-main {
-      position: relative;
-      z-index: 2;
+    @keyframes casinoLights {
+      0% { filter: hue-rotate(0deg) brightness(1);}
+      100% { filter: hue-rotate(50deg) brightness(1.09);}
+    }
+    /* Logo grande pero alto compacto */
+    .joker-header {
+      margin-top: 22px;
+      margin-bottom: 6px;
       width: 100vw;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      padding-top: 0;
-    }
-    .joker-header {
-      margin-top: 6vw;
-      margin-bottom: 10px;
-      text-align: center;
-      z-index: 3;
-    }
-    @media (max-width: 600px) {
-      .joker-header {
-        margin-top: 2vw;
-        margin-bottom: 5px;
-      }
+      z-index: 1;
     }
     .joker-header img {
-      max-width: 220px;
-      width: 58vw;
+      max-width: 350px;
+      width: 82vw;
       height: auto;
-      filter: drop-shadow(0 0 36px #164bff) drop-shadow(0 0 56px #353cebaa) drop-shadow(0 6px 24px #0a0e26d0);
+      max-height: 76px;
+      object-fit: contain;
+      display: block;
+      filter:
+        drop-shadow(0 0 16px #5fe8ffb7)
+        drop-shadow(0 0 32px #5522ffc8)
+        drop-shadow(0 7px 14px #36003fc7);
       border-radius: 1em;
       background: transparent;
+      margin-bottom: 0;
     }
-    .welcome-title {
-      font-family: 'Cinzel', 'Forum', serif;
-      font-size: 2.2rem;
-      font-weight: bold;
-      margin-top: 0px;
-      margin-bottom: 7px;
-      letter-spacing: 1px;
+    /* Textos destacados */
+    .bienvenida {
+      font-family: 'Luckiest Guy', 'Montserrat', Arial, sans-serif;
+      font-size: 2.1rem;
       text-align: center;
-      color: #e5c179;
-      text-shadow: 0 2px 14px #000, 0 1px 4px #fff2;
-    }
-    .welcome-white {
-      color: #fff;
-      font-family: 'Cinzel', 'Forum', serif;
-      font-size: 2.6rem;
-      letter-spacing: 2.5px;
-      font-weight: bold;
-      display: block;
-      margin-top: 0px;
-      margin-bottom: 0px;
-      text-shadow: 0 0 10px #fff8, 0 1px 6px #af81ff50;
-      background: linear-gradient(90deg, #fff 70%, #bcb9d4 100%);
+      margin: 12px 0 8px 0;
+      background: linear-gradient(to bottom, #ffe866 60%, #ffd700 98%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
+      letter-spacing: 1.5px;
+      text-shadow: 0 2px 14px #2a08457a, 0 2px 0px #fff9;
     }
-    .promo-neon {
-      font-family: 'Orbitron', 'Monoton', 'Cinzel', cursive;
-      font-weight: 700;
-      font-size: 1.32rem;
-      color: #fff;
-      letter-spacing: 2.1px;
-      margin: 14px auto 0 auto;
-      padding: 0 10px;
-      text-align: center;
-      text-shadow:
-        0 0 8px #00ffe7,
-        0 0 18px #13cfff,
-        0 0 36px #a258fc;
-      background: linear-gradient(90deg,#46fff4 40%,#a258fc 100%);
+    .bienvenida .dominio {
+      background: linear-gradient(to bottom, #fff, #ffe);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: neonPulse 2.2s infinite alternate;
-      display: block;
-      max-width: 90vw;
+      font-size: 1.04em;
+      font-family: inherit;
+      font-weight: 900;
+      letter-spacing: 1.8px;
+      text-shadow: 0 1px 9px #fff9, 0 0px 6px #baf7;
     }
-    @keyframes neonPulse {
-      0% { text-shadow: 0 0 6px #00ffe7, 0 0 18px #13cfff, 0 0 26px #a258fc; }
-      100% { text-shadow: 0 0 16px #00ffe7, 0 0 30px #13cfff, 0 0 48px #a258fc; }
+    .promo-extra {
+      text-align: center;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      color: #fff34b;
+      font-size: 1.23rem;
+      margin-bottom: 18px;
+      letter-spacing: 1.2px;
+      background: linear-gradient(to right, #fffa8b, #ffc600 60%, #fff9 95%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 8px #2a084540);
+      text-shadow: 0 2px 7px #2a084583;
     }
+    .promo-extra strong {
+      color: #fff;
+      background: none;
+      font-size: 1.25em;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+    /* BOTÓN */
     .claim-btn {
-      margin: 30px auto 16px auto;
-      padding: 23px 48px 23px 38px;
-      background: linear-gradient(90deg,#25D366 85%,#5cd57a 100%);
+      margin: 14px auto 10px auto;
+      padding: 20px 44px;
+      background: linear-gradient(90deg,#00ff90,#00e049 70%);
       color: #fff;
       font-size: 2rem;
-      font-family: 'Cinzel', 'Forum', serif;
-      font-weight: 700;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
       border: none;
       border-radius: 2em;
-      box-shadow: 0 2px 24px #25D36677,0 0 30px #00ff7e33;
+      box-shadow: 0 2px 24px #00ff9090;
       cursor: pointer;
-      letter-spacing: 1.3px;
+      animation: shine 0.7s alternate infinite, titilar 0.8s infinite;
+      text-shadow: 0 2px 8px #006a3d90, 0 0px 20px #0f0;
+      letter-spacing: 1.2px;
       outline: none;
-      transition: background .2s, box-shadow .18s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 13px;
+      transition: transform .15s;
+      z-index: 3;
     }
-    .claim-btn:hover, .claim-btn:focus {
-      background: linear-gradient(90deg,#1eb655 30%,#25D366 100%);
-      box-shadow: 0 2px 36px #25D366bb,0 0 40px #43e484aa;
+    @keyframes titilar {
+      0% { box-shadow: 0 0 32px #0f0,0 2px 24px #00ff9090; }
+      50% { box-shadow: 0 0 12px #0f0,0 2px 14px #00ff9090; }
+      100% { box-shadow: 0 0 32px #0f0,0 2px 24px #00ff9090; }
     }
-    .wa-icon {
-      display: inline-block;
-      vertical-align: middle;
-      width: 2.1rem;
-      height: 2.1rem;
-      margin-right: 4px;
-      margin-top: -2px;
-      filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 14px #25D36699);
+    @keyframes shine {
+      0% { filter: brightness(1); }
+      100% { filter: brightness(1.11); }
     }
+    /* Barra de tiempo TECNOLÓGICA */
     .timeline-section {
       width: 98vw;
-      max-width: 530px;
-      margin: 14px auto 18px auto;
+      max-width: 480px;
+      margin: 18px auto 14px auto;
       text-align: center;
       z-index: 2;
     }
     .timeline-label {
-      font-family: 'Cinzel', 'Forum', serif;
-      color: #fffbe9;
-      font-size: 1.11rem;
-      margin-bottom: 11px;
-      letter-spacing: 0.6px;
+      color: #dad5ff;
+      font-size: 1.08rem;
+      margin-bottom: 5px;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 5px #120242ab;
+      font-family: 'Montserrat', Arial, sans-serif;
       font-weight: 700;
-      text-shadow: 0 1px 8px #000, 0 2px 10px #a078ec44;
     }
     .timeline-bar-bg {
-      width: 100%;
-      background: rgba(120,90,180,0.13);
-      border-radius: 16px;
-      height: 38px;
+      width: 99%;
+      background: linear-gradient(90deg,#3a0077a7,#8b24c7a1 95%);
+      border-radius: 11px;
+      height: 25px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 2px 32px #a27be2bb, 0 0 18px #6c21c940;
-      border: 3px solid #8059b0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      box-shadow: 0 2px 16px #28024152;
+      border: 2.5px solid #b67cfc;
     }
     .timeline-bar {
       position: absolute;
       left: 0; top: 0; bottom: 0;
       height: 100%;
-      background: linear-gradient(90deg, #9f4edd 10%, #7842b8 70%, #532cbb 100%);
-      border-radius: 16px;
-      z-index: 2;
-      transition: width 0.4s linear;
+      background: linear-gradient(90deg,#de9fff 0%,#a155ff 45%,#701fae 100%);
+      border-radius: 9px;
+      transition: width 0.14s linear;
+      box-shadow: 0 0 16px #c59cff99;
+      z-index: 1;
+      will-change: width;
     }
     .timeline-time {
       position: absolute;
-      left: 0; right: 0;
-      top: 7px;
-      margin: 0 auto;
+      left: 49%;
+      top: 0;
+      transform: translateX(-50%);
+      color: #fff6e9;
+      font-size: 1.1rem;
+      font-weight: 900;
+      text-shadow: 0 1px 7px #5e2e7f, 0 2px 6px #fff4;
+      z-index: 2;
       width: 100%;
-      color: #fffbe6;
-      font-size: 1.25rem;
-      font-family: 'Cinzel', 'Forum', serif;
-      font-weight: bold;
-      text-shadow: 0 1px 8px #523095a5,0 0 6px #fff;
-      z-index: 9;
-      text-align: center;
-      letter-spacing: 2px;
-      transition: color .2s;
+      height: 100%;
+      line-height: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
+      letter-spacing: 1.2px;
+      user-select: none;
+      pointer-events: none;
+      transition: color .18s;
     }
-    .timeline-final {
-      color: #e9e6fe;
-      font-size: 1.14rem;
-      font-family: 'Cinzel', 'Forum', serif;
+    .timeline-time.finalizado {
+      color: #fff;
+      background: #80007dce;
+      font-weight: 900;
+      font-size: 1.18rem;
+      border-radius: 7px;
+      letter-spacing: 2px;
+      transition: all .27s;
+      box-shadow: 0 0 12px #db35cf8a;
+      text-shadow: 0 2px 8px #c7b2ff, 0 2px 16px #510c47;
+    }
+    .close-x {
+      font-size: 1.2em;
+      margin-left: 9px;
+      color: #fff;
+      background: #ff2254;
+      border-radius: 12px;
       font-weight: bold;
-      letter-spacing: 2.2px;
-      text-align: center;
-      display: block;
-      width: 100%;
-      margin-top: 1px;
-      text-shadow: 0 1px 10px #220046b8;
+      padding: 1px 8px 1px 8px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-top: -2px;
+      box-shadow: 0 2px 10px #4a0624b3;
+      border: 1.2px solid #fff6;
+      transition: background .2s;
     }
+    /* Notificaciones tipo WhatsApp */
     .testimonials-container {
       position: fixed;
-      bottom: 32px;
-      left: 24px;
-      width: 340px;
-      max-width: 96vw;
-      z-index: 200;
+      bottom: 2vh;
+      right: 1vw;
+      width: 330px;
+      max-width: 97vw;
+      z-index: 999;
       pointer-events: none;
       font-size: 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
     }
     @media (max-width: 600px) {
-      .container-main {
-        padding-bottom: 20vw;
-      }
       .testimonials-container {
-        bottom: 1.5vh;
-        left: 3vw;
-        width: 96vw;
-        max-width: 96vw;
+        bottom: 1.6vh;
+        right: 0.5vw;
+        width: 98vw;
+        max-width: 99vw;
+      }
+      .bienvenida {
+        font-size: 1.27rem;
+      }
+      .promo-extra {
+        font-size: 1.04rem;
+      }
+      .claim-btn {
+        font-size: 1.19rem;
+        padding: 14px 6vw;
+      }
+      .timeline-section {
+        max-width: 99vw;
       }
     }
     .testimonial-pop {
+      background: linear-gradient(98deg, #e9fff6 62%, #d7e3fc 100%);
+      border-radius: 17px 10px 22px 17px;
+      box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21;
+      margin-bottom: 14px;
+      padding: 13px 17px 12px 13px;
+      animation: fadeInRight 0.6s, popTesti 2s infinite alternate;
+      border-left: 7px solid #25D366;
+      border-bottom: 2.5px solid #aafad7;
+      position: relative;
+      font-size: 0.99em;
+      font-family: 'Montserrat', Arial, sans-serif;
       display: flex;
       align-items: center;
-      background: linear-gradient(98deg, #dfd5f9 60%, #b8a3f3 100%);
-      border-radius: 16px 22px 16px 14px;
-      box-shadow: 0 2px 22px #2d234180, 0 4px 10px #816ad8aa;
-      margin-bottom: 9px;
-      padding: 11px 19px 11px 13px;
-      border-left: 6px solid #a27be2;
-      border-right: 2px solid #816ad8;
-      border-bottom: 2px solid #8a70bd88;
-      position: relative;
-      min-width: 180px;
-      min-height: 60px;
-      animation: fadeInLeft 0.5s, popTesti 2s infinite alternate;
     }
-    @keyframes fadeInLeft {
-      from { opacity: 0; transform: translateX(-40px);}
-      to   { opacity: 1; transform: translateX(0);}
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(90px); }
+      to   { opacity: 1; transform: translateX(0); }
     }
     @keyframes popTesti {
-      0% { box-shadow: 0 2px 22px #0002,0 4px 10px #816ad8aa; }
-      50% { box-shadow: 0 6px 24px #a27be277,0 10px 16px #816ad8cc; }
-      100% { box-shadow: 0 2px 22px #0002,0 4px 10px #816ad8aa; }
+      0% { box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21; }
+      50% { box-shadow: 0 7px 32px #25d36660,0 12px 18px #0f0c; }
+      100% { box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21; }
     }
-    .testimonial-pop .t-emoji {
-      font-size: 2em;
-      margin-right: 8px;
+    .testimonial-pop .wa-ico {
+      width: 21px; height: 21px;
+      margin-right: 7px;
+      margin-left: 1px;
       vertical-align: middle;
-      filter: drop-shadow(0 1px 7px #a27be2);
+      border-radius: 7px;
+      background: #25D366;
+      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 9px #25d36644;
+      border: 2.2px solid #fff;
     }
     .testimonial-pop .t-name {
-      font-weight: bold;
-      color: #593ea2;
+      font-weight: 700;
+      color: #208b34;
       margin-right: 4px;
-      font-size: 1.07em;
-      font-family: 'Cinzel', 'Forum', serif;
-      letter-spacing: 1.1px;
-      text-shadow: 0 1px 3px #fff8;
+      font-size: 1.09em;
     }
     .testimonial-pop .t-money {
-      color: #8059b0;
+      color: #e4b70b;
       font-weight: bold;
       margin-left: 3px;
-      font-size: 1.06em;
-      text-shadow: 0 0 8px #a27be2;
     }
-    .testimonial-pop .t-city {
-      color: #3b285e;
-      font-size: 0.97em;
-      margin-left: 3px;
-    }
-    .testimonial-pop .t-gold {
-      color: #fffbe6;
-      font-weight: bold;
-      font-size: 1em;
-      background: linear-gradient(90deg,#a27be2 15%,#fffbe6 100%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 6px #fffbe6);
-      margin-left: 8px;
+    .testimonial-pop .t-msg {
+      color: #0a5120;
+      margin-left: 4px;
+      font-size: 0.96em;
+      opacity: 0.7;
+      font-style: italic;
     }
   </style>
 </head>
 <body>
-  <div class="container-main">
-    <div class="joker-header">
-      <img src="jokers.png" alt="Joker's Jewels" draggable="false">
-    </div>
-    <div class="welcome-title">
-      ¡BIENVENIDOS A
-      <span class="welcome-white">GANAMOS.NET!</span>
-    </div>
-    <span class="promo-neon">20% EXTRA si cargas hoy</span>
+  <div class="joker-header">
+    <img src="jokers.png" alt="Joker's Jewels" draggable="false" loading="lazy">
+  </div>
+  <div class="bienvenida">
+    ¡BIENVENID@ A <span class="dominio">GANAMOS.NET</span>!
+  </div>
+  <div class="promo-extra">
+    <strong>20% EXTRA EN TU RECARGA HOY</strong>
+  </div>
+  <div class="main-content">
     <button id="claimBtn" class="claim-btn">
-      <span class="wa-icon">
-        <!-- WhatsApp SVG -->
-        <svg viewBox="0 0 40 40" width="32" height="32">
-          <circle cx="20" cy="20" r="20" fill="#25D366"/>
-          <path d="M28.8 25.3c-.4-.2-2.4-1.1-2.8-1.3-.4-.2-.6-.2-.8.2-.2.4-.8 1.3-1 1.5-.2.2-.4.3-.8.1-.4-.2-1.7-.6-3.2-1.8-1.2-1.1-2.1-2.4-2.4-2.8-.2-.4 0-.6.2-.7.2-.2.4-.4.6-.6.2-.2.2-.4.4-.7.2-.3 0-.5-.1-.7-.1-.2-.8-1.9-1.1-2.6-.3-.7-.6-.6-.8-.6h-.6c-.2 0-.5.1-.7.4-.2.3-1 1-1 2.4s1 2.7 1.1 2.9c.1.2 2.1 3.3 5.2 4.5 1.3.5 2.3.7 3 .7.6 0 1.2 0 1.6-.1.5-.1 1.5-.6 1.7-1.1.2-.5.2-1 .1-1.1-.2-.1-.5-.2-1-.4z" fill="#fff"/>
-        </svg>
-      </span>
       ¡RECLAMA TU BONO!
     </button>
     <div class="timeline-section">
       <div class="timeline-label">Tiempo para reclamar el bono</div>
       <div class="timeline-bar-bg">
-        <div id="timelineBar" class="timeline-bar"></div>
+        <div id="timelineBar" class="timeline-bar" style="width:100%"></div>
         <span id="timelineTime" class="timeline-time">30s</span>
       </div>
     </div>
@@ -336,91 +339,79 @@
 
     function handleClaimClick(e) {
       if (e) e.preventDefault();
+      const btn = document.getElementById('claimBtn');
+      btn.innerText = 'Redirigiendo a WhatsApp...';
+      btn.disabled = true;
+      setTimeout(function(){
+        window.location.href = whatsappLink;
+      }, 2100);
       if (typeof fbq === 'function') {
         fbq('trackCustom', 'ClickWhatsAap');
       }
-      window.location.href = whatsappLink;
     }
 
     document.getElementById('claimBtn').addEventListener('click', handleClaimClick, {passive:false});
     document.getElementById('claimBtn').addEventListener('touchstart', handleClaimClick, {passive:true});
 
-    // Línea de tiempo
+    // Línea de tiempo 30s
     let timeLeft = 30;
     const timelineBar = document.getElementById('timelineBar');
     const timelineTime = document.getElementById('timelineTime');
     function updateTimeline() {
       timeLeft -= 1;
+      const pct = Math.max(0, (timeLeft / 30) * 100);
+      timelineBar.style.width = pct + "%";
       if (timeLeft > 0) {
-        timelineBar.style.width = (timeLeft / 30 * 100) + "%";
         timelineTime.textContent = timeLeft + "s";
-        setTimeout(updateTimeline, 1000);
       } else {
         timelineBar.style.width = "0%";
-        timelineTime.innerHTML = '<span class="timeline-final">FINALIZADO</span>';
+        timelineTime.innerHTML = 'FINALIZADO <span class="close-x">&times;</span>';
+        timelineTime.classList.add('finalizado');
       }
+      if(timeLeft > 0) setTimeout(updateTimeline, 1000);
     }
-    timelineBar.style.width = "100%";
     setTimeout(updateTimeline, 1000);
 
-    // Testimonios animados
+    // Testimonios automáticos simulando WhatsApp
     const testimonios = [
-      {name: "Sofía G.", amount: "$137.200", city: "Córdoba"},
-      {name: "Emiliano R.", amount: "$72.900", city: "Rosario"},
-      {name: "Pamela L.", amount: "$210.500", city: "CABA"},
-      {name: "Franco D.", amount: "$48.000", city: "Mar del Plata"},
-      {name: "Lucía V.", amount: "$89.400", city: "Tucumán"},
-      {name: "Gabriel S.", amount: "$127.000", city: "Mendoza"},
-      {name: "Nicolás P.", amount: "$93.200", city: "Salta"},
-      {name: "Martina C.", amount: "$161.600", city: "Santa Fe"},
-      {name: "Florencia B.", amount: "$56.800", city: "La Plata"},
-      {name: "Alejandro T.", amount: "$108.400", city: "San Juan"},
+      {name: "Sofía G.", amount: "$137.200", city: "Córdoba", msg:"¡Nunca gané tanto! Mil gracias 🔥"},
+      {name: "Emiliano R.", amount: "$72.900", city: "Rosario", msg:"Retiro en minutos. ¡Recomendado! 👏"},
+      {name: "Pamela L.", amount: "$210.500", city: "CABA", msg:"Lo recibí por transferencia. Son los mejores 🙌"},
+      {name: "Franco D.", amount: "$48.000", city: "Mar del Plata", msg:"Jugué desde el celu, pagaron enseguida 😱"},
+      {name: "Lucía V.", amount: "$89.400", city: "Tucumán", msg:"Pensé que era fake, pero pagaron posta 💸"},
+      {name: "Gabriel S.", amount: "$127.000", city: "Mendoza", msg:"Con el 20% extra me animé y gané! 🎰"},
+      {name: "Nicolás P.", amount: "$93.200", city: "Salta", msg:"100% confiables, gracias equipo 👏"},
+      {name: "Martina C.", amount: "$161.600", city: "Santa Fe", msg:"Envío comprobante, retiro inmediato 🔥"},
+      {name: "Florencia B.", amount: "$56.800", city: "La Plata", msg:"Gracias x la promo, ya cobré 😍"},
+      {name: "Alejandro T.", amount: "$108.400", city: "San Juan", msg:"Son mi casino de confianza 🙏"},
     ];
     let testIndex = 0;
     function showTestimonial() {
       const t = testimonios[testIndex % testimonios.length];
       const id = "tpop-"+Date.now();
-      const fichas = ['🟣','🟡','🔴','🔵','🟢','⚪️','🃏','💰'];
-      const ficha = fichas[Math.floor(Math.random()*fichas.length)];
       const testiDiv = document.createElement('div');
       testiDiv.className = "testimonial-pop";
       testiDiv.id = id;
       testiDiv.innerHTML = `
-        <span class="t-emoji">${ficha}</span>
+        <span class="wa-ico">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 32 32"><path fill="#fff" d="M24.3 20.4c-.4-.2-2.3-1.1-2.7-1.2-.4-.2-.8-.2-1.1.2-.3.4-1.3 1.2-1.5 1.3-.3.2-.6.1-.8 0-.4-.2-1.5-.5-2.9-1.5-1.1-.8-1.9-1.8-2.2-2.2-.2-.4 0-.6.2-.9.2-.2.4-.5.6-.7.2-.3.1-.5 0-.8-.1-.2-1-2.2-1.4-3-.4-.7-.8-.6-1.1-.6H8.7c-.3 0-.7.1-1 .5-.3.4-1.3 1.3-1.3 3.1 0 1.9 1.4 3.5 2.7 4.4 1.5 1 3.2 2.1 4.9 2.1.8 0 1.6-.1 2.3-.3.7-.2 2.4-1 3.1-1.5.4-.3.8-.7 1.3-1.1.5-.3.6-.5.8-.8.2-.3.3-.7.2-1.1z"/><circle cx="16" cy="16" r="15" fill="none" stroke="#25D366" stroke-width="2"/></svg>
+        </span>
         <span class="t-name">${t.name}</span>
-        ganó <span class="t-money">${t.amount}</span>
-        <span class="t-city">(${t.city})</span>
-        <span class="t-gold">¡Premio retirado!</span>
+        ganó <span class="t-money">${t.amount}</span> desde <b>${t.city}</b>
+        <span class="t-msg">"${t.msg}"</span>
       `;
       document.getElementById('testimonials').appendChild(testiDiv);
       setTimeout(() => {
-        testiDiv.style.opacity = '0.13';
-        testiDiv.style.transform = 'translateX(-14px) scale(0.98)';
+        testiDiv.style.opacity = '0.2';
+        testiDiv.style.transform = 'translateX(25px) scale(0.91)';
         setTimeout(()=> {
           if(testiDiv.parentNode) testiDiv.parentNode.removeChild(testiDiv);
-        }, 1300);
-      }, 5000);
+        }, 900);
+      }, 4300);
       testIndex++;
-      setTimeout(showTestimonial, Math.random()*2000 + 2100);
+      setTimeout(showTestimonial, Math.random()*1500 + 2300);
     }
-    setTimeout(showTestimonial, 1700);
+    setTimeout(showTestimonial, 1200);
   </script>
-  <!-- Pixel Meta -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '587660557560617');
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=587660557560617&ev=PageView&noscript=1"/>
-  </noscript>
 </body>
 </html>
