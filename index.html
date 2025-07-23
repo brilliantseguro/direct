@@ -215,6 +215,13 @@
       return v ? v[2] : undefined;
     }
 
+    // Obtener IP pública del usuario (NO obligatorio, pero suma matching)
+    let userIP = '';
+    fetch('https://ipinfo.io/json?token=56faed3c17c1d1')
+      .then(resp => resp.json())
+      .then(data => { userIP = data.ip; })
+      .catch(()=>{ userIP = ''; });
+
     function handleClaimClick(e) {
       if (e) e.preventDefault();
 
@@ -223,16 +230,18 @@
         fbq('trackCustom', 'ClickWhatsAap');
       }
 
-      // API Conversion (reemplaza por tu backend real)
-      fetch('https://TU_BACKEND_DOMAIN/api/conversion', {
+      // API Conversion (tu backend en Vercel)
+      fetch('https://conversion-api-pipe.vercel.app/api/conversion', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
           event_name: 'ClickWhatsAap',
+          event_source_url: window.location.href,
           user_data: {
             client_user_agent: navigator.userAgent,
             fbp: getCookie('_fbp'),
-            fbc: getCookie('_fbc')
+            fbc: getCookie('_fbc'),
+            client_ip_address: userIP || undefined // Se envía si se pudo obtener
           }
         })
       });
