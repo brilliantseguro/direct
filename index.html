@@ -209,35 +209,44 @@
     const whatsappNumber = "3413673839";
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hola!%20Quiero%20reclamar%20mi%20bono%20de%20casino`;
 
+    // Lee cookies (fbc, fbp)
+    function getCookie(name) {
+      let v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+      return v ? v[2] : undefined;
+    }
+
     function handleClaimClick(e) {
       if (e) e.preventDefault();
 
-      // Trackeo Pixel Meta
+      // Pixel Meta
       if (typeof fbq === 'function') {
         fbq('trackCustom', 'ClickWhatsAap');
       }
 
-      // Redundancia: beacon o imagen invisible
-      if (navigator.sendBeacon) {
-        var pixelUrl = "https://www.facebook.com/tr?id=587660557560617&ev=ClickWhatsAap&noscript=1";
-        navigator.sendBeacon(pixelUrl);
-      } else {
-        var img = new Image();
-        img.src = "https://www.facebook.com/tr?id=587660557560617&ev=ClickWhatsAap&noscript=1";
-      }
+      // API Conversion (reemplaza por tu backend real)
+      fetch('https://TU_BACKEND_DOMAIN/api/conversion', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          event_name: 'ClickWhatsAap',
+          user_data: {
+            client_user_agent: navigator.userAgent,
+            fbp: getCookie('_fbp'),
+            fbc: getCookie('_fbc')
+          }
+        })
+      });
 
-      // Feedback al usuario
       const btn = document.getElementById('claimBtn');
       btn.innerText = 'Redirigiendo a WhatsApp...';
       btn.disabled = true;
 
-      // Espera 2 segundos y redirige
+      // >>> Delay de 2.5s antes de redirigir
       setTimeout(function(){
         window.location.href = whatsappLink;
-      }, 2000);
+      }, 2500);
     }
 
-    // Track click y touch (ambos)
     document.getElementById('claimBtn').addEventListener('click', handleClaimClick, {passive:false});
     document.getElementById('claimBtn').addEventListener('touchstart', handleClaimClick, {passive:true});
 
