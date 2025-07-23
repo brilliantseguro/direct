@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <title>¡Reclama tu Bono! | Joker Jewels Casino</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Content Security Policy permite la conexión con tu backend de Vercel -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://conversion-api-pipe.vercel.app; img-src * data:; script-src 'self' https://connect.facebook.net; style-src 'self' 'unsafe-inline';">
+
   <!-- Pixel Meta -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -249,7 +253,7 @@
         sent = navigator.sendBeacon('https://conversion-api-pipe.vercel.app/api/conversion', blob);
       }
       if (!sent) {
-        fetch('https://conversion-api-pipe.vercel.app/', {
+        fetch('https://conversion-api-pipe.vercel.app/api/conversion', {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify(eventData)
