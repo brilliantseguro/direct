@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <title>¡Reclama tu Bono! | Joker Jewels Casino</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Content Security Policy permite la conexión con tu backend de Vercel -->
+  <!-- Content Security Policy -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://conversion-api-pipe.vercel.app; img-src * data:; script-src 'self' https://connect.facebook.net; style-src 'self' 'unsafe-inline';">
 
   <!-- Pixel Meta -->
@@ -25,7 +24,6 @@
     <img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=587660557560617&ev=PageView&noscript=1"/>
   </noscript>
-  <!-- Fin Pixel Meta -->
   <style>
     body {
       margin: 0;
@@ -91,7 +89,6 @@
       0% { filter: brightness(1); }
       100% { filter: brightness(1.14); }
     }
-
     .timeline-section {
       width: 96vw;
       max-width: 480px;
@@ -133,7 +130,6 @@
       font-weight: bold;
       text-shadow: 0 1px 4px #fff9;
     }
-
     .testimonials-container {
       position: fixed;
       top: 22vh;
@@ -209,7 +205,7 @@
   <div class="testimonials-container" id="testimonials"></div>
 
   <script>
-    // WhatsApp
+    // WhatsApp config
     const whatsappNumber = "3413673839";
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hola!%20Quiero%20reclamar%20mi%20bono%20de%20casino`;
 
@@ -227,15 +223,23 @@
       .catch(()=>{ userIP = ''; });
 
     function handleClaimClick(e) {
-      try {
-        if (e) e.preventDefault();
+      if (e) e.preventDefault();
+      const btn = document.getElementById('claimBtn');
+      btn.innerText = 'Redirigiendo a WhatsApp...';
+      btn.disabled = true;
 
+      // Siempre redirige después de 2.5s, pase lo que pase
+      setTimeout(function(){
+        window.location.href = whatsappLink;
+      }, 2500);
+
+      try {
         // Pixel Meta
         if (typeof fbq === 'function') {
           fbq('trackCustom', 'ClickWhatsAap');
         }
 
-        // EVENTO PARA API CONVERSION
+        // Evento API Conversion
         const eventData = {
           event_name: 'ClickWhatsAap',
           event_source_url: window.location.href,
@@ -247,34 +251,17 @@
           }
         };
         const blob = new Blob([JSON.stringify(eventData)], {type: 'application/json'});
-
-        // ENVÍA CON sendBeacon, fallback a fetch
-        let sent = false;
         if (navigator.sendBeacon) {
-          sent = navigator.sendBeacon('https://conversion-api-pipe.vercel.app/api/conversion', blob);
-        }
-        if (!sent) {
+          navigator.sendBeacon('https://conversion-api-pipe.vercel.app/api/conversion', blob);
+        } else {
           fetch('https://conversion-api-pipe.vercel.app/api/conversion', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(eventData)
           });
         }
-
-        const btn = document.getElementById('claimBtn');
-        btn.innerText = 'Redirigiendo a WhatsApp...';
-        btn.disabled = true;
-
-        // SIEMPRE redirige a WhatsApp después de 2.5s, aunque algo falle
-        setTimeout(function(){
-          window.location.href = whatsappLink;
-        }, 2500);
-
-      } catch (error) {
-        // Si hay error inesperado, igual redirige después de 2.5s
-        setTimeout(function(){
-          window.location.href = whatsappLink;
-        }, 2500);
+      } catch (err) {
+        // Si algo falla, igual redirige gracias al setTimeout de arriba.
       }
     }
 
@@ -332,7 +319,6 @@
       setTimeout(showTestimonial, Math.random()*1600 + 2000);
     }
     setTimeout(showTestimonial, 1200);
-
   </script>
 </body>
 </html>
