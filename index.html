@@ -249,7 +249,7 @@
         sent = navigator.sendBeacon('https://conversion-api-pipe.vercel.app/api/conversion', blob);
       }
       if (!sent) {
-        fetch('https://conversion-api-pipe.vercel.app/api/conversion', {
+        fetch('https://conversion-api-pipe.vercel.app/', {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify(eventData)
