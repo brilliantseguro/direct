@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¡Reclama tu Bono! | Joker Jewels Casino</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Pixel Meta -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '587660557560617');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=587660557560617&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- Fin Pixel Meta -->
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at 60% 40%, #9D50BB 0%, #6E48AA 100%);
+      font-family: 'Montserrat', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .joker-header {
+      margin-top: 38px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .joker-header img {
+      max-width: 340px;
+      width: 84vw;
+      height: auto;
+      filter:
+        drop-shadow(0 0 28px #18f0ff)
+        drop-shadow(0 0 72px #1c7fff99)
+        drop-shadow(0 6px 12px #042e44c0)
+      ;
+      border-radius: 1em;
+    }
+    .main-content {
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+    }
+    .claim-btn {
+      margin: 38px auto 10px auto;
+      padding: 28px 60px;
+      background: linear-gradient(90deg,#00ff90,#00e049 70%);
+      color: #fff;
+      font-size: 2.2rem;
+      font-weight: 800;
+      border: none;
+      border-radius: 2em;
+      box-shadow: 0 2px 24px #00ff9090;
+      cursor: pointer;
+      animation: shine 0.6s alternate infinite, titilar 0.8s infinite;
+      text-shadow: 0 2px 8px #006a3d90, 0 0px 20px #0f0;
+      transition: transform .15s;
+      z-index: 3;
+      letter-spacing: 1.2px;
+      outline: none;
+    }
+    @keyframes titilar {
+      0% { box-shadow: 0 0 32px #0f0,0 2px 24px #00ff9090; }
+      50% { box-shadow: 0 0 12px #0f0,0 2px 14px #00ff9090; }
+      100% { box-shadow: 0 0 32px #0f0,0 2px 24px #00ff9090; }
+    }
+    @keyframes shine {
+      0% { filter: brightness(1); }
+      100% { filter: brightness(1.14); }
+    }
+
+    .timeline-section {
+      width: 96vw;
+      max-width: 480px;
+      margin: 26px auto 18px auto;
+      text-align: center;
+      z-index: 2;
+    }
+    .timeline-label {
+      color: #eee;
+      font-size: 1.09rem;
+      margin-bottom: 5px;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 5px #0007;
+    }
+    .timeline-bar-bg {
+      width: 100%;
+      background: rgba(200,200,200,0.18);
+      border-radius: 11px;
+      height: 22px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 2px 10px #1114;
+    }
+    .timeline-bar {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      height: 100%;
+      background: linear-gradient(90deg,#f4ffb8,#fac858 80%);
+      opacity: 0.90;
+      border-radius: 11px;
+      transition: width 0.15s linear;
+    }
+    .timeline-time {
+      position: absolute;
+      right: 12px;
+      top: 2px;
+      color: #7a6;
+      font-size: 1rem;
+      font-weight: bold;
+      text-shadow: 0 1px 4px #fff9;
+    }
+
+    .testimonials-container {
+      position: fixed;
+      top: 22vh;
+      right: 12px;
+      width: 330px;
+      max-width: 87vw;
+      z-index: 999;
+      pointer-events: none;
+      font-size: 1rem;
+    }
+    @media (max-width: 600px) {
+      .testimonials-container {
+        top: auto;
+        bottom: 3vh;
+        right: 2vw;
+        width: 96vw;
+        max-width: 96vw;
+      }
+    }
+    .testimonial-pop {
+      background: linear-gradient(98deg, #fff 60%, #eceeff 100%);
+      border-radius: 18px 8px 22px 18px;
+      box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21;
+      margin-bottom: 14px;
+      padding: 13px 17px 12px 15px;
+      animation: fadeInRight 0.5s, popTesti 2s infinite alternate;
+      border-left: 6px solid #35d841;
+      position: relative;
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(120px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes popTesti {
+      0% { box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21; }
+      50% { box-shadow: 0 6px 32px #0004,0 12px 18px #0f0c; }
+      100% { box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21; }
+    }
+    .testimonial-pop .t-emoji {
+      font-size: 1.4em;
+      margin-right: 4px;
+      vertical-align: bottom;
+    }
+    .testimonial-pop .t-name {
+      font-weight: bold;
+      color: #2c7a34;
+      margin-right: 4px;
+      font-size: 1.09em;
+    }
+    .testimonial-pop .t-money {
+      color: #e4b70b;
+      font-weight: bold;
+      margin-left: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="joker-header">
+    <img src="/mnt/data/f92c0506-f33a-4618-b764-f392f8103345.png" alt="Joker's Jewels" draggable="false">
+  </div>
+  <div class="main-content">
+    <button id="claimBtn" class="claim-btn">
+      ¡RECLAMA TU BONO!
+    </button>
+    <div class="timeline-section">
+      <div class="timeline-label">Tiempo para reclamar el bono</div>
+      <div class="timeline-bar-bg">
+        <div id="timelineBar" class="timeline-bar" style="width:100%"></div>
+        <span id="timelineTime" class="timeline-time">30s</span>
+      </div>
+    </div>
+  </div>
+  <div class="testimonials-container" id="testimonials"></div>
+
+  <!-- Redirección a WhatsApp luego de 2s -->
+  <script>
+    // Parámetros
+    const whatsappNumber = "3413673839";
+    const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hola!%20Quiero%20reclamar%20mi%20bono%20de%20casino`;
+
+    // Trackeo Pixel personalizado y redirección
+    function handleClaimClick() {
+      if (typeof fbq === 'function') {
+        fbq('trackCustom', 'ClickWhatsAap');
+      }
+      window.location.href = whatsappLink;
+    }
+
+    document.getElementById('claimBtn').addEventListener('click', handleClaimClick);
+
+    // Detectar eventos touch/mouse para Pixel
+    function detectTouchOrClick() {
+      if (typeof fbq === 'function') {
+        fbq('trackCustom', 'TouchOrClick');
+      }
+    }
+    window.addEventListener('touchstart', detectTouchOrClick, {passive:true});
+    window.addEventListener('mousedown', detectTouchOrClick);
+
+    // Redirección automática tras 2s
+    setTimeout(() => {
+      handleClaimClick();
+    }, 2000);
+
+    // Línea de tiempo de 30 segundos
+    let timeLeft = 30;
+    const timelineBar = document.getElementById('timelineBar');
+    const timelineTime = document.getElementById('timelineTime');
+    function updateTimeline() {
+      timeLeft -= 1;
+      const pct = Math.max(0, (timeLeft / 30) * 100);
+      timelineBar.style.width = pct + "%";
+      timelineTime.textContent = timeLeft + "s";
+      if(timeLeft > 0) {
+        setTimeout(updateTimeline, 1000);
+      } else {
+        timelineBar.style.width = "0%";
+        timelineTime.textContent = "¡Finalizó!";
+      }
+    }
+    setTimeout(updateTimeline, 1000);
+
+    // Testimonios automáticos (simulación argentina)
+    const testimonios = [
+      {name: "Sofía G.", amount: "$137.200", city: "Córdoba"},
+      {name: "Emiliano R.", amount: "$72.900", city: "Rosario"},
+      {name: "Pamela L.", amount: "$210.500", city: "CABA"},
+      {name: "Franco D.", amount: "$48.000", city: "Mar del Plata"},
+      {name: "Lucía V.", amount: "$89.400", city: "Tucumán"},
+      {name: "Gabriel S.", amount: "$127.000", city: "Mendoza"},
+      {name: "Nicolás P.", amount: "$93.200", city: "Salta"},
+      {name: "Martina C.", amount: "$161.600", city: "Santa Fe"},
+      {name: "Florencia B.", amount: "$56.800", city: "La Plata"},
+      {name: "Alejandro T.", amount: "$108.400", city: "San Juan"},
+    ];
+    let testIndex = 0;
+    function showTestimonial() {
+      const t = testimonios[testIndex % testimonios.length];
+      const id = "tpop-"+Date.now();
+      const testiDiv = document.createElement('div');
+      testiDiv.className = "testimonial-pop";
+      testiDiv.id = id;
+      testiDiv.innerHTML = `
+        <span class="t-emoji">🎉</span>
+        <span class="t-name">${t.name}</span>
+        ganó <span class="t-money">${t.amount}</span> desde <b>${t.city}</b> y <span style="color:#1a9b0a">retiró su premio</span>
+      `;
+      document.getElementById('testimonials').appendChild(testiDiv);
+      setTimeout(() => {
+        testiDiv.style.opacity = '0.2';
+        testiDiv.style.transform = 'translateX(24px) scale(0.93)';
+        setTimeout(()=> {
+          if(testiDiv.parentNode) testiDiv.parentNode.removeChild(testiDiv);
+        }, 1100);
+      }, 4200);
+      testIndex++;
+      setTimeout(showTestimonial, Math.random()*1600 + 2000);
+    }
+    setTimeout(showTestimonial, 1200);
+
+  </script>
+</body>
+</html>
