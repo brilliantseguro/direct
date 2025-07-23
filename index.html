@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <title>¡Reclama tu Bono! | Joker Jewels Casino</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Content Security Policy -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://conversion-api-pipe.vercel.app; img-src * data:; script-src 'self' https://connect.facebook.net; style-src 'self' 'unsafe-inline';">
-
+  <!-- No ponemos CSP estricta para máxima compatibilidad en GitHub Pages -->
   <!-- Pixel Meta -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -209,45 +207,27 @@
     const whatsappNumber = "3413673839";
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hola!%20Quiero%20reclamar%20mi%20bono%20de%20casino`;
 
-    // Lee cookies (fbc, fbp)
-    function getCookie(name) {
-      let v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
-      return v ? v[2] : undefined;
-    }
-
-    // Obtener IP pública del usuario
-    let userIP = '';
-    fetch('https://ipinfo.io/json?token=56faed3c17c1d1')
-      .then(resp => resp.json())
-      .then(data => { userIP = data.ip; })
-      .catch(()=>{ userIP = ''; });
-
     function handleClaimClick(e) {
       if (e) e.preventDefault();
       const btn = document.getElementById('claimBtn');
       btn.innerText = 'Redirigiendo a WhatsApp...';
       btn.disabled = true;
-
-      // Siempre redirige después de 2.5s, pase lo que pase
       setTimeout(function(){
         window.location.href = whatsappLink;
       }, 2500);
 
+      // Pixel Meta
+      if (typeof fbq === 'function') {
+        fbq('trackCustom', 'ClickWhatsAap');
+      }
+      // Conversion API (se puede comentar si tu CSP lo bloquea en GitHub Pages)
+      /*
       try {
-        // Pixel Meta
-        if (typeof fbq === 'function') {
-          fbq('trackCustom', 'ClickWhatsAap');
-        }
-
-        // Evento API Conversion
         const eventData = {
           event_name: 'ClickWhatsAap',
           event_source_url: window.location.href,
           user_data: {
-            client_user_agent: navigator.userAgent,
-            fbp: getCookie('_fbp'),
-            fbc: getCookie('_fbc'),
-            client_ip_address: userIP || undefined
+            client_user_agent: navigator.userAgent
           }
         };
         const blob = new Blob([JSON.stringify(eventData)], {type: 'application/json'});
@@ -260,9 +240,8 @@
             body: JSON.stringify(eventData)
           });
         }
-      } catch (err) {
-        // Si algo falla, igual redirige gracias al setTimeout de arriba.
-      }
+      } catch (err) {}
+      */
     }
 
     document.getElementById('claimBtn').addEventListener('click', handleClaimClick, {passive:false});
@@ -282,7 +261,7 @@
     }
     setTimeout(updateTimeline, 1000);
 
-    // Testimonios automáticos (simulación argentina)
+    // Testimonios automáticos
     const testimonios = [
       {name: "Sofía G.", amount: "$137.200", city: "Córdoba"},
       {name: "Emiliano R.", amount: "$72.900", city: "Rosario"},
