@@ -4,186 +4,190 @@
   <meta charset="UTF-8">
   <title>¡Reclama tu Bono! | Joker Jewels Casino</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- PIXEL META OMITIDO POR BREVEDAD -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       min-height: 100vh;
-      background: radial-gradient(ellipse at 60% 40%, #9D50BB 0%, #2a0845 100%);
-      font-family: 'Montserrat', Arial, sans-serif;
+      background: radial-gradient(ellipse at 70% 50%, #3d2175 0%, #0a0020 100%);
+      font-family: 'Poppins', 'Montserrat', Arial, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
       position: relative;
       overflow-x: hidden;
     }
-    /* EFECTO DE LUCES DE CASINO */
+    /* Luces sutiles */
     body::after {
       content: '';
       position: fixed;
       pointer-events: none;
       left: 0; top: 0; width: 100vw; height: 100vh;
       background:
-        radial-gradient(circle, #f5c32c40 0%, transparent 48%) 20% 14%/180px 90px no-repeat,
-        radial-gradient(circle, #5efff7a0 0%, transparent 56%) 78% 10%/170px 80px no-repeat,
-        radial-gradient(circle, #ff38819a 0%, transparent 64%) 45% 88%/190px 110px no-repeat;
+        radial-gradient(circle, #c992fa18 0%, transparent 55%) 15% 10%/160px 80px no-repeat,
+        radial-gradient(circle, #1cf7dd22 0%, transparent 75%) 80% 12%/140px 110px no-repeat,
+        radial-gradient(circle, #ffe18024 0%, transparent 70%) 44% 88%/220px 80px no-repeat;
       z-index: 0;
-      animation: casinoLights 10s linear infinite alternate;
-      opacity: 0.75;
+      animation: casinoLights 9s linear infinite alternate;
+      opacity: 0.9;
     }
     @keyframes casinoLights {
-      0% { filter: hue-rotate(0deg) brightness(1);}
-      100% { filter: hue-rotate(50deg) brightness(1.09);}
+      0% { filter: hue-rotate(0deg);}
+      100% { filter: hue-rotate(35deg);}
     }
-    /* Logo grande pero alto compacto */
+    /* Logo ajustado */
     .joker-header {
-      margin-top: 22px;
-      margin-bottom: 6px;
+      margin-top: 30px;
+      margin-bottom: 10px;
       width: 100vw;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      z-index: 1;
     }
     .joker-header img {
-      max-width: 350px;
-      width: 82vw;
+      max-width: 320px;
+      width: 90vw;
       height: auto;
-      max-height: 76px;
+      max-height: 60px;
       object-fit: contain;
-      display: block;
-      filter:
-        drop-shadow(0 0 16px #5fe8ffb7)
-        drop-shadow(0 0 32px #5522ffc8)
-        drop-shadow(0 7px 14px #36003fc7);
-      border-radius: 1em;
+      border-radius: 0.5em;
       background: transparent;
-      margin-bottom: 0;
+      box-shadow: 0 3px 18px #42109360;
     }
-    /* Textos destacados */
+    /* Textos modernos */
     .bienvenida {
-      font-family: 'Luckiest Guy', 'Montserrat', Arial, sans-serif;
-      font-size: 2.1rem;
+      font-family: 'Poppins', 'Montserrat', Arial, sans-serif;
+      font-size: 2rem;
       text-align: center;
-      margin: 12px 0 8px 0;
-      background: linear-gradient(to bottom, #ffe866 60%, #ffd700 98%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: 1.5px;
-      text-shadow: 0 2px 14px #2a08457a, 0 2px 0px #fff9;
+      margin: 16px 0 10px 0;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 1.3px;
+      text-shadow: 0 2px 18px #0009, 0 1px 0 #8b69f8;
     }
     .bienvenida .dominio {
-      background: linear-gradient(to bottom, #fff, #ffe);
+      color: #fff;
+      background: linear-gradient(to bottom, #fff 45%, #fbeefa 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-size: 1.04em;
-      font-family: inherit;
       font-weight: 900;
-      letter-spacing: 1.8px;
+      letter-spacing: 1.6px;
       text-shadow: 0 1px 9px #fff9, 0 0px 6px #baf7;
     }
     .promo-extra {
       text-align: center;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 900;
-      color: #fff34b;
-      font-size: 1.23rem;
-      margin-bottom: 18px;
+      font-family: 'Poppins', 'Montserrat', Arial, sans-serif;
+      font-weight: 800;
+      color: #fff;
+      font-size: 1.17rem;
+      margin-bottom: 19px;
       letter-spacing: 1.2px;
-      background: linear-gradient(to right, #fffa8b, #ffc600 60%, #fff9 95%);
+      background: linear-gradient(90deg, #fff0be, #ffe18d 50%, #fff9 90%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 8px #2a084540);
-      text-shadow: 0 2px 7px #2a084583;
+      text-shadow: 0 2px 7px #3e136b30;
     }
     .promo-extra strong {
       color: #fff;
       background: none;
-      font-size: 1.25em;
+      font-size: 1.14em;
       font-weight: 900;
-      letter-spacing: 2px;
+      letter-spacing: 1.2px;
+      text-shadow: 0 2px 8px #fff4;
     }
-    /* BOTÓN */
+    /* CENTRADO ABSOLUTO DEL BOTÓN */
+    .main-content {
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 0 auto;
+    }
+    /* Botón con icono WhatsApp real */
     .claim-btn {
-      margin: 14px auto 10px auto;
-      padding: 20px 44px;
-      background: linear-gradient(90deg,#00ff90,#00e049 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 0 auto 17px auto;
+      padding: 18px 40px;
+      background: linear-gradient(93deg,#25d366 0%,#5b7aff 100%);
       color: #fff;
-      font-size: 2rem;
-      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.5rem;
+      font-family: 'Poppins', Arial, sans-serif;
       font-weight: 900;
       border: none;
       border-radius: 2em;
-      box-shadow: 0 2px 24px #00ff9090;
+      box-shadow: 0 4px 22px #2abfff30;
       cursor: pointer;
-      animation: shine 0.7s alternate infinite, titilar 0.8s infinite;
-      text-shadow: 0 2px 8px #006a3d90, 0 0px 20px #0f0;
-      letter-spacing: 1.2px;
+      letter-spacing: 1.1px;
       outline: none;
-      transition: transform .15s;
+      transition: background .15s, transform .11s;
       z-index: 3;
+      text-shadow: 0 2px 8px #006a3d30, 0 0px 10px #3f96f7;
+      position: relative;
     }
-    @keyframes titilar {
-      0% { box-shadow: 0 0 32px #0f0,0 2px 24px #00ff9090; }
-      50% { box-shadow: 0 0 12px #0f0,0 2px 14px #00ff9090; }
-      100% { box-shadow: 0 0 32px #0f0,0 2px 24px #00ff9090; }
+    .claim-btn:active { transform: scale(0.98);}
+    .wa-icon {
+      width: 27px;
+      height: 27px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 1px;
     }
-    @keyframes shine {
-      0% { filter: brightness(1); }
-      100% { filter: brightness(1.11); }
-    }
-    /* Barra de tiempo TECNOLÓGICA */
+    /* Barra de tiempo */
     .timeline-section {
-      width: 98vw;
-      max-width: 480px;
-      margin: 18px auto 14px auto;
+      width: 95vw;
+      max-width: 400px;
+      margin: 12px auto 14px auto;
       text-align: center;
       z-index: 2;
     }
     .timeline-label {
-      color: #dad5ff;
-      font-size: 1.08rem;
-      margin-bottom: 5px;
+      color: #c7bafd;
+      font-size: 1rem;
+      margin-bottom: 4px;
       letter-spacing: 0.5px;
-      text-shadow: 0 1px 5px #120242ab;
+      text-shadow: 0 1px 5px #1c007aad;
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: 700;
     }
     .timeline-bar-bg {
-      width: 99%;
-      background: linear-gradient(90deg,#3a0077a7,#8b24c7a1 95%);
-      border-radius: 11px;
-      height: 25px;
+      width: 100%;
+      background: linear-gradient(90deg,#190c35,#482f7b 95%);
+      border-radius: 13px;
+      height: 22px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 2px 16px #28024152;
-      border: 2.5px solid #b67cfc;
+      box-shadow: 0 2px 14px #24147e60;
+      border: 2px solid #bbabfd;
     }
     .timeline-bar {
       position: absolute;
       left: 0; top: 0; bottom: 0;
       height: 100%;
-      background: linear-gradient(90deg,#de9fff 0%,#a155ff 45%,#701fae 100%);
-      border-radius: 9px;
-      transition: width 0.14s linear;
-      box-shadow: 0 0 16px #c59cff99;
+      background: linear-gradient(90deg,#63ffb8 0%,#4f46ff 60%,#23214b 100%);
+      border-radius: 12px;
+      transition: width 0.13s linear;
+      box-shadow: 0 0 14px #6dfff477;
       z-index: 1;
       will-change: width;
     }
     .timeline-time {
       position: absolute;
-      left: 49%;
+      left: 50%;
       top: 0;
       transform: translateX(-50%);
       color: #fff6e9;
-      font-size: 1.1rem;
-      font-weight: 900;
-      text-shadow: 0 1px 7px #5e2e7f, 0 2px 6px #fff4;
+      font-size: 1.05rem;
+      font-weight: 800;
+      text-shadow: 0 1px 7px #283f5f, 0 2px 6px #fff4;
       z-index: 2;
       width: 100%;
       height: 100%;
-      line-height: 24px;
+      line-height: 22px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -194,23 +198,22 @@
     }
     .timeline-time.finalizado {
       color: #fff;
-      background: #80007dce;
+      background: #261058d4;
       font-weight: 900;
-      font-size: 1.18rem;
-      border-radius: 7px;
+      font-size: 1.14rem;
+      border-radius: 8px;
       letter-spacing: 2px;
-      transition: all .27s;
-      box-shadow: 0 0 12px #db35cf8a;
-      text-shadow: 0 2px 8px #c7b2ff, 0 2px 16px #510c47;
+      box-shadow: 0 0 13px #736af6ba;
+      text-shadow: 0 2px 8px #c7b2ff, 0 2px 14px #510c47;
     }
     .close-x {
       font-size: 1.2em;
       margin-left: 9px;
       color: #fff;
       background: #ff2254;
-      border-radius: 12px;
+      border-radius: 13px;
       font-weight: bold;
-      padding: 1px 8px 1px 8px;
+      padding: 1px 8px;
       display: inline-block;
       vertical-align: middle;
       margin-top: -2px;
@@ -218,92 +221,94 @@
       border: 1.2px solid #fff6;
       transition: background .2s;
     }
-    /* Notificaciones tipo WhatsApp */
+    /* Notificaciones WhatsApp moderno */
     .testimonials-container {
       position: fixed;
-      bottom: 2vh;
+      bottom: 2.2vh;
       right: 1vw;
       width: 330px;
-      max-width: 97vw;
+      max-width: 98vw;
       z-index: 999;
       pointer-events: none;
       font-size: 1rem;
     }
     @media (max-width: 600px) {
       .testimonials-container {
-        bottom: 1.6vh;
+        bottom: 1vh;
         right: 0.5vw;
         width: 98vw;
         max-width: 99vw;
       }
       .bienvenida {
-        font-size: 1.27rem;
+        font-size: 1.1rem;
       }
       .promo-extra {
-        font-size: 1.04rem;
+        font-size: 1rem;
       }
       .claim-btn {
-        font-size: 1.19rem;
-        padding: 14px 6vw;
+        font-size: 1rem;
+        padding: 12px 4vw;
       }
       .timeline-section {
-        max-width: 99vw;
+        max-width: 98vw;
       }
     }
     .testimonial-pop {
-      background: linear-gradient(98deg, #e9fff6 62%, #d7e3fc 100%);
-      border-radius: 17px 10px 22px 17px;
-      box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21;
-      margin-bottom: 14px;
-      padding: 13px 17px 12px 13px;
-      animation: fadeInRight 0.6s, popTesti 2s infinite alternate;
+      background: linear-gradient(95deg, #222f3e 60%, #3a4f7c 100%);
+      border-radius: 19px 12px 21px 15px;
+      box-shadow: 0 2px 24px #0e063ed8, 0 4px 10px #59f8b221;
+      margin-bottom: 13px;
+      padding: 12px 16px 10px 13px;
+      animation: fadeInRight 0.56s, popTesti 2s infinite alternate;
       border-left: 7px solid #25D366;
-      border-bottom: 2.5px solid #aafad7;
+      border-bottom: 2.3px solid #aafad7;
       position: relative;
-      font-size: 0.99em;
+      font-size: 1em;
       font-family: 'Montserrat', Arial, sans-serif;
       display: flex;
       align-items: center;
+      color: #fff;
     }
     @keyframes fadeInRight {
-      from { opacity: 0; transform: translateX(90px); }
+      from { opacity: 0; transform: translateX(70px); }
       to   { opacity: 1; transform: translateX(0); }
     }
     @keyframes popTesti {
       0% { box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21; }
-      50% { box-shadow: 0 7px 32px #25d36660,0 12px 18px #0f0c; }
+      50% { box-shadow: 0 7px 32px #25d36620,0 12px 18px #0f0c; }
       100% { box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21; }
     }
     .testimonial-pop .wa-ico {
-      width: 21px; height: 21px;
-      margin-right: 7px;
+      width: 22px; height: 22px;
+      margin-right: 8px;
       margin-left: 1px;
       vertical-align: middle;
       border-radius: 7px;
-      background: #25D366;
+      background: none;
       display: inline-block;
+      box-shadow: none;
+      border: none;
+      flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 9px #25d36644;
-      border: 2.2px solid #fff;
     }
     .testimonial-pop .t-name {
       font-weight: 700;
-      color: #208b34;
-      margin-right: 4px;
-      font-size: 1.09em;
+      color: #a8ffa7;
+      margin-right: 5px;
+      font-size: 1.02em;
     }
     .testimonial-pop .t-money {
-      color: #e4b70b;
+      color: #ffeb76;
       font-weight: bold;
-      margin-left: 3px;
+      margin-left: 2px;
     }
     .testimonial-pop .t-msg {
-      color: #0a5120;
-      margin-left: 4px;
-      font-size: 0.96em;
-      opacity: 0.7;
+      color: #d7f6e2;
+      margin-left: 7px;
+      font-size: 0.98em;
+      opacity: 0.72;
       font-style: italic;
     }
   </style>
@@ -320,7 +325,14 @@
   </div>
   <div class="main-content">
     <button id="claimBtn" class="claim-btn">
-      ¡RECLAMA TU BONO!
+      <span>¡RECLAMA TU BONO!</span>
+      <span class="wa-icon">
+        <!-- SVG LOGO WHATSAPP -->
+        <svg viewBox="0 0 32 32" width="27" height="27">
+          <circle cx="16" cy="16" r="16" fill="#25D366"/>
+          <path fill="#fff" d="M21.53 18.94c-.33-.17-1.95-.97-2.25-1.08-.3-.11-.51-.17-.73.17-.22.33-.84 1.08-1.04 1.3-.19.22-.38.25-.7.08-.33-.16-1.41-.52-2.69-1.67-1-.89-1.68-1.99-1.88-2.31-.19-.33-.02-.51.14-.67.14-.13.3-.34.45-.5.15-.17.19-.28.3-.47.11-.19.06-.36-.03-.51-.09-.14-.73-1.76-1-2.42-.26-.62-.53-.54-.73-.55-.19-.01-.41-.01-.62-.01-.22 0-.56.08-.85.38s-1.1 1.08-1.1 2.64 1.13 3.06 1.29 3.27c.16.22 2.22 3.38 5.37 4.47.75.26 1.34.41 1.79.53.75.19 1.43.16 1.97.1.6-.07 1.85-.76 2.12-1.5.26-.73.26-1.36.18-1.5-.07-.13-.3-.21-.63-.38z"/>
+        </svg>
+      </span>
     </button>
     <div class="timeline-section">
       <div class="timeline-label">Tiempo para reclamar el bono</div>
@@ -340,7 +352,11 @@
     function handleClaimClick(e) {
       if (e) e.preventDefault();
       const btn = document.getElementById('claimBtn');
-      btn.innerText = 'Redirigiendo a WhatsApp...';
+      btn.innerHTML = '<span>Redirigiendo a WhatsApp...</span><span class="wa-icon">'+
+      `<svg viewBox="0 0 32 32" width="27" height="27">
+        <circle cx="16" cy="16" r="16" fill="#25D366"/>
+        <path fill="#fff" d="M21.53 18.94c-.33-.17-1.95-.97-2.25-1.08-.3-.11-.51-.17-.73.17-.22.33-.84 1.08-1.04 1.3-.19.22-.38.25-.7.08-.33-.16-1.41-.52-2.69-1.67-1-.89-1.68-1.99-1.88-2.31-.19-.33-.02-.51.14-.67.14-.13.3-.34.45-.5.15-.17.19-.28.3-.47.11-.19.06-.36-.03-.51-.09-.14-.73-1.76-1-2.42-.26-.62-.53-.54-.73-.55-.19-.01-.41-.01-.62-.01-.22 0-.56.08-.85.38s-1.1 1.08-1.1 2.64 1.13 3.06 1.29 3.27c.16.22 2.22 3.38 5.37 4.47.75.26 1.34.41 1.79.53.75.19 1.43.16 1.97.1.6-.07 1.85-.76 2.12-1.5.26-.73.26-1.36.18-1.5-.07-.13-.3-.21-.63-.38z"/>
+      </svg></span>';
       btn.disabled = true;
       setTimeout(function(){
         window.location.href = whatsappLink;
@@ -372,7 +388,7 @@
     }
     setTimeout(updateTimeline, 1000);
 
-    // Testimonios automáticos simulando WhatsApp
+    // Testimonios automáticos con logo WhatsApp SVG
     const testimonios = [
       {name: "Sofía G.", amount: "$137.200", city: "Córdoba", msg:"¡Nunca gané tanto! Mil gracias 🔥"},
       {name: "Emiliano R.", amount: "$72.900", city: "Rosario", msg:"Retiro en minutos. ¡Recomendado! 👏"},
@@ -394,7 +410,10 @@
       testiDiv.id = id;
       testiDiv.innerHTML = `
         <span class="wa-ico">
-          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 32 32"><path fill="#fff" d="M24.3 20.4c-.4-.2-2.3-1.1-2.7-1.2-.4-.2-.8-.2-1.1.2-.3.4-1.3 1.2-1.5 1.3-.3.2-.6.1-.8 0-.4-.2-1.5-.5-2.9-1.5-1.1-.8-1.9-1.8-2.2-2.2-.2-.4 0-.6.2-.9.2-.2.4-.5.6-.7.2-.3.1-.5 0-.8-.1-.2-1-2.2-1.4-3-.4-.7-.8-.6-1.1-.6H8.7c-.3 0-.7.1-1 .5-.3.4-1.3 1.3-1.3 3.1 0 1.9 1.4 3.5 2.7 4.4 1.5 1 3.2 2.1 4.9 2.1.8 0 1.6-.1 2.3-.3.7-.2 2.4-1 3.1-1.5.4-.3.8-.7 1.3-1.1.5-.3.6-.5.8-.8.2-.3.3-.7.2-1.1z"/><circle cx="16" cy="16" r="15" fill="none" stroke="#25D366" stroke-width="2"/></svg>
+          <svg viewBox="0 0 32 32" width="22" height="22">
+            <circle cx="16" cy="16" r="16" fill="#25D366"/>
+            <path fill="#fff" d="M21.53 18.94c-.33-.17-1.95-.97-2.25-1.08-.3-.11-.51-.17-.73.17-.22.33-.84 1.08-1.04 1.3-.19.22-.38.25-.7.08-.33-.16-1.41-.52-2.69-1.67-1-.89-1.68-1.99-1.88-2.31-.19-.33-.02-.51.14-.67.14-.13.3-.34.45-.5.15-.17.19-.28.3-.47.11-.19.06-.36-.03-.51-.09-.14-.73-1.76-1-2.42-.26-.62-.53-.54-.73-.55-.19-.01-.41-.01-.62-.01-.22 0-.56.08-.85.38s-1.1 1.08-1.1 2.64 1.13 3.06 1.29 3.27c.16.22 2.22 3.38 5.37 4.47.75.26 1.34.41 1.79.53.75.19 1.43.16 1.97.1.6-.07 1.85-.76 2.12-1.5.26-.73.26-1.36.18-1.5-.07-.13-.3-.21-.63-.38z"/>
+          </svg>
         </span>
         <span class="t-name">${t.name}</span>
         ganó <span class="t-money">${t.amount}</span> desde <b>${t.city}</b>
@@ -402,16 +421,16 @@
       `;
       document.getElementById('testimonials').appendChild(testiDiv);
       setTimeout(() => {
-        testiDiv.style.opacity = '0.2';
-        testiDiv.style.transform = 'translateX(25px) scale(0.91)';
+        testiDiv.style.opacity = '0.19';
+        testiDiv.style.transform = 'translateX(20px) scale(0.91)';
         setTimeout(()=> {
           if(testiDiv.parentNode) testiDiv.parentNode.removeChild(testiDiv);
         }, 900);
-      }, 4300);
+      }, 4200);
       testIndex++;
-      setTimeout(showTestimonial, Math.random()*1500 + 2300);
+      setTimeout(showTestimonial, Math.random()*1500 + 2200);
     }
-    setTimeout(showTestimonial, 1200);
+    setTimeout(showTestimonial, 1100);
   </script>
 </body>
 </html>
