@@ -2,10 +2,11 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>¡Reclama tu Bono! | Joker Jewels Casino</title>
+  <title>¡Reclama tu Bono! | Ganamos.net</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- No ponemos CSP estricta para máxima compatibilidad en GitHub Pages -->
-  <!-- Pixel Meta -->
+  <!-- Google Fonts casino -->
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -26,56 +27,114 @@
     body {
       margin: 0;
       min-height: 100vh;
-      background: radial-gradient(circle at 60% 40%, #9D50BB 0%, #6E48AA 100%);
+      width: 100vw;
+      overflow-x: hidden;
       font-family: 'Montserrat', Arial, sans-serif;
+      position: relative;
+      background: radial-gradient(circle at 60% 40%, #a945c7 0%, #4f0ba7 100%);
+      /* Fichas SVG de fondo */
+    }
+    /* Fichas de casino caricatura como fondo SVG */
+    body:before {
+      content: "";
+      position: fixed;
+      z-index: 0;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.23;
+      background: url('data:image/svg+xml;utf8,<svg width="900" height="800" viewBox="0 0 900 800" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="200" cy="200" r="52" fill="%23fff5e0" stroke="%23db5f19" stroke-width="12"/><circle cx="160" cy="650" r="42" fill="%23fffd99" stroke="%23f43ae6" stroke-width="8"/><circle cx="700" cy="170" r="44" fill="%2395ffdf" stroke="%23ffd803" stroke-width="10"/><circle cx="850" cy="760" r="37" fill="%23f6d1ff" stroke="%233943ff" stroke-width="10"/><ellipse cx="500" cy="700" rx="46" ry="36" fill="%23ffadc2" stroke="%23fff24a" stroke-width="10"/><circle cx="780" cy="480" r="39" fill="%23a5fff7" stroke="%23f44a4a" stroke-width="9"/><ellipse cx="420" cy="110" rx="42" ry="34" fill="%23fffff5" stroke="%239f20ff" stroke-width="8"/><ellipse cx="720" cy="360" rx="40" ry="32" fill="%23fff2cb" stroke="%23f4941a" stroke-width="8"/></svg>');
+      background-size: 800px 800px, auto;
+      background-repeat: no-repeat;
+      background-position: left 10vw top 9vh, right 15vw bottom 8vh;
+    }
+    .container-main {
+      position: relative;
+      z-index: 2;
+      width: 100vw;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      position: relative;
-      overflow-x: hidden;
+      padding-top: 18px;
     }
     .joker-header {
-      margin-top: 38px;
-      margin-bottom: 10px;
+      margin-top: 26px;
+      margin-bottom: 5px;
       text-align: center;
+      z-index: 3;
     }
     .joker-header img {
-      max-width: 340px;
-      width: 84vw;
+      max-width: 360px;
+      width: 80vw;
       height: auto;
       filter:
-        drop-shadow(0 0 28px #18f0ff)
-        drop-shadow(0 0 72px #1c7fff99)
-        drop-shadow(0 6px 12px #042e44c0)
+        drop-shadow(0 0 36px #2ac2ff)
+        drop-shadow(0 0 86px #0670c9aa)
+        drop-shadow(0 12px 30px #084a77d0)
       ;
       border-radius: 1em;
       background: transparent;
     }
-    .main-content {
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 100vw;
+    .welcome-title {
+      font-family: 'Luckiest Guy', Arial, cursive;
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-top: 15px;
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .welcome-gold {
+      background: linear-gradient(90deg,#ffe278 25%,#ffcc00 52%,#e39e35 76%,#fff7b2 99%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      font-family: 'Luckiest Guy', Arial, cursive;
+      font-weight: bold;
+      letter-spacing: 2.5px;
+      filter: drop-shadow(0 0 18px #9d7902aa);
+      animation: goldshine 2.2s infinite linear;
+    }
+    @keyframes goldshine {
+      0% { text-shadow: 0 1px 12px #eac30266, 0 0px 1px #fff; }
+      50% { text-shadow: 0 2px 16px #ffe15b66, 0 0px 4px #fff; }
+      100% { text-shadow: 0 1px 12px #eac30266, 0 0px 1px #fff; }
+    }
+    .welcome-white {
+      color: #fff;
+      background: linear-gradient(90deg,#fff 70%,#ffe278 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-fill-color: transparent;
+      font-family: 'Luckiest Guy', Arial, cursive;
+      font-size: 3rem;
+      letter-spacing: 3px;
+      filter: drop-shadow(0 0 12px #f2e38a80);
+      font-weight: bold;
+      display: block;
+      margin-top: 0px;
+      margin-bottom: 0px;
     }
     .claim-btn {
-      margin: 38px auto 10px auto;
+      margin: 34px auto 10px auto;
       padding: 28px 60px;
       background: linear-gradient(90deg,#00ff90,#00e049 70%);
       color: #fff;
-      font-size: 2.2rem;
+      font-size: 2.3rem;
+      font-family: 'Luckiest Guy', Arial, cursive;
       font-weight: 800;
       border: none;
       border-radius: 2em;
-      box-shadow: 0 2px 24px #00ff9090;
+      box-shadow: 0 2px 24px #00ff9090,0 0 50px #0f05;
       cursor: pointer;
       animation: shine 0.6s alternate infinite, titilar 0.8s infinite;
-      text-shadow: 0 2px 8px #006a3d90, 0 0px 20px #0f0;
+      text-shadow: 0 2px 10px #006a3d80, 0 0px 22px #0f0;
       transition: transform .15s;
       z-index: 3;
-      letter-spacing: 1.2px;
+      letter-spacing: 1.3px;
       outline: none;
     }
     @keyframes titilar {
@@ -88,114 +147,240 @@
       100% { filter: brightness(1.14); }
     }
     .timeline-section {
-      width: 96vw;
-      max-width: 480px;
-      margin: 26px auto 18px auto;
+      width: 98vw;
+      max-width: 530px;
+      margin: 28px auto 18px auto;
       text-align: center;
       z-index: 2;
     }
     .timeline-label {
-      color: #eee;
-      font-size: 1.09rem;
-      margin-bottom: 5px;
-      letter-spacing: 0.5px;
-      text-shadow: 0 1px 5px #0007;
+      font-family: 'Luckiest Guy', Arial, cursive;
+      color: #fffde7;
+      font-size: 1.27rem;
+      margin-bottom: 8px;
+      letter-spacing: 0.6px;
+      font-weight: bold;
+      text-shadow: 0 2px 14px #000, 0 2px 20px #eec11b8c;
     }
     .timeline-bar-bg {
       width: 100%;
-      background: rgba(120,120,120,0.20);
-      border-radius: 11px;
-      height: 22px;
+      background: rgba(120,120,120,0.09);
+      border-radius: 17px;
+      height: 38px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 2px 10px #1114;
+      box-shadow: 0 2px 30px #ffdf779c, 0 0 30px #fff9;
+      border: 3px solid #eec11b;
+      display: flex;
+      align-items: center;
     }
+    /* Barra interior con efecto de quema/fuego y luces */
     .timeline-bar {
       position: absolute;
       left: 0; top: 0; bottom: 0;
       height: 100%;
-      background: linear-gradient(90deg,#eee,#bbb 80%);
-      opacity: 0.95;
-      border-radius: 11px;
-      transition: width 0.15s linear;
+      background: linear-gradient(90deg, #ffe258 5%, #ffb300 28%, #ff2a2a 80%, #fff0 100%);
+      border-radius: 17px;
+      box-shadow: 0 0 30px #ffcf40ad, 0 0 22px #ffd700;
+      animation: burnprogress 30s linear forwards;
+      z-index: 2;
+      overflow: hidden;
+    }
+    @keyframes burnprogress {
+      from { width: 100%; }
+      to { width: 0%; }
+    }
+    /* Luces tragamonedas animadas arriba de la barra */
+    .timeline-lights {
+      pointer-events: none;
+      position: absolute;
+      left: 0; top: 0; width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      z-index: 5;
+      justify-content: space-between;
+      padding: 0 10px;
+    }
+    .light-dot {
+      width: 16px;
+      height: 16px;
+      background: radial-gradient(circle,#ffe36c 55%,#fabe07 87%,#ffcc00 100%, transparent 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 18px #fffb8e, 0 0 12px #ffe17a99;
+      margin: 0 4px;
+      animation: flashlight 1s infinite alternate;
+    }
+    .light-dot:nth-child(even) { animation-delay: .5s; }
+    @keyframes flashlight {
+      0% { opacity: 1; filter: brightness(1.1);}
+      100% { opacity: 0.42; filter: brightness(0.9);}
+    }
+    .timeline-fire {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 100%;
+      z-index: 6;
+      pointer-events: none;
+    }
+    /* Rayos */
+    .timeline-bolt {
+      position: absolute;
+      right: 10px;
+      top: -9px;
+      width: 38px;
+      height: 38px;
+      z-index: 7;
+      pointer-events: none;
+      animation: boltflash 0.6s infinite alternate;
+    }
+    @keyframes boltflash {
+      0% { filter: brightness(1); opacity:1;}
+      100% { filter: brightness(1.4); opacity:0.63;}
     }
     .timeline-time {
       position: absolute;
-      right: 12px;
-      top: 2px;
-      color: #7a6;
-      font-size: 1rem;
+      right: 23px;
+      top: 8px;
+      color: #fffbe6;
+      font-size: 1.32rem;
+      font-family: 'Luckiest Guy', Arial, cursive;
       font-weight: bold;
-      text-shadow: 0 1px 4px #fff9;
+      text-shadow: 0 1px 10px #b28301,0 0 7px #fff;
+      z-index: 9;
     }
     .testimonials-container {
       position: fixed;
-      top: 22vh;
-      right: 12px;
+      bottom: 32px;
+      left: 24px;
       width: 330px;
-      max-width: 87vw;
-      z-index: 999;
+      max-width: 96vw;
+      z-index: 200;
       pointer-events: none;
       font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
     @media (max-width: 600px) {
       .testimonials-container {
-        top: auto;
-        bottom: 3vh;
-        right: 2vw;
+        bottom: 1.5vh;
+        left: 3vw;
         width: 96vw;
         max-width: 96vw;
       }
     }
     .testimonial-pop {
-      background: linear-gradient(98deg, #fff 60%, #eceeff 100%);
-      border-radius: 18px 8px 22px 18px;
-      box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21;
-      margin-bottom: 14px;
-      padding: 13px 17px 12px 15px;
-      animation: fadeInRight 0.5s, popTesti 2s infinite alternate;
-      border-left: 6px solid #35d841;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(98deg, #fffbea 68%, #ffe295 100%);
+      border-radius: 18px 22px 18px 14px;
+      box-shadow: 0 2px 22px #0001, 0 4px 10px #fff8a721,0 0 40px #ffd90066;
+      margin-bottom: 12px;
+      padding: 13px 22px 13px 15px;
+      border-left: 7px solid #ffd700;
+      border-right: 3px solid #fff4b5;
+      border-bottom: 3px solid #ffdb6a60;
       position: relative;
+      min-width: 180px;
+      min-height: 62px;
+      animation: fadeInLeft 0.5s, popTesti 2s infinite alternate;
     }
-    @keyframes fadeInRight {
-      from { opacity: 0; transform: translateX(120px); }
-      to   { opacity: 1; transform: translateX(0); }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-90px);}
+      to   { opacity: 1; transform: translateX(0);}
     }
     @keyframes popTesti {
-      0% { box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21; }
-      50% { box-shadow: 0 6px 32px #0004,0 12px 18px #0f0c; }
-      100% { box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21; }
+      0% { box-shadow: 0 2px 22px #0002,0 4px 10px #fff8a721; }
+      50% { box-shadow: 0 6px 32px #f4e66caa,0 12px 18px #fff8a79a; }
+      100% { box-shadow: 0 2px 22px #0002,0 4px 10px #fff8a721; }
     }
     .testimonial-pop .t-emoji {
-      font-size: 1.4em;
-      margin-right: 4px;
-      vertical-align: bottom;
+      font-size: 2.3em;
+      margin-right: 9px;
+      vertical-align: middle;
+      filter: drop-shadow(0 1px 7px #ffeb3b99);
     }
     .testimonial-pop .t-name {
       font-weight: bold;
-      color: #2c7a34;
+      color: #c5941e;
       margin-right: 4px;
-      font-size: 1.09em;
+      font-size: 1.14em;
+      font-family: 'Luckiest Guy', Arial, cursive;
+      letter-spacing: 1.1px;
+      text-shadow: 0 1px 6px #ffe7a0;
     }
     .testimonial-pop .t-money {
-      color: #e4b70b;
+      color: #ffd900;
       font-weight: bold;
       margin-left: 3px;
+      font-size: 1.08em;
+      text-shadow: 0 0 9px #fff3a2;
+    }
+    .testimonial-pop .t-city {
+      color: #985e10;
+      font-size: 1em;
+      margin-left: 3px;
+    }
+    .testimonial-pop .t-gold {
+      color: #fffbe6;
+      font-weight: bold;
+      font-size: 1em;
+      background: linear-gradient(90deg,#ffe278 15%,#ffcc00 58%,#e39e35 86%,#fff7b2 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-fill-color: transparent;
+      filter: drop-shadow(0 0 7px #ffe278);
     }
   </style>
 </head>
 <body>
-  <div class="joker-header">
-    <img src="jokers-jewels.png" alt="Joker's Jewels" draggable="false">
-  </div>
-  <div class="main-content">
+  <div class="container-main">
+    <div class="joker-header">
+      <img src="jokers.png" alt="Joker's Jewels" draggable="false">
+    </div>
+    <div class="welcome-title">
+      <span class="welcome-gold">¡BIENVENIDOS A</span>
+      <span class="welcome-white">GANAMOS.NET!</span>
+    </div>
     <button id="claimBtn" class="claim-btn">
       ¡RECLAMA TU BONO!
     </button>
     <div class="timeline-section">
       <div class="timeline-label">Tiempo para reclamar el bono</div>
       <div class="timeline-bar-bg">
-        <div id="timelineBar" class="timeline-bar" style="width:100%"></div>
+        <div id="timelineBar" class="timeline-bar"></div>
+        <!-- Luces tragamonedas arriba -->
+        <div class="timeline-lights">
+          <div class="light-dot"></div>
+          <div class="light-dot"></div>
+          <div class="light-dot"></div>
+          <div class="light-dot"></div>
+          <div class="light-dot"></div>
+          <div class="light-dot"></div>
+          <div class="light-dot"></div>
+        </div>
+        <!-- Efecto de "fuego" con SVG animado -->
+        <svg class="timeline-fire" height="38" width="100%" viewBox="0 0 500 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="fireg" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#fffdb7"/>
+              <stop offset="40%" stop-color="#ffb700"/>
+              <stop offset="90%" stop-color="#e83b3b"/>
+            </linearGradient>
+          </defs>
+          <path id="flame1" d="M0 38 Q 20 8 40 38 T 80 38 T 120 38 T 160 38 T 200 38 T 240 38 T 280 38 T 320 38 T 360 38 T 400 38 T 440 38 T 480 38 T 500 38" fill="url(#fireg)" fill-opacity="0.38">
+            <animate attributeName="d" values="
+              M0 38 Q 20 8 40 38 T 80 38 T 120 38 T 160 38 T 200 38 T 240 38 T 280 38 T 320 38 T 360 38 T 400 38 T 440 38 T 480 38 T 500 38;
+              M0 38 Q 30 14 50 38 T 90 38 T 130 38 T 170 30 T 210 38 T 250 20 T 290 38 T 330 14 T 370 38 T 410 24 T 450 38 T 480 8 T 500 38;
+              M0 38 Q 20 8 40 38 T 80 38 T 120 38 T 160 38 T 200 38 T 240 38 T 280 38 T 320 38 T 360 38 T 400 38 T 440 38 T 480 38 T 500 38
+              " dur="1.8s" repeatCount="indefinite" />
+          </path>
+        </svg>
+        <!-- Rayos animados -->
+        <svg class="timeline-bolt" viewBox="0 0 24 24">
+          <polygon points="13,2 2,14 12,14 11,22 22,10 12,10" fill="#fffde4" stroke="#ffe278" stroke-width="2"/>
+        </svg>
         <span id="timelineTime" class="timeline-time">30s</span>
       </div>
     </div>
@@ -215,53 +400,26 @@
       setTimeout(function(){
         window.location.href = whatsappLink;
       }, 2500);
-
-      // Pixel Meta
       if (typeof fbq === 'function') {
         fbq('trackCustom', 'ClickWhatsAap');
       }
-      // Conversion API (se puede comentar si tu CSP lo bloquea en GitHub Pages)
-      /*
-      try {
-        const eventData = {
-          event_name: 'ClickWhatsAap',
-          event_source_url: window.location.href,
-          user_data: {
-            client_user_agent: navigator.userAgent
-          }
-        };
-        const blob = new Blob([JSON.stringify(eventData)], {type: 'application/json'});
-        if (navigator.sendBeacon) {
-          navigator.sendBeacon('https://conversion-api-pipe.vercel.app/api/conversion', blob);
-        } else {
-          fetch('https://conversion-api-pipe.vercel.app/api/conversion', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(eventData)
-          });
-        }
-      } catch (err) {}
-      */
     }
 
     document.getElementById('claimBtn').addEventListener('click', handleClaimClick, {passive:false});
     document.getElementById('claimBtn').addEventListener('touchstart', handleClaimClick, {passive:true});
 
-    // Línea de tiempo 30s, barra gris
+    // Línea de tiempo: barra, animación y cuenta atrás
     let timeLeft = 30;
     const timelineBar = document.getElementById('timelineBar');
     const timelineTime = document.getElementById('timelineTime');
     function updateTimeline() {
       timeLeft -= 1;
-      const pct = Math.max(0, (timeLeft / 30) * 100);
-      timelineBar.style.width = pct + "%";
       timelineTime.textContent = (timeLeft > 0 ? timeLeft + "s" : "¡Finalizó!");
       if(timeLeft > 0) setTimeout(updateTimeline, 1000);
-      else timelineBar.style.width = "0%";
     }
     setTimeout(updateTimeline, 1000);
 
-    // Testimonios automáticos
+    // Testimonios animados (notificaciones doradas)
     const testimonios = [
       {name: "Sofía G.", amount: "$137.200", city: "Córdoba"},
       {name: "Emiliano R.", amount: "$72.900", city: "Rosario"},
@@ -278,26 +436,30 @@
     function showTestimonial() {
       const t = testimonios[testIndex % testimonios.length];
       const id = "tpop-"+Date.now();
+      const fichas = ['🎰','🟣','🟡','🃏','💰'];
+      const ficha = fichas[Math.floor(Math.random()*fichas.length)];
       const testiDiv = document.createElement('div');
       testiDiv.className = "testimonial-pop";
       testiDiv.id = id;
       testiDiv.innerHTML = `
-        <span class="t-emoji">🎉</span>
+        <span class="t-emoji">${ficha}</span>
         <span class="t-name">${t.name}</span>
-        ganó <span class="t-money">${t.amount}</span> desde <b>${t.city}</b> y <span style="color:#1a9b0a">retiró su premio</span>
+        ganó <span class="t-money">${t.amount}</span>
+        <span class="t-city">(${t.city})</span>
+        <span class="t-gold">¡Retiró su premio!</span>
       `;
       document.getElementById('testimonials').appendChild(testiDiv);
       setTimeout(() => {
-        testiDiv.style.opacity = '0.2';
-        testiDiv.style.transform = 'translateX(24px) scale(0.93)';
+        testiDiv.style.opacity = '0.18';
+        testiDiv.style.transform = 'translateX(-26px) scale(0.97)';
         setTimeout(()=> {
           if(testiDiv.parentNode) testiDiv.parentNode.removeChild(testiDiv);
-        }, 1100);
-      }, 4200);
+        }, 1400);
+      }, 5200);
       testIndex++;
-      setTimeout(showTestimonial, Math.random()*1600 + 2000);
+      setTimeout(showTestimonial, Math.random()*2200 + 2300);
     }
-    setTimeout(showTestimonial, 1200);
+    setTimeout(showTestimonial, 1600);
   </script>
 </body>
 </html>
