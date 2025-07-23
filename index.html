@@ -215,7 +215,7 @@
       return v ? v[2] : undefined;
     }
 
-    // Obtener IP pública del usuario (NO obligatorio, pero suma matching)
+    // Obtener IP pública del usuario
     let userIP = '';
     fetch('https://ipinfo.io/json?token=56faed3c17c1d1')
       .then(resp => resp.json())
@@ -230,27 +230,36 @@
         fbq('trackCustom', 'ClickWhatsAap');
       }
 
-      // API Conversion (tu backend en Vercel)
-      fetch('https://conversion-api-pipe.vercel.app/api/conversion', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-          event_name: 'ClickWhatsAap',
-          event_source_url: window.location.href,
-          user_data: {
-            client_user_agent: navigator.userAgent,
-            fbp: getCookie('_fbp'),
-            fbc: getCookie('_fbc'),
-            client_ip_address: userIP || undefined // Se envía si se pudo obtener
-          }
-        })
-      });
+      // EVENTO PARA API CONVERSION
+      const eventData = {
+        event_name: 'ClickWhatsAap',
+        event_source_url: window.location.href,
+        user_data: {
+          client_user_agent: navigator.userAgent,
+          fbp: getCookie('_fbp'),
+          fbc: getCookie('_fbc'),
+          client_ip_address: userIP || undefined
+        }
+      };
+      const blob = new Blob([JSON.stringify(eventData)], {type: 'application/json'});
+
+      // ENVÍA CON sendBeacon, fallback a fetch
+      let sent = false;
+      if (navigator.sendBeacon) {
+        sent = navigator.sendBeacon('https://conversion-api-pipe.vercel.app/api/conversion', blob);
+      }
+      if (!sent) {
+        fetch('https://conversion-api-pipe.vercel.app/api/conversion', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(eventData)
+        });
+      }
 
       const btn = document.getElementById('claimBtn');
       btn.innerText = 'Redirigiendo a WhatsApp...';
       btn.disabled = true;
 
-      // >>> Delay de 2.5s antes de redirigir
       setTimeout(function(){
         window.location.href = whatsappLink;
       }, 2500);
