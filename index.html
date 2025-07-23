@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>¡Reclama tu Bono! | Joker Jewels Casino</title>
+  <title>¡FELICIDADES! Has sido seleccionado | BONO EXCLUSIVO</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Pixel Meta y scripts originales -->
+  <!-- Pixel Meta y otros scripts -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -21,13 +21,14 @@
     <img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=587660557560617&ev=PageView&noscript=1"/>
   </noscript>
+  <!-- FUENTE COMPETENCIA -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900;700;500;400&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Fondo igual al modelo */
     body {
       margin: 0;
       min-height: 100vh;
-      background: linear-gradient(120deg, #2d1862 0%, #33227c 100%);
-      font-family: 'Segoe UI', 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(144deg, #ffd600 0%, #ff5100 100%);
+      font-family: 'Montserrat', Arial, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -35,200 +36,220 @@
       position: relative;
       overflow-x: hidden;
     }
-    /* Contenedor central blanco */
-    .center-card {
-      background: #fff;
-      border-radius: 28px;
-      box-shadow: 0 8px 32px #14062c29, 0 1.5px 8px #271a4777;
-      margin: 34px auto 0 auto;
-      width: 99vw;
-      max-width: 370px;
-      padding: 28px 17px 26px 17px;
+    .header-container {
+      margin-top: 32px;
+      text-align: center;
+      width: 100%;
+    }
+    .header-container img {
+      max-width: 330px;
+      width: 86vw;
+      border-radius: 30px;
+      box-shadow: 0 12px 40px #ffaa0055;
+    }
+    .main-content {
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      position: relative;
-      z-index: 1;
-      min-height: 66vh;
-    }
-    /* Logo arriba */
-    .joker-header {
-      margin: 0 0 18px 0;
-      width: 100%;
-      display: flex;
-      align-items: center;
       justify-content: center;
+      width: 100vw;
+      margin-top: 18px;
     }
-    .joker-header img {
-      max-width: 170px;
-      width: 70vw;
-      height: auto;
-      object-fit: contain;
-      border-radius: 10px;
-      box-shadow: none;
-      background: none;
-      margin: 0 auto 0 auto;
-      display: block;
+    .main-title {
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: #201600;
+      font-size: 2.1rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+      margin-top: 12px;
+      text-align: center;
+      text-shadow: 0 1px 6px #fff7, 0 3px 32px #ffbe0085;
     }
-    /* Botón visual igual al modelo */
-    .claim-btn {
-      width: 100%;
-      max-width: 350px;
-      margin: 30px auto 20px auto;
-      padding: 20px 0;
-      background: linear-gradient(90deg, #6137e9 10%, #207fff 90%);
+    .main-subtitle {
+      font-size: 1.27rem;
+      font-family: 'Roboto', Arial, sans-serif;
       color: #fff;
-      font-size: 1.25rem;
-      font-weight: 800;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      border: none;
-      border-radius: 14px;
-      box-shadow: 0 3px 22px #4c13f74a;
-      cursor: pointer;
-      letter-spacing: 0.7px;
-      transition: background 0.18s, transform 0.09s;
-      outline: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
+      background: #ff8800;
+      padding: 12px 22px;
+      border-radius: 18px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px #ffa60040;
+      font-weight: 700;
+      text-shadow: 0 2px 8px #c7600099;
+      display: inline-block;
+      line-height: 1.25;
+      max-width: 98vw;
     }
-    .claim-btn:active { transform: scale(0.97);}
-    /* Barra de tiempo moderna */
+    .claim-btn {
+      margin: 22px auto 14px auto;
+      padding: 18px 50px;
+      background: linear-gradient(90deg,#ff8800 0%, #ffd600 100%);
+      color: #231900;
+      font-size: 2.1rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      border: none;
+      border-radius: 2em;
+      box-shadow: 0 8px 38px #ffbe0040, 0 1px 4px #ffd60055;
+      cursor: pointer;
+      animation: shine 0.7s alternate infinite, titilar 1.3s infinite;
+      text-shadow: 0 1px 7px #fff, 0 0px 18px #ffc100b0;
+      letter-spacing: 1.6px;
+      outline: none;
+      transition: transform .14s;
+      z-index: 3;
+    }
+    @keyframes titilar {
+      0% { box-shadow: 0 8px 38px #ffbe0040, 0 1px 4px #ffd60055; }
+      50% { box-shadow: 0 2px 16px #ffab00b0, 0 1px 4px #ffd60055; }
+      100% { box-shadow: 0 8px 38px #ffbe0040, 0 1px 4px #ffd60055; }
+    }
+    @keyframes shine {
+      0% { filter: brightness(1); }
+      100% { filter: brightness(1.15); }
+    }
     .timeline-section {
-      width: 100%;
-      max-width: 350px;
-      margin: 24px auto 0 auto;
+      width: 95vw;
+      max-width: 450px;
+      margin: 20px auto 24px auto;
       text-align: center;
       z-index: 2;
     }
     .timeline-label {
-      color: #523fcf;
-      font-size: 1rem;
-      margin-bottom: 6px;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-      text-shadow: 0 1px 3px #bcbafc36;
-      font-family: inherit;
+      color: #ae7400;
+      font-size: 1.09rem;
+      margin-bottom: 7px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.7px;
+      text-shadow: 0 2px 8px #fff6, 0 0px 8px #e6b60099;
     }
     .timeline-bar-bg {
       width: 100%;
-      background: #ece8fd;
-      border-radius: 9px;
+      background: rgba(255,255,255,0.45);
+      border-radius: 13px;
       height: 22px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 2px 10px #c0b6f627;
-      border: 1.8px solid #6f6bcb33;
+      box-shadow: 0 3px 13px #ffae0050;
     }
     .timeline-bar {
       position: absolute;
       left: 0; top: 0; bottom: 0;
       height: 100%;
-      background: linear-gradient(90deg,#7857ff 0%,#42b0ff 100%);
-      border-radius: 7px;
-      transition: width 0.16s linear;
-      z-index: 1;
+      background: linear-gradient(90deg,#ffbe00 0%, #ffd600 100%);
+      opacity: 0.97;
+      border-radius: 13px;
+      transition: width 0.2s linear;
     }
     .timeline-time {
       position: absolute;
-      right: 14px;
-      top: 3px;
-      color: #322e6a;
-      font-size: 1rem;
+      right: 13px;
+      top: 1px;
+      color: #ae7400;
+      font-size: 1.08rem;
       font-weight: bold;
-      text-shadow: 0 1px 6px #fff7;
+      text-shadow: 0 1px 4px #fff9;
     }
-    /* Testimonios modernos */
     .testimonials-container {
-      width: 100%;
-      max-width: 370px;
-      margin: 0 auto;
-      padding-top: 18px;
-      z-index: 10;
+      position: fixed;
+      top: 17vh;
+      right: 12px;
+      width: 335px;
+      max-width: 90vw;
+      z-index: 999;
       pointer-events: none;
       font-size: 1rem;
-      position: relative;
     }
     @media (max-width: 600px) {
-      .center-card { max-width: 99vw; padding: 18px 4vw 20px 4vw;}
-      .testimonials-container { max-width: 99vw;}
-      .timeline-section, .claim-btn { max-width: 99vw;}
+      .testimonials-container {
+        top: auto;
+        bottom: 3vh;
+        right: 1vw;
+        width: 97vw;
+        max-width: 97vw;
+      }
+      .main-title { font-size: 1.3rem; }
+      .main-subtitle { font-size: 1.03rem; }
     }
     .testimonial-pop {
-      background: #f8f8ff;
-      border-radius: 16px 10px 17px 16px;
-      box-shadow: 0 2px 13px #746eb629, 0 3px 9px #88caf730;
-      margin-bottom: 12px;
-      padding: 11px 14px 10px 14px;
-      animation: fadeInRight 0.5s, popTesti 2s infinite alternate;
-      border-left: 4px solid #6a40e9;
+      background: linear-gradient(95deg, #fff 74%, #fff9d8 100%);
+      border-radius: 19px 10px 24px 19px;
+      box-shadow: 0 3px 16px #fdae0020, 0 2px 10px #ffd60019;
+      margin-bottom: 15px;
+      padding: 13px 17px 12px 15px;
+      animation: fadeInRight 0.47s, popTesti 2.2s infinite alternate;
+      border-left: 6px solid #ffd600;
       position: relative;
-      font-size: 0.99em;
-      color: #34236c;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      display: flex;
-      align-items: center;
-      gap: 5px;
     }
     @keyframes fadeInRight {
-      from { opacity: 0; transform: translateX(80px); }
+      from { opacity: 0; transform: translateX(120px); }
       to   { opacity: 1; transform: translateX(0); }
     }
     @keyframes popTesti {
-      0% { box-shadow: 0 2px 12px #6f61ff1c; }
-      50% { box-shadow: 0 7px 22px #7255ff24; }
-      100% { box-shadow: 0 2px 12px #6f61ff1c; }
+      0% { box-shadow: 0 3px 16px #fdae0020, 0 2px 10px #ffd60019; }
+      50% { box-shadow: 0 7px 30px #ffe08250, 0 8px 22px #ffd60099; }
+      100% { box-shadow: 0 3px 16px #fdae0020, 0 2px 10px #ffd60019; }
     }
     .testimonial-pop .t-emoji {
-      font-size: 1.2em;
-      margin-right: 4px;
+      font-size: 1.37em;
+      margin-right: 5px;
       vertical-align: bottom;
     }
     .testimonial-pop .t-name {
-      font-weight: 700;
-      color: #4226be;
-      margin-right: 4px;
-      font-size: 1.05em;
+      font-weight: bold;
+      color: #ae7400;
+      margin-right: 5px;
+      font-size: 1.1em;
+      letter-spacing: 0.6px;
     }
     .testimonial-pop .t-money {
-      color: #f2b600;
+      color: #ff8800;
       font-weight: bold;
       margin-left: 3px;
     }
-    /* Ajuste para fondo mobile y box-shadow extra */
-    @media (max-width: 430px) {
-      .center-card {
-        box-shadow: 0 2px 13px #170e3d5a;
-        padding: 9vw 2vw 5vw 2vw;
-      }
+    /* El logo central “clonado” */
+    .header-img-shadow {
+      display: block;
+      margin: 0 auto 6px auto;
+      border-radius: 35px;
+      box-shadow: 0 12px 45px #ff980099, 0 1px 18px #ffd60033;
+      background: transparent;
     }
   </style>
 </head>
 <body>
-  <div class="center-card">
-    <div class="joker-header">
-      <img src="jokers-jewels.png" alt="Joker's Jewels" draggable="false">
+  <div class="header-container">
+    <img src="https://scalbook.com/assets/images/preview/joker-jewels.webp" class="header-img-shadow" alt="Joker Jewels" draggable="false">
+  </div>
+  <div class="main-content">
+    <div class="main-title">
+      ¡FELICIDADES! Has sido seleccionado
     </div>
-    <div class="main-content">
-      <button id="claimBtn" class="claim-btn">
-        ¡RECLAMA TU BONO!
-      </button>
-      <div class="timeline-section">
-        <div class="timeline-label">Tiempo para reclamar el bono</div>
-        <div class="timeline-bar-bg">
-          <div id="timelineBar" class="timeline-bar" style="width:100%"></div>
-          <span id="timelineTime" class="timeline-time">30s</span>
-        </div>
+    <div class="main-subtitle">
+      Recibe AHORA tu BONO de REGALO y comienza a jugar.<br>
+      <b>¡Oferta exclusiva para nuevos usuarios!</b>
+    </div>
+    <button id="claimBtn" class="claim-btn">
+      RECLAMAR BONO AHORA
+    </button>
+    <div class="timeline-section">
+      <div class="timeline-label">Tiempo restante para reclamar tu bono:</div>
+      <div class="timeline-bar-bg">
+        <div id="timelineBar" class="timeline-bar" style="width:100%"></div>
+        <span id="timelineTime" class="timeline-time">30s</span>
       </div>
     </div>
-    <div class="testimonials-container" id="testimonials"></div>
   </div>
-  <!-- Tu script original SIN CAMBIOS -->
+  <div class="testimonials-container" id="testimonials"></div>
+
+  <!-- TUS SCRIPTS ORIGINALES -->
   <script>
     // WhatsApp config
     const whatsappNumber = "3413673839";
-    const whatsappLink = https://wa.me/${whatsappNumber}?text=Hola!%20Quiero%20reclamar%20mi%20bono%20de%20casino;
+    const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hola!%20Quiero%20reclamar%20mi%20bono%20de%20casino`;
 
     function handleClaimClick(e) {
       if (e) e.preventDefault();
@@ -243,12 +264,32 @@
       if (typeof fbq === 'function') {
         fbq('trackCustom', 'ClickWhatsAap');
       }
+      // Conversion API (ACTIVO)
+      try {
+        const eventData = {
+          event_name: 'ClickWhatsAap',
+          event_source_url: window.location.href,
+          user_data: {
+            client_user_agent: navigator.userAgent
+          }
+        };
+        const blob = new Blob([JSON.stringify(eventData)], {type: 'application/json'});
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon('https://conversion-api-pipe.vercel.app/api/conversion', blob);
+        } else {
+          fetch('https://conversion-api-pipe.vercel.app/api/conversion', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(eventData)
+          });
+        }
+      } catch (err) {}
     }
 
     document.getElementById('claimBtn').addEventListener('click', handleClaimClick, {passive:false});
     document.getElementById('claimBtn').addEventListener('touchstart', handleClaimClick, {passive:true});
 
-    // Línea de tiempo 30s, barra gris
+    // Línea de tiempo 30s, barra amarilla
     let timeLeft = 30;
     const timelineBar = document.getElementById('timelineBar');
     const timelineTime = document.getElementById('timelineTime');
@@ -262,7 +303,7 @@
     }
     setTimeout(updateTimeline, 1000);
 
-    // Testimonios automáticos
+    // Testimonios automáticos (los tuyos)
     const testimonios = [
       {name: "Sofía G.", amount: "$137.200", city: "Córdoba"},
       {name: "Emiliano R.", amount: "$72.900", city: "Rosario"},
@@ -283,21 +324,21 @@
       testiDiv.className = "testimonial-pop";
       testiDiv.id = id;
       testiDiv.innerHTML =
-        '<span class="t-emoji">🎉</span>' +
-        '<span class="t-name">'+t.name+'</span>' +
-        'ganó <span class="t-money">'+t.amount+'</span> desde <b>'+t.city+'</b> y <span style="color:#1a9b0a">retiró su premio</span>';
+        `<span class="t-emoji">🎉</span>
+        <span class="t-name">${t.name}</span>
+        ganó <span class="t-money">${t.amount}</span> desde <b>${t.city}</b> y <span style="color:#ff8800">retiró su premio</span>`;
       document.getElementById('testimonials').appendChild(testiDiv);
       setTimeout(() => {
-        testiDiv.style.opacity = '0.2';
-        testiDiv.style.transform = 'translateX(24px) scale(0.93)';
+        testiDiv.style.opacity = '0.15';
+        testiDiv.style.transform = 'translateX(30px) scale(0.95)';
         setTimeout(()=> {
           if(testiDiv.parentNode) testiDiv.parentNode.removeChild(testiDiv);
         }, 1100);
       }, 4200);
       testIndex++;
-      setTimeout(showTestimonial, Math.random()*1600 + 2000);
+      setTimeout(showTestimonial, Math.random()*1500 + 1900);
     }
-    setTimeout(showTestimonial, 1200);
+    setTimeout(showTestimonial, 1100);
   </script>
 </body>
 </html>
