@@ -2,9 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>¡FELICIDADES! Has sido seleccionado | BONO EXCLUSIVO</title>
+  <title>¡Reclama tu Bono! | Joker Jewels Casino</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Pixel Meta y otros scripts -->
+  <!-- No ponemos CSP estricta para máxima compatibilidad en GitHub Pages -->
+  <!-- Pixel Meta -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -21,13 +22,11 @@
     <img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=587660557560617&ev=PageView&noscript=1"/>
   </noscript>
-  <!-- FUENTE COMPETENCIA -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900;700;500;400&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       min-height: 100vh;
-      background: linear-gradient(144deg, #ffd600 0%, #ff5100 100%);
+      background: radial-gradient(circle at 60% 40%, #9D50BB 0%, #6E48AA 100%);
       font-family: 'Montserrat', Arial, sans-serif;
       display: flex;
       flex-direction: column;
@@ -36,16 +35,22 @@
       position: relative;
       overflow-x: hidden;
     }
-    .header-container {
-      margin-top: 32px;
+    .joker-header {
+      margin-top: 38px;
+      margin-bottom: 10px;
       text-align: center;
-      width: 100%;
     }
-    .header-container img {
-      max-width: 330px;
-      width: 86vw;
-      border-radius: 30px;
-      box-shadow: 0 12px 40px #ffaa0055;
+    .joker-header img {
+      max-width: 340px;
+      width: 84vw;
+      height: auto;
+      filter:
+        drop-shadow(0 0 28px #18f0ff)
+        drop-shadow(0 0 72px #1c7fff99)
+        drop-shadow(0 6px 12px #042e44c0)
+      ;
+      border-radius: 1em;
+      background: transparent;
     }
     .main-content {
       margin: 0 auto;
@@ -54,111 +59,81 @@
       align-items: center;
       justify-content: center;
       width: 100vw;
-      margin-top: 18px;
-    }
-    .main-title {
-      font-family: 'Montserrat', Arial, sans-serif;
-      color: #201600;
-      font-size: 2.1rem;
-      font-weight: 900;
-      letter-spacing: 0.1em;
-      margin-bottom: 10px;
-      margin-top: 12px;
-      text-align: center;
-      text-shadow: 0 1px 6px #fff7, 0 3px 32px #ffbe0085;
-    }
-    .main-subtitle {
-      font-size: 1.27rem;
-      font-family: 'Roboto', Arial, sans-serif;
-      color: #fff;
-      background: #ff8800;
-      padding: 12px 22px;
-      border-radius: 18px;
-      margin-bottom: 24px;
-      box-shadow: 0 4px 20px #ffa60040;
-      font-weight: 700;
-      text-shadow: 0 2px 8px #c7600099;
-      display: inline-block;
-      line-height: 1.25;
-      max-width: 98vw;
     }
     .claim-btn {
-      margin: 22px auto 14px auto;
-      padding: 18px 50px;
-      background: linear-gradient(90deg,#ff8800 0%, #ffd600 100%);
-      color: #231900;
-      font-size: 2.1rem;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 900;
+      margin: 38px auto 10px auto;
+      padding: 28px 60px;
+      background: linear-gradient(90deg,#00ff90,#00e049 70%);
+      color: #fff;
+      font-size: 2.2rem;
+      font-weight: 800;
       border: none;
       border-radius: 2em;
-      box-shadow: 0 8px 38px #ffbe0040, 0 1px 4px #ffd60055;
+      box-shadow: 0 2px 24px #00ff9090;
       cursor: pointer;
-      animation: shine 0.7s alternate infinite, titilar 1.3s infinite;
-      text-shadow: 0 1px 7px #fff, 0 0px 18px #ffc100b0;
-      letter-spacing: 1.6px;
-      outline: none;
-      transition: transform .14s;
+      animation: shine 0.6s alternate infinite, titilar 0.8s infinite;
+      text-shadow: 0 2px 8px #006a3d90, 0 0px 20px #0f0;
+      transition: transform .15s;
       z-index: 3;
+      letter-spacing: 1.2px;
+      outline: none;
     }
     @keyframes titilar {
-      0% { box-shadow: 0 8px 38px #ffbe0040, 0 1px 4px #ffd60055; }
-      50% { box-shadow: 0 2px 16px #ffab00b0, 0 1px 4px #ffd60055; }
-      100% { box-shadow: 0 8px 38px #ffbe0040, 0 1px 4px #ffd60055; }
+      0% { box-shadow: 0 0 32px #0f0,0 2px 24px #00ff9090; }
+      50% { box-shadow: 0 0 12px #0f0,0 2px 14px #00ff9090; }
+      100% { box-shadow: 0 0 32px #0f0,0 2px 24px #00ff9090; }
     }
     @keyframes shine {
       0% { filter: brightness(1); }
-      100% { filter: brightness(1.15); }
+      100% { filter: brightness(1.14); }
     }
     .timeline-section {
-      width: 95vw;
-      max-width: 450px;
-      margin: 20px auto 24px auto;
+      width: 96vw;
+      max-width: 480px;
+      margin: 26px auto 18px auto;
       text-align: center;
       z-index: 2;
     }
     .timeline-label {
-      color: #ae7400;
+      color: #eee;
       font-size: 1.09rem;
-      margin-bottom: 7px;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.7px;
-      text-shadow: 0 2px 8px #fff6, 0 0px 8px #e6b60099;
+      margin-bottom: 5px;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 5px #0007;
     }
     .timeline-bar-bg {
       width: 100%;
-      background: rgba(255,255,255,0.45);
-      border-radius: 13px;
+      background: rgba(120,120,120,0.20);
+      border-radius: 11px;
       height: 22px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 3px 13px #ffae0050;
+      box-shadow: 0 2px 10px #1114;
     }
     .timeline-bar {
       position: absolute;
       left: 0; top: 0; bottom: 0;
       height: 100%;
-      background: linear-gradient(90deg,#ffbe00 0%, #ffd600 100%);
-      opacity: 0.97;
-      border-radius: 13px;
-      transition: width 0.2s linear;
+      background: linear-gradient(90deg,#eee,#bbb 80%);
+      opacity: 0.95;
+      border-radius: 11px;
+      transition: width 0.15s linear;
     }
     .timeline-time {
       position: absolute;
-      right: 13px;
-      top: 1px;
-      color: #ae7400;
-      font-size: 1.08rem;
+      right: 12px;
+      top: 2px;
+      color: #7a6;
+      font-size: 1rem;
       font-weight: bold;
       text-shadow: 0 1px 4px #fff9;
     }
     .testimonials-container {
       position: fixed;
-      top: 17vh;
+      top: 22vh;
       right: 12px;
-      width: 335px;
-      max-width: 90vw;
+      width: 330px;
+      max-width: 87vw;
       z-index: 999;
       pointer-events: none;
       font-size: 1rem;
@@ -167,21 +142,19 @@
       .testimonials-container {
         top: auto;
         bottom: 3vh;
-        right: 1vw;
-        width: 97vw;
-        max-width: 97vw;
+        right: 2vw;
+        width: 96vw;
+        max-width: 96vw;
       }
-      .main-title { font-size: 1.3rem; }
-      .main-subtitle { font-size: 1.03rem; }
     }
     .testimonial-pop {
-      background: linear-gradient(95deg, #fff 74%, #fff9d8 100%);
-      border-radius: 19px 10px 24px 19px;
-      box-shadow: 0 3px 16px #fdae0020, 0 2px 10px #ffd60019;
-      margin-bottom: 15px;
+      background: linear-gradient(98deg, #fff 60%, #eceeff 100%);
+      border-radius: 18px 8px 22px 18px;
+      box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21;
+      margin-bottom: 14px;
       padding: 13px 17px 12px 15px;
-      animation: fadeInRight 0.47s, popTesti 2.2s infinite alternate;
-      border-left: 6px solid #ffd600;
+      animation: fadeInRight 0.5s, popTesti 2s infinite alternate;
+      border-left: 6px solid #35d841;
       position: relative;
     }
     @keyframes fadeInRight {
@@ -189,54 +162,38 @@
       to   { opacity: 1; transform: translateX(0); }
     }
     @keyframes popTesti {
-      0% { box-shadow: 0 3px 16px #fdae0020, 0 2px 10px #ffd60019; }
-      50% { box-shadow: 0 7px 30px #ffe08250, 0 8px 22px #ffd60099; }
-      100% { box-shadow: 0 3px 16px #fdae0020, 0 2px 10px #ffd60019; }
+      0% { box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21; }
+      50% { box-shadow: 0 6px 32px #0004,0 12px 18px #0f0c; }
+      100% { box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21; }
     }
     .testimonial-pop .t-emoji {
-      font-size: 1.37em;
-      margin-right: 5px;
+      font-size: 1.4em;
+      margin-right: 4px;
       vertical-align: bottom;
     }
     .testimonial-pop .t-name {
       font-weight: bold;
-      color: #ae7400;
-      margin-right: 5px;
-      font-size: 1.1em;
-      letter-spacing: 0.6px;
+      color: #2c7a34;
+      margin-right: 4px;
+      font-size: 1.09em;
     }
     .testimonial-pop .t-money {
-      color: #ff8800;
+      color: #e4b70b;
       font-weight: bold;
       margin-left: 3px;
-    }
-    /* El logo central “clonado” */
-    .header-img-shadow {
-      display: block;
-      margin: 0 auto 6px auto;
-      border-radius: 35px;
-      box-shadow: 0 12px 45px #ff980099, 0 1px 18px #ffd60033;
-      background: transparent;
     }
   </style>
 </head>
 <body>
-  <div class="header-container">
-    <img src="https://scalbook.com/assets/images/preview/joker-jewels.webp" class="header-img-shadow" alt="Joker Jewels" draggable="false">
+  <div class="joker-header">
+    <img src="jokers-jewels.png" alt="Joker's Jewels" draggable="false">
   </div>
   <div class="main-content">
-    <div class="main-title">
-      ¡FELICIDADES! Has sido seleccionado
-    </div>
-    <div class="main-subtitle">
-      Recibe AHORA tu BONO de REGALO y comienza a jugar.<br>
-      <b>¡Oferta exclusiva para nuevos usuarios!</b>
-    </div>
     <button id="claimBtn" class="claim-btn">
-      RECLAMAR BONO AHORA
+      ¡RECLAMA TU BONO!
     </button>
     <div class="timeline-section">
-      <div class="timeline-label">Tiempo restante para reclamar tu bono:</div>
+      <div class="timeline-label">Tiempo para reclamar el bono</div>
       <div class="timeline-bar-bg">
         <div id="timelineBar" class="timeline-bar" style="width:100%"></div>
         <span id="timelineTime" class="timeline-time">30s</span>
@@ -245,7 +202,6 @@
   </div>
   <div class="testimonials-container" id="testimonials"></div>
 
-  <!-- TUS SCRIPTS ORIGINALES -->
   <script>
     // WhatsApp config
     const whatsappNumber = "3413673839";
@@ -264,7 +220,8 @@
       if (typeof fbq === 'function') {
         fbq('trackCustom', 'ClickWhatsAap');
       }
-      // Conversion API (ACTIVO)
+      // Conversion API (se puede comentar si tu CSP lo bloquea en GitHub Pages)
+      /*
       try {
         const eventData = {
           event_name: 'ClickWhatsAap',
@@ -284,12 +241,13 @@
           });
         }
       } catch (err) {}
+      */
     }
 
     document.getElementById('claimBtn').addEventListener('click', handleClaimClick, {passive:false});
     document.getElementById('claimBtn').addEventListener('touchstart', handleClaimClick, {passive:true});
 
-    // Línea de tiempo 30s, barra amarilla
+    // Línea de tiempo 30s, barra gris
     let timeLeft = 30;
     const timelineBar = document.getElementById('timelineBar');
     const timelineTime = document.getElementById('timelineTime');
@@ -303,7 +261,7 @@
     }
     setTimeout(updateTimeline, 1000);
 
-    // Testimonios automáticos (los tuyos)
+    // Testimonios automáticos
     const testimonios = [
       {name: "Sofía G.", amount: "$137.200", city: "Córdoba"},
       {name: "Emiliano R.", amount: "$72.900", city: "Rosario"},
@@ -323,22 +281,23 @@
       const testiDiv = document.createElement('div');
       testiDiv.className = "testimonial-pop";
       testiDiv.id = id;
-      testiDiv.innerHTML =
-        `<span class="t-emoji">🎉</span>
+      testiDiv.innerHTML = `
+        <span class="t-emoji">🎉</span>
         <span class="t-name">${t.name}</span>
-        ganó <span class="t-money">${t.amount}</span> desde <b>${t.city}</b> y <span style="color:#ff8800">retiró su premio</span>`;
+        ganó <span class="t-money">${t.amount}</span> desde <b>${t.city}</b> y <span style="color:#1a9b0a">retiró su premio</span>
+      `;
       document.getElementById('testimonials').appendChild(testiDiv);
       setTimeout(() => {
-        testiDiv.style.opacity = '0.15';
-        testiDiv.style.transform = 'translateX(30px) scale(0.95)';
+        testiDiv.style.opacity = '0.2';
+        testiDiv.style.transform = 'translateX(24px) scale(0.93)';
         setTimeout(()=> {
           if(testiDiv.parentNode) testiDiv.parentNode.removeChild(testiDiv);
         }, 1100);
       }, 4200);
       testIndex++;
-      setTimeout(showTestimonial, Math.random()*1500 + 1900);
+      setTimeout(showTestimonial, Math.random()*1600 + 2000);
     }
-    setTimeout(showTestimonial, 1100);
+    setTimeout(showTestimonial, 1200);
   </script>
 </body>
 </html>
