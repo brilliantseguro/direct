@@ -188,7 +188,7 @@
 </head>
 <body>
   <div class="joker-header">
-    <img src="/mnt/data/jokers-jewels.png" alt="Joker's Jewels" draggable="false">
+    <img src="jokers-jewels.png" alt="Joker's Jewels" draggable="false">
   </div>
   <div class="main-content">
     <button id="claimBtn" class="claim-btn">
@@ -204,34 +204,42 @@
   </div>
   <div class="testimonials-container" id="testimonials"></div>
 
-  <!-- JS Funcionalidad -->
   <script>
     // WhatsApp
     const whatsappNumber = "3413673839";
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hola!%20Quiero%20reclamar%20mi%20bono%20de%20casino`;
 
-    // Pixel: Trackea click del botón y también si es touch/click
-    function trackPixelEvent() {
+    function handleClaimClick(e) {
+      if (e) e.preventDefault();
+
+      // Trackeo Pixel Meta
       if (typeof fbq === 'function') {
         fbq('trackCustom', 'ClickWhatsAap');
       }
-    }
 
-    // Al clickear el botón: trackea, espera 2s y redirige
-    document.getElementById('claimBtn').addEventListener('click', function(e) {
-      e.preventDefault();
-      trackPixelEvent();
-      // Extra: Para asegurar trackeo en móviles, también en touch
-      // (Solo trackea una vez por click/tap)
+      // Redundancia: beacon o imagen invisible
+      if (navigator.sendBeacon) {
+        var pixelUrl = "https://www.facebook.com/tr?id=587660557560617&ev=ClickWhatsAap&noscript=1";
+        navigator.sendBeacon(pixelUrl);
+      } else {
+        var img = new Image();
+        img.src = "https://www.facebook.com/tr?id=587660557560617&ev=ClickWhatsAap&noscript=1";
+      }
+
+      // Feedback al usuario
+      const btn = document.getElementById('claimBtn');
+      btn.innerText = 'Redirigiendo a WhatsApp...';
+      btn.disabled = true;
+
+      // Espera 2 segundos y redirige
       setTimeout(function(){
         window.location.href = whatsappLink;
       }, 2000);
-    }, {passive:false});
+    }
 
-    // También trackea por touchstart en móviles por si no toma click puro
-    document.getElementById('claimBtn').addEventListener('touchstart', function(e){
-      trackPixelEvent();
-    }, {passive:true});
+    // Track click y touch (ambos)
+    document.getElementById('claimBtn').addEventListener('click', handleClaimClick, {passive:false});
+    document.getElementById('claimBtn').addEventListener('touchstart', handleClaimClick, {passive:true});
 
     // Línea de tiempo 30s, barra gris
     let timeLeft = 30;
