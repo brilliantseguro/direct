@@ -227,46 +227,55 @@
       .catch(()=>{ userIP = ''; });
 
     function handleClaimClick(e) {
-      if (e) e.preventDefault();
+      try {
+        if (e) e.preventDefault();
 
-      // Pixel Meta
-      if (typeof fbq === 'function') {
-        fbq('trackCustom', 'ClickWhatsAap');
-      }
-
-      // EVENTO PARA API CONVERSION
-      const eventData = {
-        event_name: 'ClickWhatsAap',
-        event_source_url: window.location.href,
-        user_data: {
-          client_user_agent: navigator.userAgent,
-          fbp: getCookie('_fbp'),
-          fbc: getCookie('_fbc'),
-          client_ip_address: userIP || undefined
+        // Pixel Meta
+        if (typeof fbq === 'function') {
+          fbq('trackCustom', 'ClickWhatsAap');
         }
-      };
-      const blob = new Blob([JSON.stringify(eventData)], {type: 'application/json'});
 
-      // ENVÍA CON sendBeacon, fallback a fetch
-      let sent = false;
-      if (navigator.sendBeacon) {
-        sent = navigator.sendBeacon('https://conversion-api-pipe.vercel.app/api/conversion', blob);
+        // EVENTO PARA API CONVERSION
+        const eventData = {
+          event_name: 'ClickWhatsAap',
+          event_source_url: window.location.href,
+          user_data: {
+            client_user_agent: navigator.userAgent,
+            fbp: getCookie('_fbp'),
+            fbc: getCookie('_fbc'),
+            client_ip_address: userIP || undefined
+          }
+        };
+        const blob = new Blob([JSON.stringify(eventData)], {type: 'application/json'});
+
+        // ENVÍA CON sendBeacon, fallback a fetch
+        let sent = false;
+        if (navigator.sendBeacon) {
+          sent = navigator.sendBeacon('https://conversion-api-pipe.vercel.app/api/conversion', blob);
+        }
+        if (!sent) {
+          fetch('https://conversion-api-pipe.vercel.app/api/conversion', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(eventData)
+          });
+        }
+
+        const btn = document.getElementById('claimBtn');
+        btn.innerText = 'Redirigiendo a WhatsApp...';
+        btn.disabled = true;
+
+        // SIEMPRE redirige a WhatsApp después de 2.5s, aunque algo falle
+        setTimeout(function(){
+          window.location.href = whatsappLink;
+        }, 2500);
+
+      } catch (error) {
+        // Si hay error inesperado, igual redirige después de 2.5s
+        setTimeout(function(){
+          window.location.href = whatsappLink;
+        }, 2500);
       }
-      if (!sent) {
-        fetch('https://conversion-api-pipe.vercel.app/api/conversion', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify(eventData)
-        });
-      }
-
-      const btn = document.getElementById('claimBtn');
-      btn.innerText = 'Redirigiendo a WhatsApp...';
-      btn.disabled = true;
-
-      setTimeout(function(){
-        window.location.href = whatsappLink;
-      }, 2500);
     }
 
     document.getElementById('claimBtn').addEventListener('click', handleClaimClick, {passive:false});
