@@ -35,7 +35,6 @@
       position: relative;
       overflow-x: hidden;
     }
-
     .joker-header {
       margin-top: 38px;
       margin-bottom: 10px;
@@ -51,6 +50,7 @@
         drop-shadow(0 6px 12px #042e44c0)
       ;
       border-radius: 1em;
+      background: transparent;
     }
     .main-content {
       margin: 0 auto;
@@ -104,7 +104,7 @@
     }
     .timeline-bar-bg {
       width: 100%;
-      background: rgba(200,200,200,0.18);
+      background: rgba(120,120,120,0.20);
       border-radius: 11px;
       height: 22px;
       position: relative;
@@ -115,8 +115,8 @@
       position: absolute;
       left: 0; top: 0; bottom: 0;
       height: 100%;
-      background: linear-gradient(90deg,#f4ffb8,#fac858 80%);
-      opacity: 0.90;
+      background: linear-gradient(90deg,#eee,#bbb 80%);
+      opacity: 0.95;
       border-radius: 11px;
       transition: width 0.15s linear;
     }
@@ -188,7 +188,7 @@
 </head>
 <body>
   <div class="joker-header">
-    <img src="/mnt/data/f92c0506-f33a-4618-b764-f392f8103345.png" alt="Joker's Jewels" draggable="false">
+    <img src="/mnt/data/jokers-jewels.png" alt="Joker's Jewels" draggable="false">
   </div>
   <div class="main-content">
     <button id="claimBtn" class="claim-btn">
@@ -204,37 +204,36 @@
   </div>
   <div class="testimonials-container" id="testimonials"></div>
 
-  <!-- Redirección a WhatsApp luego de 2s -->
+  <!-- JS Funcionalidad -->
   <script>
-    // Parámetros
+    // WhatsApp
     const whatsappNumber = "3413673839";
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hola!%20Quiero%20reclamar%20mi%20bono%20de%20casino`;
 
-    // Trackeo Pixel personalizado y redirección
-    function handleClaimClick() {
+    // Pixel: Trackea click del botón y también si es touch/click
+    function trackPixelEvent() {
       if (typeof fbq === 'function') {
         fbq('trackCustom', 'ClickWhatsAap');
       }
-      window.location.href = whatsappLink;
     }
 
-    document.getElementById('claimBtn').addEventListener('click', handleClaimClick);
+    // Al clickear el botón: trackea, espera 2s y redirige
+    document.getElementById('claimBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      trackPixelEvent();
+      // Extra: Para asegurar trackeo en móviles, también en touch
+      // (Solo trackea una vez por click/tap)
+      setTimeout(function(){
+        window.location.href = whatsappLink;
+      }, 2000);
+    }, {passive:false});
 
-    // Detectar eventos touch/mouse para Pixel
-    function detectTouchOrClick() {
-      if (typeof fbq === 'function') {
-        fbq('trackCustom', 'TouchOrClick');
-      }
-    }
-    window.addEventListener('touchstart', detectTouchOrClick, {passive:true});
-    window.addEventListener('mousedown', detectTouchOrClick);
+    // También trackea por touchstart en móviles por si no toma click puro
+    document.getElementById('claimBtn').addEventListener('touchstart', function(e){
+      trackPixelEvent();
+    }, {passive:true});
 
-    // Redirección automática tras 2s
-    setTimeout(() => {
-      handleClaimClick();
-    }, 2000);
-
-    // Línea de tiempo de 30 segundos
+    // Línea de tiempo 30s, barra gris
     let timeLeft = 30;
     const timelineBar = document.getElementById('timelineBar');
     const timelineTime = document.getElementById('timelineTime');
@@ -242,13 +241,9 @@
       timeLeft -= 1;
       const pct = Math.max(0, (timeLeft / 30) * 100);
       timelineBar.style.width = pct + "%";
-      timelineTime.textContent = timeLeft + "s";
-      if(timeLeft > 0) {
-        setTimeout(updateTimeline, 1000);
-      } else {
-        timelineBar.style.width = "0%";
-        timelineTime.textContent = "¡Finalizó!";
-      }
+      timelineTime.textContent = (timeLeft > 0 ? timeLeft + "s" : "¡Finalizó!");
+      if(timeLeft > 0) setTimeout(updateTimeline, 1000);
+      else timelineBar.style.width = "0%";
     }
     setTimeout(updateTimeline, 1000);
 
