@@ -4,28 +4,10 @@
   <meta charset="UTF-8">
   <title>¡Reclama tu Bono! | Joker Jewels Casino</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Pixel Meta -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '587660557560617');
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=587660557560617&ev=PageView&noscript=1"/>
-  </noscript>
   <style>
     body {
       margin: 0;
       min-height: 100vh;
-      /* Fondo violeta oscuro con textura tipo “paño casino” generada en CSS */
       background: 
         repeating-linear-gradient(120deg, #5d1c8a 0 5px, transparent 9px 17px),
         repeating-linear-gradient(-25deg, #280c37 0 3px, transparent 7px 21px),
@@ -54,25 +36,26 @@
     }
     .joker-header img {
       margin: 0;
-      margin-top: 18px;
-      max-width: 340px;
-      width: 67vw;
+      margin-top: 2vw; /* casi pegado arriba, puedes poner 0 si lo quieres más arriba aún */
+      max-width: 320px;
+      width: 69vw;
       height: auto;
       display: block;
-      border-radius: 1.2em;
-      background: transparent;
-      box-shadow: 0 0 36px #b500e399, 0 3px 18px #3f014c80;
+      /* Elimina fondo y sombra visible */
+      background: none !important;
+      border: none !important;
+      box-shadow: none !important;
       filter: drop-shadow(0 0 17px #330050);
       position: relative;
       z-index: 3;
     }
     .welcome-text {
-      font-size: 4.2rem;
+      font-size: 5vw;
       font-weight: 900;
       text-align: center;
       margin-bottom: 24px;
-      margin-top: 6px;
-      line-height: 0.98;
+      margin-top: 9px;
+      line-height: 1.03;
       letter-spacing: 2.2px;
       position: relative;
       display: block;
@@ -85,6 +68,14 @@
         -4px 0 13px #fff7;
       animation: bienvenida-glitch 2.1s infinite alternate linear;
       z-index: 4;
+    }
+    @media (min-width: 600px) {
+      .welcome-text { font-size: 3.5rem; }
+      .joker-header img { max-width: 320px; }
+    }
+    @media (min-width: 950px) {
+      .welcome-text { font-size: 4.8rem; }
+      .joker-header img { max-width: 340px; }
     }
     .welcome-white {
       color: #fff;
@@ -158,10 +149,6 @@
           -4px 0 13px #fff7;
       }
     }
-    @media (max-width: 600px) {
-      .joker-header img { max-width: 92vw; }
-      .welcome-text { font-size: 2.1rem; }
-    }
     .main-content {
       margin: 0;
       display: flex;
@@ -173,17 +160,16 @@
     .extra-neon {
       margin-top: 0px;
       margin-bottom: 16px;
-      font-size: 2.3rem;
+      font-size: 2.5rem;
       font-weight: 800;
       text-align: center;
-      color: #39ff14;
+      color: #fff;
       text-shadow:
-        0 0 10px #39ff148a,
-        0 0 22px #1cffb5b3,
-        0 0 7px #fff,
-        0 0 42px #25ff0099;
+        0 0 16px #fff,
+        0 0 40px #fff,
+        0 0 24px #a8f8e6b3;
       letter-spacing: 2px;
-      filter: brightness(1.1) drop-shadow(0 0 8px #41ff2a);
+      filter: brightness(1.12) drop-shadow(0 0 8px #fff);
       user-select: none;
       pointer-events: none;
       font-family: 'Montserrat', Arial, sans-serif;
@@ -307,9 +293,6 @@
     function handleClaimClick(e) {
       e.preventDefault();
       window.location.href = whatsappLink;
-      if (typeof fbq === 'function') {
-        fbq('trackCustom', 'ClickWhatsAap');
-      }
     }
     document.getElementById('claimBtn').addEventListener('click', handleClaimClick, {passive:false});
     document.getElementById('claimBtn').addEventListener('touchstart', handleClaimClick, {passive:true});
