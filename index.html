@@ -24,17 +24,6 @@
       position: relative;
       overflow-x: hidden;
     }
-    .contenido-central {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      width: 100vw;
-      justify-content: flex-start;
-      /* "Empuja" la zona central hacia arriba */
-      padding-top: 3vw;
-      box-sizing: border-box;
-    }
     .joker-header {
       display: flex;
       flex-direction: column;
@@ -46,26 +35,28 @@
     }
     .joker-header img {
       margin: 0;
-      margin-top: 0.7vw; /* casi pegado arriba */
-      max-width: 300px;
-      width: 58vw;
+      margin-top: 2vw; /* casi pegado arriba */
+      max-width: 230px;
+      width: 50vw;
       height: auto;
       display: block;
       background: none !important;
       border: none !important;
       box-shadow: none !important;
-      filter: drop-shadow(0 0 17px #330050);
+      filter: drop-shadow(0 0 13px #330050);
       position: relative;
       z-index: 3;
       pointer-events: none;
       user-select: none;
     }
     .welcome-text {
-      font-size: 7.2vw;
+      font-size: 8vw;
+      max-width: 97vw;
+      max-height: 19vw;
       font-weight: 900;
       text-align: center;
       margin-bottom: 18px;
-      margin-top: 0.3em;
+      margin-top: 2vw;
       line-height: 1.04;
       letter-spacing: 2.5px;
       position: relative;
@@ -80,14 +71,17 @@
       animation: bienvenida-glitch 2.1s infinite alternate linear;
       z-index: 4;
       transition: font-size .28s cubic-bezier(.42,1.3,.8,1.01);
+      overflow: hidden;
+      white-space: normal;
+      word-break: break-word;
     }
     @media (min-width: 600px) {
-      .welcome-text { font-size: 3.5rem; }
-      .joker-header img { max-width: 300px; }
+      .welcome-text { font-size: 3.7rem; max-height: none; }
+      .joker-header img { max-width: 220px; }
     }
     @media (min-width: 950px) {
       .welcome-text { font-size: 5rem; }
-      .joker-header img { max-width: 320px; }
+      .joker-header img { max-width: 260px; }
     }
     .welcome-white {
       color: #fff;
@@ -166,21 +160,21 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 7vh; /* "empuja" el botón al centro */
+      margin-top: 0; /* nada de empuje hacia abajo */
     }
     .claim-btn {
-      margin: 20vh auto 12px auto;
-      padding: 14px 36px;
+      margin: 2vw auto 18px auto;
+      padding: 10px 26px;
       background: linear-gradient(90deg,#00ff90,#00e049 70%);
       color: #fff;
-      font-size: 1.12rem;
+      font-size: 1.08rem;
       font-weight: 900;
       border: none;
-      border-radius: 2.5em;
-      box-shadow: 0 4px 36px #00ff90e7, 0 0 48px #35ff9aab, 0 0 70px #00ff90d0;
+      border-radius: 2em;
+      box-shadow: 0 2px 22px #00ff90e7, 0 0 32px #35ff9aab;
       cursor: pointer;
       animation: titilarGrande 1.14s infinite cubic-bezier(.6,1.22,.4,1.02), shine 0.7s alternate infinite;
-      text-shadow: 0 2px 24px #00ffbf, 0 0px 32px #0f0, 0 2px 9px #009954d0;
+      text-shadow: 0 2px 16px #00ffbf, 0 0px 20px #0f0, 0 2px 7px #009954d0;
       transition: transform .18s cubic-bezier(.22,1.01,.36,.98), box-shadow .19s;
       z-index: 3;
       letter-spacing: 1.1px;
@@ -188,31 +182,31 @@
       display: block;
     }
     .claim-btn:hover, .claim-btn:focus-visible {
-      transform: scale(1.22);
-      box-shadow: 0 14px 46px #00ff90fa, 0 0 80px #7cffc2;
+      transform: scale(1.14);
+      box-shadow: 0 12px 36px #00ff90fa, 0 0 60px #7cffc2;
     }
     @keyframes titilarGrande {
-      0% { transform: scale(1); box-shadow: 0 4px 36px #00ff90e7, 0 0 48px #35ff9aab, 0 0 70px #00ff90d0; }
-      60% { transform: scale(1.14); box-shadow: 0 14px 85px #00ff90fa, 0 0 90px #35ff9abb, 0 0 100px #00ff90f9; }
-      100% { transform: scale(1); box-shadow: 0 4px 36px #00ff90e7, 0 0 48px #35ff9aab, 0 0 70px #00ff90d0; }
+      0% { transform: scale(1); box-shadow: 0 2px 22px #00ff90e7, 0 0 32px #35ff9aab; }
+      60% { transform: scale(1.11); box-shadow: 0 8px 39px #00ff90fa, 0 0 70px #35ff9abb; }
+      100% { transform: scale(1); box-shadow: 0 2px 22px #00ff90e7, 0 0 32px #35ff9aab; }
     }
     @keyframes shine {
       0% { filter: brightness(1); }
       100% { filter: brightness(1.13); }
     }
     .extra-neon {
-      margin-top: 16px;
-      margin-bottom: 0px;
-      font-size: 2.2rem;
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.6rem;
       font-weight: 900;
       text-align: center;
       color: #fff;
       text-shadow:
-        0 0 16px #fff,
-        0 0 40px #fff,
-        0 0 24px #a8f8e6b3;
-      letter-spacing: 2px;
-      filter: brightness(1.12) drop-shadow(0 0 8px #fff);
+        0 0 8px #fff,
+        0 0 15px #fff,
+        0 0 12px #a8f8e6b3;
+      letter-spacing: 1.5px;
+      filter: brightness(1.08) drop-shadow(0 0 8px #fff);
       user-select: none;
       pointer-events: none;
       font-family: 'Montserrat', Arial, sans-serif;
@@ -220,7 +214,7 @@
     .timeline-section {
       width: 92vw;
       max-width: 390px;
-      margin: 30px auto 16px auto;
+      margin: 22px auto 8px auto;
       text-align: center;
       z-index: 2;
       display: flex;
@@ -237,17 +231,17 @@
     }
     .timeline-label {
       color: #fff;
-      font-size: 1.17rem;
+      font-size: 1.06rem;
       font-weight: bold;
       letter-spacing: 0.5px;
-      text-shadow: 0 1px 8px #460484cc, 0 0px 8px #fff5;
+      text-shadow: 0 1px 6px #460484cc, 0 0px 6px #fff5;
       margin: 0;
       padding: 0;
       display: inline-block;
     }
     .timeline-time {
       color: #d1cfcf;
-      font-size: 1.17rem;
+      font-size: 1.06rem;
       font-weight: bold;
       margin-left: 5px;
       text-shadow: 0 1px 4px #fff9, 0 0px 2px #59595988;
@@ -257,7 +251,7 @@
       width: 100%;
       background: linear-gradient(90deg, #ececec 10%, #b2b2b2 90%);
       border-radius: 11px;
-      height: 20px;
+      height: 15px;
       position: relative;
       overflow: hidden;
       box-shadow: 0 2px 10px #8884;
@@ -275,26 +269,24 @@
   </style>
 </head>
 <body>
-  <div class="contenido-central">
-    <div class="joker-header">
-      <img src="jokers-jewels-logo.webp" alt="Joker's Jewels" draggable="false">
-      <div class="welcome-text">
-        ¡Bienvenid@s a <span class="welcome-white">Ganamos.net!</span>
-      </div>
+  <div class="joker-header">
+    <img src="jokers-jewels-logo.webp" alt="Joker's Jewels" draggable="false">
+    <div class="welcome-text">
+      ¡Bienvenid@s a <span class="welcome-white">Ganamos.net!</span>
     </div>
-    <div class="main-content">
-      <button id="claimBtn" class="claim-btn">
-        ¡RECLAMA TU BONO!
-      </button>
-      <div class="extra-neon">20% EXTRA</div>
-      <div class="timeline-section">
-        <div class="timeline-row">
-          <span class="timeline-label">Tiempo para reclamar el bono</span>
-          <span id="timelineTime" class="timeline-time">30s</span>
-        </div>
-        <div class="timeline-bar-bg">
-          <div id="timelineBar" class="timeline-bar" style="width:100%"></div>
-        </div>
+  </div>
+  <div class="main-content">
+    <button id="claimBtn" class="claim-btn">
+      ¡RECLAMA TU BONO!
+    </button>
+    <div class="extra-neon">20% EXTRA</div>
+    <div class="timeline-section">
+      <div class="timeline-row">
+        <span class="timeline-label">Tiempo para reclamar el bono</span>
+        <span id="timelineTime" class="timeline-time">30s</span>
+      </div>
+      <div class="timeline-bar-bg">
+        <div id="timelineBar" class="timeline-bar" style="width:100%"></div>
       </div>
     </div>
   </div>
