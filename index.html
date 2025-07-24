@@ -23,6 +23,7 @@
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       align-items: center;
     }
     .main-wrapper {
@@ -32,6 +33,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
+      flex: 1 0 auto;
       box-sizing: border-box;
     }
     .joker-header {
@@ -45,7 +47,7 @@
     }
     .joker-header img {
       margin-top: 0;
-      margin-bottom: -65px;  /* Pegado al texto de bienvenida */
+      margin-bottom: -65px;
       max-width: 320px;
       width: 70vw;
       height: auto;
@@ -128,12 +130,14 @@
       transition: font-size .28s;
       line-height: 1.09;
     }
-    .ganamos-bloque {
+    .footer-bar-logo {
+      width: 100vw;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 0;
-      margin-bottom: 0;
+      justify-content: flex-end;
+      margin-bottom: 12px;
+      margin-top: auto;
     }
     .timeline-section {
       width: 96vw;
@@ -143,7 +147,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 0;
+      margin-bottom: 2px;
     }
     .timeline-row {
       display: flex;
@@ -181,12 +185,12 @@
       overflow: hidden;
       box-shadow: 0 2px 8px #8884;
       margin-top: 4px;
-      margin-bottom: 8px; /* Ultra pegado al logo, sin superponer */
+      margin-bottom: 2px; /* Pegadita al logo, ajusta si quieres más/menos espacio */
     }
     .logo-ganamos-footer {
       width: 340px;
       max-width: 84vw;
-      margin: 0 auto 0 auto;  /* El logo queda fijo, sin margen negativo */
+      margin: 2px auto 0 auto;
       display: block;
       opacity: 0.99;
       filter: drop-shadow(0 0 20px #1a0937b0);
@@ -199,23 +203,26 @@
       .welcome-text { font-size: 13vw; }
       .logo-ganamos-footer { width: 85vw; margin-top: 0;}
       .extra-neon { font-size: 10vw;}
-      .timeline-bar-bg { margin-bottom: 6px; }
+      .footer-bar-logo { margin-bottom: 4vw;}
     }
   </style>
 </head>
 <body>
   <div class="main-wrapper">
-    <div class="joker-header">
-      <img src="jokers-jewels-logo.webp" alt="Joker's Jewels" draggable="false">
-      <div class="welcome-text">
-        ¡Bienvenid@s a <span class="welcome-white">Ganamos.net!</span>
+    <div>
+      <div class="joker-header">
+        <img src="jokers-jewels-logo.webp" alt="Joker's Jewels" draggable="false">
+        <div class="welcome-text">
+          ¡Bienvenid@s a <span class="welcome-white">Ganamos.net!</span>
+        </div>
       </div>
+      <button id="claimBtn" class="claim-btn">
+        ¡RECLAMA TU BONO!
+      </button>
+      <div class="extra-neon">20% EXTRA</div>
     </div>
-    <button id="claimBtn" class="claim-btn">
-      ¡RECLAMA TU BONO!
-    </button>
-    <div class="extra-neon">20% EXTRA</div>
-    <div class="ganamos-bloque">
+    <!-- Footer fijo abajo con barra + logo -->
+    <div class="footer-bar-logo">
       <div class="timeline-section">
         <div class="timeline-row">
           <span class="timeline-label">Tiempo para reclamar el bono</span>
