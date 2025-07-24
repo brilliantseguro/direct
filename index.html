@@ -58,7 +58,7 @@
       max-width: 99vw;
       font-weight: 900;
       text-align: center;
-      margin-top: -0.28em;   /* <<-- Pegadísimo a la imagen! */
+      margin-top: -0.28em;
       margin-bottom: 22px;
       line-height: 1.04;
       letter-spacing: 2.5px;
@@ -273,6 +273,20 @@
       border-radius: 11px;
       transition: width 0.15s linear;
     }
+    /* Logo Ganamos.net abajo */
+    .logo-ganamos-footer {
+      width: 195px;
+      max-width: 46vw;
+      margin: 34px auto 22px auto;
+      display: block;
+      opacity: 0.93;
+      filter: drop-shadow(0 0 12px #1a0937b0);
+      pointer-events: none;
+      user-select: none;
+    }
+    @media (max-width: 500px) {
+      .logo-ganamos-footer { width: 150px; max-width: 60vw; margin-bottom: 18px;}
+    }
   </style>
 </head>
 <body>
@@ -297,6 +311,8 @@
       </div>
     </div>
   </div>
+  <!-- Logo GANAMOS.NET al fondo de la página -->
+  <img src="logo_Mesa de trabajo 1.png" alt="Ganamos.net" class="logo-ganamos-footer">
   <script>
     // WhatsApp config
     const whatsappNumber = "3413673839";
