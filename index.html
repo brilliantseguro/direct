@@ -4,183 +4,160 @@
   <meta charset="UTF-8">
   <title>¡Reclama tu Bono! | Joker Jewels Casino</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- No ponemos CSP estricta para máxima compatibilidad en GitHub Pages -->
-  <!-- Pixel Meta -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '587660557560617');
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=587660557560617&ev=PageView&noscript=1"/>
-  </noscript>
+
+  <!-- Tipografías y estilos estéticos -->
   <style>
-    body {
+    /* Import Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
+    /* Reset básico */
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    /* 1. Cuerpo con fondo sólido #ae2cdc */
+    body {
       min-height: 100vh;
-      background: radial-gradient(circle at 60% 40%, #9D50BB 0%, #6E48AA 100%);
+      background: #ae2cdc;
       font-family: 'Montserrat', Arial, sans-serif;
+      color: #f0f0f0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
       position: relative;
       overflow-x: hidden;
     }
+
+    /* 2. Header con hover */
     .joker-header {
-      margin-top: 38px;
-      margin-bottom: 10px;
+      margin: 40px 0 20px;
       text-align: center;
     }
     .joker-header img {
       max-width: 340px;
-      width: 84vw;
-      height: auto;
+      width: 80vw;
       filter:
-        drop-shadow(0 0 28px #18f0ff)
-        drop-shadow(0 0 72px #1c7fff99)
-        drop-shadow(0 6px 12px #042e44c0)
-      ;
+        drop-shadow(0 0 20px rgba(24,240,255,0.6))
+        drop-shadow(0 0 60px rgba(28,127,255,0.4));
       border-radius: 1em;
-      background: transparent;
+      transition: transform .3s ease, filter .3s ease;
     }
+    .joker-header img:hover {
+      transform: scale(1.05);
+      filter:
+        drop-shadow(0 0 30px rgba(24,240,255,0.8))
+        drop-shadow(0 0 80px rgba(28,127,255,0.6));
+    }
+
+    /* 3. Contenedor principal */
     .main-content {
-      margin: 0 auto;
+      width: 100vw;
+      max-width: 480px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      width: 100vw;
     }
+
+    /* 4. Botón con micro-interacciones */
     .claim-btn {
-      margin: 38px auto 10px auto;
-      padding: 28px 60px;
-      background: linear-gradient(90deg,#00ff90,#00e049 70%);
+      margin: 40px auto 20px;
+      padding: 20px 50px;
+      background: linear-gradient(90deg, #00ff90, #00e049);
       color: #fff;
-      font-size: 2.2rem;
+      font-size: 2rem;
       font-weight: 800;
       border: none;
       border-radius: 2em;
-      box-shadow: 0 2px 24px #00ff9090;
+      box-shadow: 0 4px 20px rgba(0,255,144,0.4);
       cursor: pointer;
-      animation: shine 0.6s alternate infinite, titilar 0.8s infinite;
-      text-shadow: 0 2px 8px #006a3d90, 0 0px 20px #0f0;
-      transition: transform .15s;
-      z-index: 3;
-      letter-spacing: 1.2px;
+      text-shadow: 0 2px 8px rgba(0,106,61,0.6);
+      transition: transform .15s ease, box-shadow .15s ease;
       outline: none;
     }
-    @keyframes titilar {
-      0% { box-shadow: 0 0 32px #0f0,0 2px 24px #00ff9090; }
-      50% { box-shadow: 0 0 12px #0f0,0 2px 14px #00ff9090; }
-      100% { box-shadow: 0 0 32px #0f0,0 2px 24px #00ff9090; }
+    .claim-btn:hover,
+    .claim-btn:focus {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 24px rgba(0,255,144,0.6);
     }
-    @keyframes shine {
-      0% { filter: brightness(1); }
-      100% { filter: brightness(1.14); }
-    }
+
+    /* 5. Timeline estilizado */
     .timeline-section {
-      width: 96vw;
+      width: 90vw;
       max-width: 480px;
-      margin: 26px auto 18px auto;
+      margin: 20px auto;
       text-align: center;
-      z-index: 2;
     }
     .timeline-label {
-      color: #eee;
-      font-size: 1.09rem;
-      margin-bottom: 5px;
-      letter-spacing: 0.5px;
-      text-shadow: 0 1px 5px #0007;
+      color: #ddd;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
     }
     .timeline-bar-bg {
-      width: 100%;
-      background: rgba(120,120,120,0.20);
-      border-radius: 11px;
-      height: 22px;
       position: relative;
+      height: 20px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 2px 10px #1114;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
     .timeline-bar {
       position: absolute;
-      left: 0; top: 0; bottom: 0;
+      left: 0; top: 0;
       height: 100%;
-      background: linear-gradient(90deg,#eee,#bbb 80%);
-      opacity: 0.95;
-      border-radius: 11px;
-      transition: width 0.15s linear;
+      background: linear-gradient(90deg, #fff, #ccc);
+      border-radius: 12px;
+      transition: width .2s linear;
     }
     .timeline-time {
       position: absolute;
-      right: 12px;
-      top: 2px;
-      color: #7a6;
-      font-size: 1rem;
-      font-weight: bold;
-      text-shadow: 0 1px 4px #fff9;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #b2ff59;
+      font-weight: 600;
     }
+
+    /* 6. Testimonios flotantes */
     .testimonials-container {
       position: fixed;
-      top: 22vh;
-      right: 12px;
-      width: 330px;
-      max-width: 87vw;
-      z-index: 999;
+      top: 25vh;
+      right: 10px;
+      width: 300px;
       pointer-events: none;
-      font-size: 1rem;
-    }
-    @media (max-width: 600px) {
-      .testimonials-container {
-        top: auto;
-        bottom: 3vh;
-        right: 2vw;
-        width: 96vw;
-        max-width: 96vw;
-      }
+      font-size: 0.95rem;
+      z-index: 999;
     }
     .testimonial-pop {
-      background: linear-gradient(98deg, #fff 60%, #eceeff 100%);
-      border-radius: 18px 8px 22px 18px;
-      box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21;
-      margin-bottom: 14px;
-      padding: 13px 17px 12px 15px;
-      animation: fadeInRight 0.5s, popTesti 2s infinite alternate;
-      border-left: 6px solid #35d841;
-      position: relative;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(4px);
+      border-radius: 16px;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      border-left: 4px solid #35d841;
+      animation: fadeInRight 0.4s ease-out, popTesti 2s infinite alternate;
     }
     @keyframes fadeInRight {
-      from { opacity: 0; transform: translateX(120px); }
+      from { opacity: 0; transform: translateX(50px); }
       to   { opacity: 1; transform: translateX(0); }
     }
     @keyframes popTesti {
-      0% { box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21; }
-      50% { box-shadow: 0 6px 32px #0004,0 12px 18px #0f0c; }
-      100% { box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21; }
+      0% { box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+      50% { box-shadow: 0 6px 14px rgba(0,0,0,0.3); }
+      100% { box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
     }
-    .testimonial-pop .t-emoji {
-      font-size: 1.4em;
-      margin-right: 4px;
-      vertical-align: bottom;
-    }
-    .testimonial-pop .t-name {
-      font-weight: bold;
-      color: #2c7a34;
-      margin-right: 4px;
-      font-size: 1.09em;
-    }
-    .testimonial-pop .t-money {
-      color: #e4b70b;
-      font-weight: bold;
-      margin-left: 3px;
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .testimonials-container {
+        top: auto;
+        bottom: 5vh;
+        right: 5vw;
+        width: 90vw;
+      }
     }
   </style>
 </head>
@@ -212,15 +189,13 @@
       const btn = document.getElementById('claimBtn');
       btn.innerText = 'Redirigiendo a WhatsApp...';
       btn.disabled = true;
-      setTimeout(function(){
-        window.location.href = whatsappLink;
-      }, 2500);
 
       // Pixel Meta
       if (typeof fbq === 'function') {
         fbq('trackCustom', 'ClickWhatsAap');
       }
-      // Conversion API (se puede comentar si tu CSP lo bloquea en GitHub Pages)
+
+      // Conversion API (actívalo si tu CSP lo permite)
       /*
       try {
         const eventData = {
@@ -230,24 +205,28 @@
             client_user_agent: navigator.userAgent
           }
         };
-        const blob = new Blob([JSON.stringify(eventData)], {type: 'application/json'});
+        const blob = new Blob([JSON.stringify(eventData)], { type: 'application/json' });
         if (navigator.sendBeacon) {
           navigator.sendBeacon('https://conversion-api-pipe.vercel.app/api/conversion', blob);
         } else {
           fetch('https://conversion-api-pipe.vercel.app/api/conversion', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(eventData)
           });
         }
       } catch (err) {}
       */
+
+      setTimeout(() => {
+        window.location.href = whatsappLink;
+      }, 2500);
     }
 
-    document.getElementById('claimBtn').addEventListener('click', handleClaimClick, {passive:false});
-    document.getElementById('claimBtn').addEventListener('touchstart', handleClaimClick, {passive:true});
+    document.getElementById('claimBtn').addEventListener('click', handleClaimClick, { passive:false });
+    document.getElementById('claimBtn').addEventListener('touchstart', handleClaimClick, { passive:true });
 
-    // Línea de tiempo 30s, barra gris
+    // Timeline JS
     let timeLeft = 30;
     const timelineBar = document.getElementById('timelineBar');
     const timelineTime = document.getElementById('timelineTime');
@@ -255,32 +234,30 @@
       timeLeft -= 1;
       const pct = Math.max(0, (timeLeft / 30) * 100);
       timelineBar.style.width = pct + "%";
-      timelineTime.textContent = (timeLeft > 0 ? timeLeft + "s" : "¡Finalizó!");
-      if(timeLeft > 0) setTimeout(updateTimeline, 1000);
+      timelineTime.textContent = timeLeft > 0 ? timeLeft + "s" : "¡Finalizó!";
+      if (timeLeft > 0) setTimeout(updateTimeline, 1000);
       else timelineBar.style.width = "0%";
     }
     setTimeout(updateTimeline, 1000);
 
     // Testimonios automáticos
     const testimonios = [
-      {name: "Sofía G.", amount: "$137.200", city: "Córdoba"},
-      {name: "Emiliano R.", amount: "$72.900", city: "Rosario"},
-      {name: "Pamela L.", amount: "$210.500", city: "CABA"},
-      {name: "Franco D.", amount: "$48.000", city: "Mar del Plata"},
-      {name: "Lucía V.", amount: "$89.400", city: "Tucumán"},
-      {name: "Gabriel S.", amount: "$127.000", city: "Mendoza"},
-      {name: "Nicolás P.", amount: "$93.200", city: "Salta"},
-      {name: "Martina C.", amount: "$161.600", city: "Santa Fe"},
-      {name: "Florencia B.", amount: "$56.800", city: "La Plata"},
-      {name: "Alejandro T.", amount: "$108.400", city: "San Juan"},
+      { name: "Sofía G.", amount: "$137.200", city: "Córdoba" },
+      { name: "Emiliano R.", amount: "$72.900", city: "Rosario" },
+      { name: "Pamela L.", amount: "$210.500", city: "CABA" },
+      { name: "Franco D.", amount: "$48.000", city: "Mar del Plata" },
+      { name: "Lucía V.", amount: "$89.400", city: "Tucumán" },
+      { name: "Gabriel S.", amount: "$127.000", city: "Mendoza" },
+      { name: "Nicolás P.", amount: "$93.200", city: "Salta" },
+      { name: "Martina C.", amount: "$161.600", city: "Santa Fe" },
+      { name: "Florencia B.", amount: "$56.800", city: "La Plata" },
+      { name: "Alejandro T.", amount: "$108.400", city: "San Juan" }
     ];
     let testIndex = 0;
     function showTestimonial() {
       const t = testimonios[testIndex % testimonios.length];
-      const id = "tpop-"+Date.now();
       const testiDiv = document.createElement('div');
       testiDiv.className = "testimonial-pop";
-      testiDiv.id = id;
       testiDiv.innerHTML = `
         <span class="t-emoji">🎉</span>
         <span class="t-name">${t.name}</span>
@@ -290,12 +267,10 @@
       setTimeout(() => {
         testiDiv.style.opacity = '0.2';
         testiDiv.style.transform = 'translateX(24px) scale(0.93)';
-        setTimeout(()=> {
-          if(testiDiv.parentNode) testiDiv.parentNode.removeChild(testiDiv);
-        }, 1100);
+        setTimeout(() => testiDiv.remove(), 1100);
       }, 4200);
       testIndex++;
-      setTimeout(showTestimonial, Math.random()*1600 + 2000);
+      setTimeout(showTestimonial, Math.random() * 1600 + 2000);
     }
     setTimeout(showTestimonial, 1200);
   </script>
