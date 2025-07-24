@@ -25,11 +25,9 @@
     body {
       margin: 0;
       min-height: 100vh;
-      background:
-        repeating-linear-gradient(120deg, #bc24e2 0px, #bc24e2 7px, transparent 12px, transparent 24px),
-        repeating-linear-gradient(60deg, #a600be80 0px, #a600be80 10px, transparent 16px, transparent 32px),
-        radial-gradient(circle at 50% 30%, #e300f7 0%, #64009b 100%);
-      background-blend-mode: screen, multiply, normal;
+      /* Fondo: imagen que enviaste, repeat */
+      background: url('logo-07.png') repeat center center, #060015;
+      background-size: 340px 340px;
       font-family: 'Montserrat', Arial, sans-serif;
       display: flex;
       flex-direction: column;
@@ -50,25 +48,23 @@
     .joker-header img {
       margin: 0;
       margin-top: 0;
-      max-width: 440px;
-      width: 96vw;
+      max-width: 460px;
+      width: 99vw;
       height: auto;
       display: block;
       border-radius: 1.2em;
       background: transparent;
       box-shadow: 0 0 44px #b500e399, 0 4px 20px #3f014c80;
-      filter:
-        drop-shadow(0 0 24px #a627f5)
-        drop-shadow(0 0 44px #ba1af780);
+      filter: drop-shadow(0 0 22px #330050);
     }
     .welcome-text {
-      font-size: 3.2rem;
+      font-size: 3.5rem;
       font-weight: 900;
       text-align: center;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       margin-top: 0;
-      line-height: 1.02;
-      text-shadow: 0 2px 22px #0007, 0 0px 16px #fff4;
+      line-height: 1.05;
+      text-shadow: 0 2px 22px #0008, 0 0px 14px #fff4;
       letter-spacing: 2px;
       display: block;
       padding: 0;
@@ -93,7 +89,7 @@
     .extra-neon {
       margin-top: 10px;
       margin-bottom: 10px;
-      font-size: 2.3rem;
+      font-size: 2.5rem;
       font-weight: 800;
       text-align: center;
       color: #39ff14;
@@ -263,7 +259,7 @@
 
     @media (max-width: 600px) {
       .joker-header img { max-width: 98vw; }
-      .welcome-text { font-size: 1.6rem; }
+      .welcome-text { font-size: 1.65rem; }
       .extra-neon { font-size: 1.2rem; }
       .testimonial-pop {
         font-size: 0.99rem;
@@ -276,7 +272,7 @@
 </head>
 <body>
   <div class="joker-header">
-    <img src="jewels" alt="Joker's Jewels" draggable="false">
+    <img src="jokers-jewels-logo.webp" alt="Joker's Jewels" draggable="false">
     <div class="welcome-text">
       <span class="welcome-yellow">¡Bienvenid@s a </span><span class="welcome-white">Ganamos.net!</span>
     </div>
