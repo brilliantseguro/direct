@@ -1,30 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- -------------------------------------------------------- -->
+  <!-- Encabezado principal                                      -->
+  <!-- -------------------------------------------------------- -->
   <meta charset="UTF-8">
   <title>¡Reclama tu Bono! | Ganamos.net</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Import de Google Fonts -->
+  <!-- -------------------------------------------------------- -->
+  <!-- Google Fonts: Montserrat, Anton                        -->
+  <!-- -------------------------------------------------------- -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Anton&display=swap" rel="stylesheet">
 
+  <!-- -------------------------------------------------------- -->
+  <!-- Estilos CSS                                           -->
+  <!-- -------------------------------------------------------- -->
   <style>
-    /* ------------------------------------------------------ */
-    /* Reset básico                                              */
-    /* ------------------------------------------------------ */
+    /* ======================================================== */
+    /* Reset global                                              */
+    /* ======================================================== */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    /* ------------------------------------------------------ */
-    /* Fondo oscuro con textura paño de casino                 */
-    /* ------------------------------------------------------ */
+    /* ======================================================== */
+    /* Cuerpo: fondo con textura de paño de casino y tipografía */
+    /* ======================================================== */
     body {
       min-height: 100vh;
-      background-color: #4c004c;
-      background-image: url('casino-fabric-texture.png');
+      background-color: #4c004c;                                     /* tono púrpura oscuro */
+      background-image: url('casino-fabric-texture.png');            /* textura paño */
       background-repeat: repeat;
       font-family: 'Montserrat', Arial, sans-serif;
       color: #f0f0f0;
@@ -32,15 +40,15 @@
       flex-direction: column;
       align-items: center;
       overflow-x: hidden;
-      padding-top: 20px;
+      padding-top: 10px;                                               /* reducir espacio superior */
     }
 
-    /* ------------------------------------------------------ */
-    /* Testimonios: contenedor fijo y separación entre ítems    */
-    /* ------------------------------------------------------ */
+    /* ======================================================== */
+    /* Testimonios flotantes                                     */
+    /* ======================================================== */
     .testimonials-container {
       position: fixed;
-      top: 10px;
+      top: 5px;
       right: 5vw;
       width: 250px;
       pointer-events: none;
@@ -52,45 +60,49 @@
       align-items: center;
       background: rgba(0, 0, 0, 0.6);
       border-radius: 8px;
-      padding: 8px 12px;
-      margin-bottom: 12px; /* mayor separación */
+      padding: 6px 10px;
+      margin-bottom: 10px;                                             /* separación aumentada */
       color: #0f0;
       box-shadow: 0 2px 6px rgba(0,0,0,0.4);
     }
     .testimonial-pop .t-icon {
       margin-right: 6px;
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
 
-    /* ------------------------------------------------------ */
-    /* Logo principal (Joker) arriba y con margen reducido      */
-    /* ------------------------------------------------------ */
+    /* ======================================================== */
+    /* Cabecera: logo Joker's Jewels arriba de todo             */
+    /* ======================================================== */
     .joker-header {
       width: 100%;
       text-align: center;
-      margin: 0 0 15px; /* menos espacio inferior */
+      margin: 0 0 10px;                                               /* menos espacio inferior */
       order: -1;
     }
     .joker-header img {
       max-width: 360px;
       width: 85vw;
       border-radius: 1em;
-      filter: drop-shadow(0 0 25px rgba(24,240,255,0.8)) drop-shadow(0 0 70px rgba(28,127,255,0.6));
+      filter:
+        drop-shadow(0 0 25px rgba(24,240,255,0.8))
+        drop-shadow(0 0 70px rgba(28,127,255,0.6));
       transition: transform 0.3s ease, filter 0.3s ease;
     }
     .joker-header img:hover {
       transform: scale(1.05);
-      filter: drop-shadow(0 0 35px rgba(24,240,255,1)) drop-shadow(0 0 90px rgba(28,127,255,0.8));
+      filter:
+        drop-shadow(0 0 35px rgba(24,240,255,1))
+        drop-shadow(0 0 90px rgba(28,127,255,0.8));
     }
 
-    /* ------------------------------------------------------ */
-    /* Mensaje de bienvenida                                    */
-    /* ------------------------------------------------------ */
+    /* ======================================================== */
+    /* Menú principal: texto degradado y sombras                 */
+    /* ======================================================== */
     .main-menu {
       text-align: center;
       font-size: 1.6rem;
       letter-spacing: 1px;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
     }
     .main-menu .welcome-yellow {
@@ -106,15 +118,15 @@
       -webkit-text-fill-color: transparent;
     }
 
-    /* ------------------------------------------------------ */
-    /* Oferta extra 20% con animación de brillo                  */
-    /* ------------------------------------------------------ */
+    /* ======================================================== */
+    /* Oferta: 20% EXTRA con animación de brillo                */
+    /* ======================================================== */
     .extra-offer {
       font-family: 'Anton', sans-serif;
       font-size: 3rem;
       text-align: center;
       color: #fff;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       text-shadow: 3px 3px 6px rgba(0,0,0,0.6);
       animation: textGlow 2s ease-in-out infinite alternate;
     }
@@ -123,29 +135,28 @@
       to   { text-shadow: 4px 4px 12px rgba(255,255,255,1); }
     }
 
-    /* ------------------------------------------------------ */
-    /* Contenedor principal: centra el botón verticalmente      */
-    /* ------------------------------------------------------ */
+    /* ======================================================== */
+    /* Contenido principal                                     */
+    /* ======================================================== */
     .main-content {
       width: 100vw;
       max-width: 480px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      flex-grow: 1;
-      justify-content: center; /* centra verticalmente */
-      padding-bottom: 40px;
+      justify-content: flex-start;                                    /* iniciar desde arriba */
+      margin-bottom: 20px;
     }
 
-    /* ------------------------------------------------------ */
-    /* Botón de reclamo con nuevo icono de WhatsApp blanco      */
-    /* ------------------------------------------------------ */
+    /* ======================================================== */
+    /* Botón de reclamo con icono de WhatsApp y animaciones      */
+    /* ======================================================== */
     .claim-btn {
-      margin: 10px 0;
-      padding: 18px 50px;
+      margin: 5px 0 10px;
+      padding: 16px 40px;
       background: linear-gradient(90deg, #00ff90, #00e049);
       color: #fff;
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 800;
       border: none;
       border-radius: 2em;
@@ -154,56 +165,55 @@
       display: flex;
       align-items: center;
       text-shadow: 0 2px 8px rgba(0,106,61,0.6);
-      animation: btnShine 1s ease-in-out infinite alternate, btnBlink 0.8s ease-in-out infinite;
+      animation: btnShine 1s ease-in-out infinite alternate,
+                 btnBlink 0.8s ease-in-out infinite;
       transition: transform 0.15s ease;
       outline: none;
     }
     .claim-btn .whatsapp-icon {
       width: 1.6em;
       height: 1.6em;
-      margin-right: 10px;
+      margin-right: 8px;
       filter: brightness(0) invert(1);
     }
     @keyframes btnShine { from { box-shadow: 0 0 10px rgba(0,255,144,0.5); } to { box-shadow: 0 0 30px rgba(0,255,144,1); } }
     @keyframes btnBlink { 0%,100% { opacity: 1; } 50% { opacity: 0.85; } }
     .claim-btn:hover, .claim-btn:focus { transform: translateY(-2px) scale(1.02); }
 
-    /* ------------------------------------------------------ */
-    /* Línea de tiempo con indicador de texto dinámico           */
-    /* ------------------------------------------------------ */
+    /* ======================================================== */
+    /* Línea de tiempo: etiqueta dinámica y barra plateada      */
+    /* ======================================================== */
     .timeline-section {
       width: 90vw;
       max-width: 480px;
       text-align: center;
-      margin-top: 20px;
+      margin-top: 10px;
     }
     .timeline-label {
       font-weight: 800;
-      font-size: 1.4rem;
-      margin-bottom: 8px;
+      font-size: 1.3rem;
+      margin-bottom: 4px;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
     }
     .timeline-bar-bg {
       position: relative;
-      height: 24px;
-      background: #bbb;
-      border-radius: 14px;
+      height: 20px;
+      background: #bbb;                                                /* fondo gris */
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: inset 0 0 8px rgba(0,0,0,0.4);
+      box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
     }
     .timeline-bar {
       position: absolute;
       top: 0; left: 0;
       height: 100%;
       background: linear-gradient(90deg, #f0f0f0, #ccc 70%, #eee);
-      border-radius: 14px;
+      border-radius: 12px;
       transition: width 0.2s linear;
-      box-shadow: 0 0 8px rgba(255,255,255,0.8);
+      box-shadow: 0 0 6px rgba(255,255,255,0.8);
     }
 
-    /* ------------------------------------------------------ */
-    /* Responsive                                               */
-    /* ------------------------------------------------------ */
+    /* Responsive para móviles */
     @media (max-width: 600px) {
       .testimonials-container { right: 5vw; width: 90vw; }
     }
@@ -211,24 +221,34 @@
 </head>
 <body>
 
-  <!-- Contenedor de testimonios flotantes arriba -->
+  <!-- -------------------------------------------------------- -->
+  <!-- Testimonios flotantes arriba                             -->
+  <!-- -------------------------------------------------------- -->
   <div class="testimonials-container" id="testimonials"></div>
 
-  <!-- Logo principal de Joker -->
+  <!-- -------------------------------------------------------- -->
+  <!-- Cabecera: Logo de Joker's Jewels                         -->
+  <!-- -------------------------------------------------------- -->
   <div class="joker-header">
     <img src="jokers.png" alt="Joker's Jewels Logo" draggable="false">
   </div>
 
-  <!-- Texto de bienvenida y oferta extra -->
+  <!-- -------------------------------------------------------- -->
+  <!-- Mensaje de bienvenida y oferta extra                     -->
+  <!-- -------------------------------------------------------- -->
   <div class="main-menu">
-    <span class="welcome-yellow">¡BIENVENID@S A</span> <span class="welcome-white">GANAMOS.NET!</span>
+    <span class="welcome-yellow">¡BIENVENID@S A</span>
+    <span class="welcome-white">GANAMOS.NET!</span>
   </div>
   <div class="extra-offer">20% EXTRA</div>
 
-  <!-- Contenido principal: botón centrado y timeline -->
+  <!-- -------------------------------------------------------- -->
+  <!-- Contenido principal: botón y timeline                    -->
+  <!-- -------------------------------------------------------- -->
   <div class="main-content">
     <button id="claimBtn" class="claim-btn">
-      <img src="whatsapp-icon-new.png" class="whatsapp-icon" alt="WhatsApp Icon">¡RECLAMA TU BONO!
+      <img src="306350ba-b362-48fe-a625-0e0bd694f103.png" class="whatsapp-icon" alt="WhatsApp Icon">
+      ¡RECLAMA TU BONO!
     </button>
 
     <div class="timeline-section">
@@ -239,9 +259,13 @@
     </div>
   </div>
 
-  <!-- Scripts: clic, timeline, testimonios -->
+  <!-- -------------------------------------------------------- -->
+  <!-- Script: manejo de clic, timeline y testimonios            -->
+  <!-- -------------------------------------------------------- -->
   <script>
-    // Configuración WhatsApp y Pixel
+    // -------------------------------------------------------
+    // Configuración de WhatsApp y Meta Pixel
+    // -------------------------------------------------------
     const whatsappNumber = "3413673839";
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hola!%20Quiero%20reclamar%20mi%20bono%20de%20casino`;
 
@@ -250,13 +274,44 @@
       const btn = document.getElementById('claimBtn');
       btn.innerText = 'Redirigiendo a WhatsApp...';
       btn.disabled = true;
-      if (typeof fbq === 'function') fbq('trackCustom', 'ClickWhatsAap');
-      setTimeout(() => window.location.href = whatsappLink, 2500);
+
+      // Pixel Meta tracking
+      if (typeof fbq === 'function') {
+        fbq('trackCustom', 'ClickWhatsAap');
+      }
+
+      // Conversion API (comentado porque puede requerir CSP)
+      /*
+      try {
+        const eventData = {
+          event_name: 'ClickWhatsAap',
+          event_source_url: window.location.href,
+          user_data: { client_user_agent: navigator.userAgent }
+        };
+        const blob = new Blob([JSON.stringify(eventData)], { type: 'application/json' });
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon('https://conversion-api-pipe.vercel.app/api/conversion', blob);
+        } else {
+          fetch('https://conversion-api-pipe.vercel.app/api/conversion', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(eventData)
+          });
+        }
+      } catch (err) {}
+      */
+
+      setTimeout(() => {
+        window.location.href = whatsappLink;
+      }, 2500);
     }
+
     document.getElementById('claimBtn').addEventListener('click', handleClaimClick, { passive: false });
     document.getElementById('claimBtn').addEventListener('touchstart', handleClaimClick, { passive: true });
 
-    // Timeline dinámico
+    // -------------------------------------------------------
+    // Función de timeline dinámica
+    // -------------------------------------------------------
     let timeLeft = 30;
     const bar = document.getElementById('timelineBar');
     const label = document.getElementById('timelineLabel');
@@ -274,7 +329,9 @@
     }
     setTimeout(updateTimeline, 1000);
 
-    // Testimonios automáticos
+    // -------------------------------------------------------
+    // Automatización de testimonios
+    // -------------------------------------------------------
     const testimonios = [
       { name: "Sofía G.", amount: "$137.200", city: "Córdoba" },
       { name: "Emiliano R.", amount: "$72.900", city: "Rosario" },
