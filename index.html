@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>¡Reclama tu Bono! | Joker Jewels Casino</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- No ponemos CSP estricta para máxima compatibilidad en GitHub Pages -->
   <!-- Pixel Meta -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -26,11 +25,12 @@
     body {
       margin: 0;
       min-height: 100vh;
-      /* Fondo base violeta con textura de paño de casino */
+      /* NUEVA textura de paño de casino */
       background: 
-        repeating-linear-gradient(135deg, #a27be2 0px, #a27be2 2px, transparent 3px, transparent 7px),
-        repeating-linear-gradient(45deg, #bd8ddf 0px, #bd8ddf 1.5px, transparent 3px, transparent 8px),
-        radial-gradient(circle at 60% 40%, #9D50BB 0%, #6E48AA 100%);
+        repeating-linear-gradient(135deg, #a27be240 0px, #a27be2b0 8px, transparent 12px, transparent 24px),
+        repeating-linear-gradient(45deg, #bd8ddf30 0px, #bd8ddf77 4px, transparent 9px, transparent 23px),
+        radial-gradient(circle at 60% 40%, #a368d6 0%, #4e2376 100%);
+      background-blend-mode: multiply, screen, normal;
       font-family: 'Montserrat', Arial, sans-serif;
       display: flex;
       flex-direction: column;
@@ -38,64 +38,92 @@
       justify-content: flex-start;
       position: relative;
       overflow-x: hidden;
-      background-blend-mode: multiply;
     }
     .joker-header {
-      margin-top: 38px;
-      margin-bottom: 10px;
+      margin: 0;
+      margin-top: 22px;
       text-align: center;
-    }
-    .joker-header img {
-      max-width: 340px;
-      width: 84vw;
-      height: auto;
-      filter:
-        drop-shadow(0 0 28px #18f0ff)
-        drop-shadow(0 0 72px #1c7fff99)
-        drop-shadow(0 6px 12px #042e44c0)
-      ;
-      border-radius: 1em;
-      background: transparent;
-    }
-    .main-content {
-      margin: 0 auto;
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+    }
+    .joker-header img {
+      max-width: 220px;
+      width: 70vw;
+      height: auto;
+      filter:
+        drop-shadow(0 0 16px #18f0ff)
+        drop-shadow(0 0 34px #1c7fff88)
+        drop-shadow(0 4px 7px #042e44b0)
+      ;
+      border-radius: 1.2em;
+      background: transparent;
+      margin-bottom: 16px;
+    }
+    .welcome-text {
+      font-size: 2.25rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 18px;
+      margin-top: 0;
+      line-height: 1.14;
+      text-shadow: 0 2px 14px #0007, 0 0px 8px #fff6;
+      letter-spacing: 1.5px;
+    }
+    .welcome-yellow {
+      color: #ffe657;
+    }
+    .welcome-white {
+      color: #fff;
+      font-weight: 900;
+      letter-spacing: 2.1px;
+      text-shadow: 0 2px 14px #4c35b3, 0 0px 6px #fff7;
+    }
+    .main-content {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
       width: 100vw;
     }
     .claim-btn {
-      margin: 38px auto 10px auto;
-      padding: 28px 60px;
+      margin: 16px auto 10px auto;
+      padding: 16px 32px;
       background: linear-gradient(90deg,#00ff90,#00e049 70%);
       color: #fff;
-      font-size: 2.2rem;
+      font-size: 1.45rem;
       font-weight: 800;
       border: none;
       border-radius: 2em;
-      box-shadow: 0 2px 24px #00ff9090;
+      box-shadow: 0 2px 18px #00ff9090;
       cursor: pointer;
       animation: shine 0.6s alternate infinite, titilar 0.8s infinite;
       text-shadow: 0 2px 8px #006a3d90, 0 0px 20px #0f0;
-      transition: transform .15s;
+      transition: transform .15s cubic-bezier(.22,1.01,.36,.98), box-shadow .17s;
       z-index: 3;
       letter-spacing: 1.2px;
       outline: none;
+      display: block;
+    }
+    .claim-btn:hover, .claim-btn:focus-visible {
+      transform: scale(1.08);
+      box-shadow: 0 8px 32px #00ff90b9;
     }
     @keyframes titilar {
-      0% { box-shadow: 0 0 32px #0f0,0 2px 24px #00ff9090; }
-      50% { box-shadow: 0 0 12px #0f0,0 2px 14px #00ff9090; }
-      100% { box-shadow: 0 0 32px #0f0,0 2px 24px #00ff9090; }
+      0% { box-shadow: 0 0 20px #0f0,0 2px 14px #00ff9090; }
+      50% { box-shadow: 0 0 10px #0f0,0 2px 9px #00ff9080; }
+      100% { box-shadow: 0 0 20px #0f0,0 2px 14px #00ff9090; }
     }
     @keyframes shine {
       0% { filter: brightness(1); }
-      100% { filter: brightness(1.14); }
+      100% { filter: brightness(1.13); }
     }
     .timeline-section {
-      width: 96vw;
-      max-width: 480px;
-      margin: 26px auto 18px auto;
+      width: 94vw;
+      max-width: 400px;
+      margin: 10px auto 14px auto;
       text-align: center;
       z-index: 2;
     }
@@ -135,7 +163,7 @@
     }
     .testimonials-container {
       position: fixed;
-      top: 22vh;
+      top: 17vh;
       right: 12px;
       width: 330px;
       max-width: 87vw;
@@ -144,6 +172,8 @@
       font-size: 1rem;
     }
     @media (max-width: 600px) {
+      .joker-header img { max-width: 170px; }
+      .welcome-text { font-size: 1.45rem; }
       .testimonials-container {
         top: auto;
         bottom: 3vh;
@@ -191,7 +221,10 @@
 </head>
 <body>
   <div class="joker-header">
-    <img src="jokers-jewels.png" alt="Joker's Jewels" draggable="false">
+    <img src="jewels" alt="Joker's Jewels" draggable="false">
+    <div class="welcome-text">
+      <span class="welcome-yellow">¡Bienvenid@s a </span><span class="welcome-white">Ganamos.net!</span>
+    </div>
   </div>
   <div class="main-content">
     <button id="claimBtn" class="claim-btn">
