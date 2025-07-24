@@ -45,7 +45,7 @@
     }
     .joker-header img {
       margin-top: 0;
-      margin-bottom: -38px;
+      margin-bottom: -30px;  /* Bienvenida pegada */
       max-width: 320px;
       width: 70vw;
       height: auto;
@@ -59,7 +59,7 @@
       font-weight: 900;
       text-align: center;
       margin-top: 0;
-      margin-bottom: 25px;
+      margin-bottom: 22px;
       line-height: 1;
       letter-spacing: 1px;
       color: #ffe657;
@@ -113,9 +113,9 @@
       100% { filter: brightness(1.13);}
     }
     .extra-neon {
-      margin-top: 0;
-      margin-bottom: 13px;
-      font-size: 3.8rem;
+      margin-top: 12px;       /* Más espacio arriba, bajado apenas */
+      margin-bottom: 20px;
+      font-size: 4.6rem;      /* Más grande */
       font-weight: 900;
       text-align: center;
       color: #fff;
@@ -126,28 +126,24 @@
       pointer-events: none;
       font-family: 'Montserrat', Arial, sans-serif;
       transition: font-size .28s;
-      line-height: 1.08;
+      line-height: 1.09;
     }
-    .logo-ganamos-footer {
-      width: 340px;
-      max-width: 84vw;
-      margin: 24px auto 0 auto;
-      display: block;
-      opacity: 0.99;
-      filter: drop-shadow(0 0 20px #1a0937b0);
-      pointer-events: none;
-      user-select: none;
-      transition: width .2s;
+    .ganamos-bloque {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 0;
+      margin-bottom: 0;
     }
     .timeline-section {
       width: 96vw;
       max-width: 420px;
-      margin: 4px auto 0 auto;
+      margin: 0 auto 0 auto;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 0px;
+      margin-bottom: 1px;
     }
     .timeline-row {
       display: flex;
@@ -185,13 +181,24 @@
       overflow: hidden;
       box-shadow: 0 2px 8px #8884;
       margin-top: 4px;
-      margin-bottom: 4px; /* ¡Pegada al logo! */
+      margin-bottom: 2px; /* ¡Pegada al logo! */
+    }
+    .logo-ganamos-footer {
+      width: 340px;
+      max-width: 84vw;
+      margin: 5px auto 0 auto;
+      display: block;
+      opacity: 0.99;
+      filter: drop-shadow(0 0 20px #1a0937b0);
+      pointer-events: none;
+      user-select: none;
+      transition: width .2s;
     }
     @media (max-width: 600px) {
       .joker-header img { max-width: 93vw; }
-      .welcome-text { font-size: 11vw; }
-      .logo-ganamos-footer { width: 85vw; margin-top: 17px;}
-      .extra-neon { font-size: 8vw;}
+      .welcome-text { font-size: 13vw; }
+      .logo-ganamos-footer { width: 85vw; margin-top: 4px;}
+      .extra-neon { font-size: 10vw;}
     }
   </style>
 </head>
@@ -207,15 +214,17 @@
       ¡RECLAMA TU BONO!
     </button>
     <div class="extra-neon">20% EXTRA</div>
-    <img src="logo_Mesa de trabajo 1.png" alt="Ganamos.net" class="logo-ganamos-footer">
-    <div class="timeline-section">
-      <div class="timeline-row">
-        <span class="timeline-label">Tiempo para reclamar el bono</span>
-        <span id="timelineTime" class="timeline-time">30s</span>
+    <div class="ganamos-bloque">
+      <div class="timeline-section">
+        <div class="timeline-row">
+          <span class="timeline-label">Tiempo para reclamar el bono</span>
+          <span id="timelineTime" class="timeline-time">30s</span>
+        </div>
+        <div class="timeline-bar-bg">
+          <div id="timelineBar" class="timeline-bar" style="width:100%"></div>
+        </div>
       </div>
-      <div class="timeline-bar-bg">
-        <div id="timelineBar" class="timeline-bar" style="width:100%"></div>
-      </div>
+      <img src="logo_Mesa de trabajo 1.png" alt="Ganamos.net" class="logo-ganamos-footer">
     </div>
   </div>
   <script>
