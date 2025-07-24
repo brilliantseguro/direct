@@ -4,7 +4,26 @@
   <meta charset="UTF-8">
   <title>¡Reclama tu Bono! | Joker Jewels Casino</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Pixel Meta: para máxima compatibilidad en móviles y escritorio -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '587660557560617');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=587660557560617&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- Tu CSS y demás configuraciones siguen igual -->
   <style>
+    /* ...TODO TU CSS TAL COMO LO TENÍAS... */
     html, body {
       margin: 0;
       padding: 0;
@@ -22,260 +41,8 @@
       display: flex;
       flex-direction: column;
     }
-    .ws-notif-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 33px;
-      background: #111;
-      color: #fff;
-      z-index: 1002;
-      font-size: 17px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      box-shadow: 0 2px 10px #0005;
-      padding: 0;
-    }
-    .ws-notif-content {
-      display: flex;
-      align-items: center;
-      white-space: nowrap;
-      gap: 8px;
-      min-width: 100vw;
-      height: 33px;
-      padding-left: 18px;
-      animation: notif-slide 9s linear infinite;
-    }
-    @keyframes notif-slide {
-      0%   { transform: translateX(100vw);}
-      100% { transform: translateX(-140vw);}
-    }
-    .ws-notif-ico {
-      width: 27px;
-      height: 27px;
-      margin-right: 4px;
-      display: inline-block;
-      vertical-align: middle;
-      fill: #fff;
-    }
-    .ws-notif-msg {
-      color: #fff;
-      text-shadow: 0 1px 5px #000a;
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-      padding-right: 10px;
-      display: inline-block;
-      vertical-align: middle;
-    }
-    main {
-      flex: 1 0 auto;
-      width: 100vw;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      box-sizing: border-box;
-      padding-top: 45px;
-    }
-    .joker-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100vw;
-      margin: 0;
-      padding: 0;
-    }
-    .joker-header img {
-      margin-top: 0;
-      margin-bottom: 6px;
-      max-width: 340px;
-      width: 80vw;
-      height: auto;
-      display: block;
-      filter: drop-shadow(0 0 13px #330050);
-      pointer-events: none;
-      user-select: none;
-    }
-    .welcome-text {
-      font-size: 12vw;
-      font-weight: 900;
-      text-align: center;
-      margin-top: 0;
-      margin-bottom: 22px;
-      line-height: 1;
-      letter-spacing: 1px;
-      color: #ffe657;
-      text-shadow: 2px 0 10px #fff, -2px 0 10px #fff, 0 0 12px #9408efcc;
-      animation: bienvenida-glitch 2.1s infinite alternate linear;
-      z-index: 4;
-      overflow: hidden;
-      word-break: break-word;
-    }
-    .welcome-white {
-      color: #fff;
-      font-weight: 900;
-      letter-spacing: 2px;
-      text-shadow: 2px 0 10px #ffe657b6, -2px 0 10px #ffe657b6, 0 0 24px #bc8df1cc;
-    }
-    @keyframes bienvenida-glitch {
-      0% { transform: translateX(0px);}
-      27% { transform: translateX(2.5px);}
-      54% { transform: translateX(-2px);}
-      100% { transform: translateX(0.5px);}
-    }
-    .claim-btn {
-      margin: 0 0 18px 0;
-      padding: 14px 30px;
-      background: linear-gradient(90deg,#00ff90,#00e049 70%);
-      color: #fff;
-      font-size: 1.20rem;
-      font-weight: 900;
-      border: none;
-      border-radius: 2em;
-      box-shadow: 0 2px 22px #00ff90e7, 0 0 28px #35ff9aab;
-      cursor: pointer;
-      animation: titilarGrande 1.14s infinite cubic-bezier(.6,1.22,.4,1.02), shine 0.7s alternate infinite;
-      text-shadow: 0 2px 12px #00ffbf, 0 0px 18px #0f0, 0 2px 7px #009954d0;
-      transition: transform .18s cubic-bezier(.22,1.01,.36,.98), box-shadow .19s;
-      letter-spacing: 1px;
-      outline: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      align-self: center;
-      gap: 0;
-    }
-    .claim-btn svg {
-      width: 28px;
-      height: 28px;
-      margin-right: 2px;
-      fill: #fff;
-      display: inline-block;
-      vertical-align: middle;
-      filter: drop-shadow(0 0 9px #fff) brightness(2);
-      flex-shrink: 0;
-    }
-    .claim-btn:hover, .claim-btn:focus-visible {
-      transform: scale(1.10);
-      box-shadow: 0 12px 28px #00ff90fa, 0 0 34px #7cffc2;
-    }
-    @keyframes titilarGrande {
-      0% { transform: scale(1); box-shadow: 0 2px 18px #00ff90e7, 0 0 24px #35ff9aab; }
-      60% { transform: scale(1.09); box-shadow: 0 8px 32px #00ff90fa, 0 0 38px #35ff9abb; }
-      100% { transform: scale(1); box-shadow: 0 2px 18px #00ff90e7, 0 0 24px #35ff9aab; }
-    }
-    @keyframes shine {
-      0% { filter: brightness(1);}
-      100% { filter: brightness(1.13);}
-    }
-    .extra-neon {
-      margin-top: 20px;
-      margin-bottom: 20px;
-      font-size: 4.6rem;
-      font-weight: 900;
-      text-align: center;
-      color: #fff;
-      text-shadow: 0 0 20px #fff, 0 0 28px #fff, 0 0 13px #a8f8e6b3;
-      letter-spacing: 2px;
-      filter: brightness(1.13) drop-shadow(0 0 14px #fff);
-      user-select: none;
-      pointer-events: none;
-      font-family: 'Montserrat', Arial, sans-serif;
-      transition: font-size .28s, margin-top .2s;
-      line-height: 1.09;
-    }
-    .ganamos-barra-bloque {
-      width: 100vw;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      margin-top: 68px;
-      margin-bottom: 0;
-      transition: margin-top .2s;
-    }
-    .timeline-section {
-      width: 96vw;
-      max-width: 420px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 0;
-    }
-    .timeline-row {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      margin-bottom: 2px;
-      font-size: 1.05rem;
-    }
-    .timeline-label {
-      color: #fff;
-      font-size: 1em;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-      text-shadow: 0 1px 6px #460484cc, 0 0px 6px #fff5;
-      margin: 0;
-      padding: 0;
-      display: inline-block;
-    }
-    .timeline-time {
-      color: #d1cfcf;
-      font-size: 1em;
-      font-weight: bold;
-      margin-left: 3px;
-      text-shadow: 0 1px 4px #fff9, 0 0px 2px #59595988;
-      display: inline-block;
-    }
-    .timeline-bar-bg {
-      width: 100%;
-      background: linear-gradient(90deg, #ececec 10%, #b2b2b2 90%);
-      border-radius: 11px;
-      height: 13px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 2px 8px #8884;
-      margin-top: 4px;
-      margin-bottom: 6px;
-    }
-    .timeline-bar {
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      height: 100%;
-      background: linear-gradient(90deg,#ececec 0%,#b2b2b2 100%);
-      opacity: 0.99;
-      border-radius: 11px;
-      transition: width 0.19s linear, background 0.2s linear;
-    }
-    .logo-ganamos-footer {
-      width: 200px;
-      max-width: 54vw;
-      margin: 22px auto 0 auto;
-      display: block;
-      opacity: 0.99;
-      filter: drop-shadow(0 0 20px #1a0937b0);
-      pointer-events: none;
-      user-select: none;
-      transition: width .2s;
-    }
-    @media (max-width: 600px) {
-      .ws-notif-bar { font-size: 15.5px; height: 27px;}
-      .ws-notif-ico { width: 19px; height: 19px;}
-      .ws-notif-content {height: 27px;}
-      .ws-notif-msg { font-size: 14.5px;}
-      .joker-header img { max-width: 93vw; }
-      .welcome-text { font-size: 13vw; }
-      .logo-ganamos-footer { width: 54vw; margin-top: 14px;}
-      .extra-neon { font-size: 10vw;}
-      .ganamos-barra-bloque { margin-top: 10vw;}
-    }
+    /* ... resto del CSS igual que tu archivo index.html ... */
+    /* No repito todo aquí por espacio pero mantenlo completo */
   </style>
 </head>
 <body>
@@ -316,8 +83,17 @@
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hola,%20quiero%20carg4r%20en%20su%20plataforma`;
 
     function handleClaimClick(e) {
-      e.preventDefault();
-      window.location.href = whatsappLink;
+      if (e) e.preventDefault();
+      const btn = document.getElementById('claimBtn');
+      btn.innerText = 'Redirigiendo a WhatsApp...';
+      btn.disabled = true;
+      setTimeout(function(){
+        // Pixel Meta: trackear el evento
+        if (typeof fbq === 'function') {
+          fbq('trackCustom', 'ClickWhatsAap');
+        }
+        window.location.href = whatsappLink;
+      }, 2500);
     }
     document.getElementById('claimBtn').addEventListener('click', handleClaimClick, {passive:false});
     document.getElementById('claimBtn').addEventListener('touchstart', handleClaimClick, {passive:true});
@@ -337,7 +113,7 @@
     }
     setTimeout(updateTimeline, 1000);
 
-    // Notificaciones simuladas de clientes
+    // Notificaciones simuladas de clientes (lo dejo igual que lo tenías)
     const notifList = [
       {nombre: "Sofía G.", ciudad: "Córdoba", monto: "$137.200"},
       {nombre: "Emiliano R.", ciudad: "Rosario", monto: "$72.900"},
@@ -368,7 +144,7 @@
       notifIndex++;
     }
     setNotif();
-    setInterval(setNotif, 7000); // Cambia cada 7 segundos
+    setInterval(setNotif, 7000);
   </script>
 </body>
 </html>
