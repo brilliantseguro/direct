@@ -17,15 +17,14 @@
         linear-gradient(120deg, #a23ee3 0%, #21002b 100%);
       background-blend-mode: multiply, screen, multiply, multiply, normal;
       font-family: 'Montserrat', Arial, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      height: 100vh;
       overflow-x: hidden;
+      position: relative;
     }
     .main-wrapper {
       width: 100vw;
-      min-height: 100vh;
+      height: 100vh;
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -40,11 +39,12 @@
       margin: 0;
       padding: 0;
       position: relative;
+      z-index: 2;
     }
     .joker-header img {
       margin: 0;
-      margin-top: 1vw;          /* Más arriba */
-      margin-bottom: -85px;     /* Pegado al texto bienvenida */
+      margin-top: 0;            /* ¡Al tope! */
+      margin-bottom: -75px;     /* Pegado al texto bienvenida */
       max-width: 340px;
       width: 78vw;
       height: auto;
@@ -57,7 +57,7 @@
       user-select: none;
     }
     @media (max-width: 500px) {
-      .joker-header img { max-width: 93vw; margin-top: 1vw; }
+      .joker-header img { max-width: 93vw; }
     }
     .welcome-text {
       font-size: 13vw;
@@ -97,15 +97,20 @@
       54% { transform: translateX(-2px);}
       100% { transform: translateX(0.5px);}
     }
-    .main-content {
+    /* Bloque central absoluto para centrar el botón en el viewport */
+    .center-content {
+      position: absolute;
+      left: 50%;
+      top: 53.5%; /* Ajusta aquí si quieres más o menos alto */
+      transform: translate(-50%, -50%);
       width: 100vw;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 0;
+      z-index: 3;
     }
     .claim-btn {
-      margin: 18px 0 12px 0;  /* Pequeño espacio arriba respecto a bienvenida */
+      margin: 0 0 12px 0;
       padding: 20px 46px;
       background: linear-gradient(90deg,#00ff90,#00e049 70%);
       color: #fff;
@@ -138,7 +143,7 @@
     }
     .extra-neon {
       margin-top: 0;
-      margin-bottom: 5px; /* Más cerca de la barra */
+      margin-bottom: 4px;
       font-size: 6.3rem;
       font-weight: 900;
       text-align: center;
@@ -155,14 +160,10 @@
       transition: font-size .28s;
       line-height: 1.06;
     }
-    @media (max-width: 600px) {
-      .extra-neon { font-size: 15vw; }
-      .logo-ganamos-footer { width: 90vw; }
-    }
     .timeline-section {
       width: 96vw;
       max-width: 390px;
-      margin: 6px auto 0 auto; /* Mucho menos margen */
+      margin: 6px auto 0 auto;
       text-align: center;
       z-index: 2;
       display: flex;
@@ -225,6 +226,7 @@
       pointer-events: none;
       user-select: none;
       transition: width .2s;
+      z-index: 1;
     }
     @media (max-width: 600px) {
       .logo-ganamos-footer { width: 90vw; margin-top: -110px;}
@@ -239,7 +241,7 @@
         ¡Bienvenid@s a <span class="welcome-white">Ganamos.net!</span>
       </div>
     </div>
-    <div class="main-content">
+    <div class="center-content">
       <button id="claimBtn" class="claim-btn">
         ¡RECLAMA TU BONO!
       </button>
@@ -253,9 +255,8 @@
           <div id="timelineBar" class="timeline-bar" style="width:100%"></div>
         </div>
       </div>
+      <img src="logo_Mesa de trabajo 1.png" alt="Ganamos.net" class="logo-ganamos-footer">
     </div>
-    <!-- Logo GANAMOS.NET al fondo de la página -->
-    <img src="logo_Mesa de trabajo 1.png" alt="Ganamos.net" class="logo-ganamos-footer">
   </div>
   <script>
     // WhatsApp config
