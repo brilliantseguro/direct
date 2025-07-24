@@ -17,7 +17,7 @@
         linear-gradient(120deg, #a23ee3 0%, #21002b 100%);
       background-blend-mode: multiply, screen, multiply, multiply, normal;
       font-family: 'Montserrat', Arial, sans-serif;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -44,7 +44,7 @@
     .joker-header img {
       margin: 0;
       margin-top: 3vw;
-      margin-bottom: -50px; /* AJUSTE ULTRA-Pegado */
+      margin-bottom: -50px; /* sigue bien pegado */
       max-width: 340px;
       width: 78vw;
       height: auto;
@@ -60,12 +60,12 @@
       .joker-header img { max-width: 93vw; margin-top: 2vw; }
     }
     .welcome-text {
-      font-size: 9.6vw;
+      font-size: 19vw; /* el DOBLE que antes */
       max-width: 99vw;
       font-weight: 900;
       text-align: center;
       margin-top: 0;
-      margin-bottom: 0;
+      margin-bottom: 60px; /* más separado del botón */
       line-height: 1.01;
       letter-spacing: 2px;
       color: #ffe657;
@@ -105,11 +105,11 @@
       margin-top: 0;
     }
     .claim-btn {
-      margin: 8px auto 0 auto;
-      padding: 12px 28px;
+      margin: 0 0 45px 0;
+      padding: 20px 46px;
       background: linear-gradient(90deg,#00ff90,#00e049 70%);
       color: #fff;
-      font-size: 1.13rem;
+      font-size: 1.33rem; /* apenas más grande */
       font-weight: 900;
       border: none;
       border-radius: 2em;
@@ -124,7 +124,7 @@
       display: block;
     }
     .claim-btn:hover, .claim-btn:focus-visible {
-      transform: scale(1.11);
+      transform: scale(1.12);
       box-shadow: 0 12px 28px #00ff90fa, 0 0 34px #7cffc2;
     }
     @keyframes titilarGrande {
@@ -137,27 +137,32 @@
       100% { filter: brightness(1.13);}
     }
     .extra-neon {
-      margin-top: 4px;
-      margin-bottom: 0;
-      font-size: 2.1rem;
+      margin-top: 0;
+      margin-bottom: 38px;
+      font-size: 6.3rem; /* TRIPLE tamaño anterior */
       font-weight: 900;
       text-align: center;
       color: #fff;
       text-shadow:
-        0 0 18px #fff,
-        0 0 23px #fff,
-        0 0 8px #a8f8e6b3;
+        0 0 42px #fff,
+        0 0 48px #fff,
+        0 0 25px #a8f8e6b3;
       letter-spacing: 2px;
-      filter: brightness(1.10) drop-shadow(0 0 10px #fff);
+      filter: brightness(1.15) drop-shadow(0 0 22px #fff);
       user-select: none;
       pointer-events: none;
       font-family: 'Montserrat', Arial, sans-serif;
       transition: font-size .28s;
+      line-height: 1.06;
+    }
+    @media (max-width: 600px) {
+      .extra-neon { font-size: 15vw; }
+      .logo-ganamos-footer { width: 90vw; }
     }
     .timeline-section {
       width: 96vw;
       max-width: 390px;
-      margin: 4px auto 0 auto;
+      margin: 30px auto 0 auto;
       text-align: center;
       z-index: 2;
       display: flex;
@@ -171,7 +176,7 @@
       justify-content: center;
       gap: 5px;
       margin-bottom: 2px;
-      font-size: 1.06rem;
+      font-size: 1.16rem;
     }
     .timeline-label {
       color: #fff;
@@ -195,7 +200,7 @@
       width: 100%;
       background: linear-gradient(90deg, #ececec 10%, #b2b2b2 90%);
       border-radius: 11px;
-      height: 12px;
+      height: 14px;
       position: relative;
       overflow: hidden;
       box-shadow: 0 2px 8px #8884;
@@ -211,19 +216,18 @@
       transition: width 0.15s linear;
     }
     .logo-ganamos-footer {
-      width: 125px;
-      max-width: 33vw;
-      margin: 6px auto 10px auto;
+      width: 1250px; /* 10x más grande que antes */
+      max-width: 96vw;
+      margin: 55px auto 18px auto;
       display: block;
-      opacity: 0.92;
-      filter: drop-shadow(0 0 8px #1a0937b0);
+      opacity: 0.99;
+      filter: drop-shadow(0 0 26px #1a0937b0);
       pointer-events: none;
       user-select: none;
+      transition: width .2s;
     }
-    @media (max-width: 500px) {
-      .logo-ganamos-footer { width: 90px; max-width: 40vw; margin-bottom: 7px;}
-      .extra-neon {font-size: 1.1rem;}
-      .welcome-text { font-size: 7vw;}
+    @media (max-width: 600px) {
+      .logo-ganamos-footer { width: 90vw; margin-top: 36px; }
     }
   </style>
 </head>
