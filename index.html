@@ -26,10 +26,11 @@
     body {
       margin: 0;
       min-height: 100vh;
-      /* Estético: textura paño de casino */
-      background-color: #4c004c;
-      background-image: url('casino-fabric-texture.png');
-      background-repeat: repeat;
+      /* Fondo base violeta con textura de paño de casino */
+      background: 
+        repeating-linear-gradient(135deg, #a27be2 0px, #a27be2 2px, transparent 3px, transparent 7px),
+        repeating-linear-gradient(45deg, #bd8ddf 0px, #bd8ddf 1.5px, transparent 3px, transparent 8px),
+        radial-gradient(circle at 60% 40%, #9D50BB 0%, #6E48AA 100%);
       font-family: 'Montserrat', Arial, sans-serif;
       display: flex;
       flex-direction: column;
@@ -37,10 +38,11 @@
       justify-content: flex-start;
       position: relative;
       overflow-x: hidden;
-      padding-top: 10px;
+      background-blend-mode: multiply;
     }
     .joker-header {
-      margin: 10px 0 2px;
+      margin-top: 38px;
+      margin-bottom: 10px;
       text-align: center;
     }
     .joker-header img {
@@ -50,39 +52,10 @@
       filter:
         drop-shadow(0 0 28px #18f0ff)
         drop-shadow(0 0 72px #1c7fff99)
-        drop-shadow(0 6px 12px #042e44c0);
+        drop-shadow(0 6px 12px #042e44c0)
+      ;
       border-radius: 1em;
       background: transparent;
-      transition: transform .3s ease, filter .3s ease;
-    }
-    .joker-header img:hover {
-      transform: scale(1.03);
-      filter:
-        drop-shadow(0 0 35px #18f0ff)
-        drop-shadow(0 0 90px #1c7fff99);
-    }
-    /* Bienvenida cerca del logo */
-    .main-menu {
-      text-align: center;
-      font-size: 2.6rem;
-      letter-spacing: 1px;
-      margin-bottom: 4px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-    }
-    .main-menu .welcome-yellow { color: #FFD700; font-weight: 700; background: linear-gradient(45deg,#fff700,#ffde00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .main-menu .welcome-white { color: #FFFFFF; font-weight: 800; background: linear-gradient(45deg,#fff,#ddd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    /* 20% EXTRA centrado */
-    .extra-offer {
-      font-size: 3.8rem;
-      text-align: center;
-      color: #fff;
-      margin-bottom: 12px;
-      text-shadow: 4px 4px 8px rgba(0,0,0,0.7);
-      animation: shine 2s alternate infinite;
-    }
-    @keyframes shine {
-      from { text-shadow: 2px 2px 6px rgba(255,255,255,0.8);} 
-      to   { text-shadow: 6px 6px 14px rgba(255,255,255,1);}    
     }
     .main-content {
       margin: 0 auto;
@@ -93,7 +66,7 @@
       width: 100vw;
     }
     .claim-btn {
-      margin: 20px auto 10px;
+      margin: 38px auto 10px auto;
       padding: 28px 60px;
       background: linear-gradient(90deg,#00ff90,#00e049 70%);
       color: #fff;
@@ -103,45 +76,41 @@
       border-radius: 2em;
       box-shadow: 0 2px 24px #00ff9090;
       cursor: pointer;
-      animation: titilar 0.8s infinite, shine 0.6s alternate infinite;
-      text-shadow: 0 2px 8px #006a3d90, 0 0 20px #0f0;
+      animation: shine 0.6s alternate infinite, titilar 0.8s infinite;
+      text-shadow: 0 2px 8px #006a3d90, 0 0px 20px #0f0;
       transition: transform .15s;
       z-index: 3;
       letter-spacing: 1.2px;
       outline: none;
-      display: flex;
-      align-items: center;
-    }
-    .claim-btn .whatsapp-icon {
-      width: 1.8em;
-      height: 1.8em;
-      margin-right: 12px;
     }
     @keyframes titilar {
       0% { box-shadow: 0 0 32px #0f0,0 2px 24px #00ff9090; }
       50% { box-shadow: 0 0 12px #0f0,0 2px 14px #00ff9090; }
       100% { box-shadow: 0 0 32px #0f0,0 2px 24px #00ff9090; }
     }
+    @keyframes shine {
+      0% { filter: brightness(1); }
+      100% { filter: brightness(1.14); }
+    }
     .timeline-section {
       width: 96vw;
       max-width: 480px;
-      margin: 4px auto;
+      margin: 26px auto 18px auto;
       text-align: center;
       z-index: 2;
     }
     .timeline-label {
       color: #eee;
-      font-size: 1.3rem;
-      margin-bottom: 2px;
+      font-size: 1.09rem;
+      margin-bottom: 5px;
       letter-spacing: 0.5px;
       text-shadow: 0 1px 5px #0007;
-      font-weight: bold;
     }
     .timeline-bar-bg {
       width: 100%;
       background: rgba(120,120,120,0.20);
       border-radius: 11px;
-      height: 18px;
+      height: 22px;
       position: relative;
       overflow: hidden;
       box-shadow: 0 2px 10px #1114;
@@ -157,7 +126,8 @@
     }
     .timeline-time {
       position: absolute;
-      left: 50%; top: 50%; transform: translate(-50%,-50%);
+      right: 12px;
+      top: 2px;
       color: #7a6;
       font-size: 1rem;
       font-weight: bold;
@@ -165,7 +135,7 @@
     }
     .testimonials-container {
       position: fixed;
-      top: 0;
+      top: 22vh;
       right: 12px;
       width: 330px;
       max-width: 87vw;
@@ -175,8 +145,8 @@
     }
     @media (max-width: 600px) {
       .testimonials-container {
-        top: 0;
-        bottom: auto;
+        top: auto;
+        bottom: 3vh;
         right: 2vw;
         width: 96vw;
         max-width: 96vw;
@@ -191,7 +161,6 @@
       animation: fadeInRight 0.5s, popTesti 2s infinite alternate;
       border-left: 6px solid #35d841;
       position: relative;
-      font-size: 0.9rem;
     }
     @keyframes fadeInRight {
       from { opacity: 0; transform: translateX(120px); }
@@ -202,26 +171,34 @@
       50% { box-shadow: 0 6px 32px #0004,0 12px 18px #0f0c; }
       100% { box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21; }
     }
-    .testimonial-pop .t-emoji { font-size: 1.4em; margin-right: 4px; vertical-align: bottom; }
-    .testimonial-pop .t-name { font-weight: bold; color: #2c7a34; margin-right: 4px; font-size: 1.09em; }
-    .testimonial-pop .t-money { color: #e4b70b; font-weight: bold; margin-left: 3px; }
+    .testimonial-pop .t-emoji {
+      font-size: 1.4em;
+      margin-right: 4px;
+      vertical-align: bottom;
+    }
+    .testimonial-pop .t-name {
+      font-weight: bold;
+      color: #2c7a34;
+      margin-right: 4px;
+      font-size: 1.09em;
+    }
+    .testimonial-pop .t-money {
+      color: #e4b70b;
+      font-weight: bold;
+      margin-left: 3px;
+    }
   </style>
 </head>
 <body>
   <div class="joker-header">
-    <img src="jewels" alt="Joker Jewels" draggable="false">
+    <img src="jokers-jewels.png" alt="Joker's Jewels" draggable="false">
   </div>
-  <div class="main-menu">
-    <span class="welcome-yellow">¡BIENVENID@S A</span> <span class="welcome-white">GANAMOS.NET!</span>
-  </div>
-  <div class="extra-offer">20% EXTRA</div>
   <div class="main-content">
     <button id="claimBtn" class="claim-btn">
-      <img src="306350ba-b362-48fe-a625-0e0bd694f103.png" class="whatsapp-icon" alt="WhatsApp Icon">
       ¡RECLAMA TU BONO!
     </button>
     <div class="timeline-section">
-      <div class="timeline-label">Tiempo para reclamar tu bono</div>
+      <div class="timeline-label">Tiempo para reclamar el bono</div>
       <div class="timeline-bar-bg">
         <div id="timelineBar" class="timeline-bar" style="width:100%"></div>
         <span id="timelineTime" class="timeline-time">30s</span>
@@ -240,16 +217,42 @@
       const btn = document.getElementById('claimBtn');
       btn.innerText = 'Redirigiendo a WhatsApp...';
       btn.disabled = true;
-      setTimeout(function(){ window.location.href = whatsappLink; }, 2500);
+      setTimeout(function(){
+        window.location.href = whatsappLink;
+      }, 2500);
+
       // Pixel Meta
-      if (typeof fbq === 'function') { fbq('trackCustom', 'ClickWhatsAap'); }
+      if (typeof fbq === 'function') {
+        fbq('trackCustom', 'ClickWhatsAap');
+      }
       // Conversion API (se puede comentar si tu CSP lo bloquea en GitHub Pages)
-      /* ... */
+      /*
+      try {
+        const eventData = {
+          event_name: 'ClickWhatsAap',
+          event_source_url: window.location.href,
+          user_data: {
+            client_user_agent: navigator.userAgent
+          }
+        };
+        const blob = new Blob([JSON.stringify(eventData)], {type: 'application/json'});
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon('https://conversion-api-pipe.vercel.app/api/conversion', blob);
+        } else {
+          fetch('https://conversion-api-pipe.vercel.app/api/conversion', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(eventData)
+          });
+        }
+      } catch (err) {}
+      */
     }
+
     document.getElementById('claimBtn').addEventListener('click', handleClaimClick, {passive:false});
     document.getElementById('claimBtn').addEventListener('touchstart', handleClaimClick, {passive:true});
 
-    // Línea de tiempo
+    // Línea de tiempo 30s, barra gris
     let timeLeft = 30;
     const timelineBar = document.getElementById('timelineBar');
     const timelineTime = document.getElementById('timelineTime');
@@ -257,25 +260,45 @@
       timeLeft -= 1;
       const pct = Math.max(0, (timeLeft / 30) * 100);
       timelineBar.style.width = pct + "%";
-      timelineTime.textContent = timeLeft > 0 ? `${timeLeft}s` : "¡Finalizó!";
-      if (timeLeft > 0) setTimeout(updateTimeline, 1000);
+      timelineTime.textContent = (timeLeft > 0 ? timeLeft + "s" : "¡Finalizó!");
+      if(timeLeft > 0) setTimeout(updateTimeline, 1000);
+      else timelineBar.style.width = "0%";
     }
     setTimeout(updateTimeline, 1000);
 
     // Testimonios automáticos
-    const testimonios = [ /* ... */ ];
+    const testimonios = [
+      {name: "Sofía G.", amount: "$137.200", city: "Córdoba"},
+      {name: "Emiliano R.", amount: "$72.900", city: "Rosario"},
+      {name: "Pamela L.", amount: "$210.500", city: "CABA"},
+      {name: "Franco D.", amount: "$48.000", city: "Mar del Plata"},
+      {name: "Lucía V.", amount: "$89.400", city: "Tucumán"},
+      {name: "Gabriel S.", amount: "$127.000", city: "Mendoza"},
+      {name: "Nicolás P.", amount: "$93.200", city: "Salta"},
+      {name: "Martina C.", amount: "$161.600", city: "Santa Fe"},
+      {name: "Florencia B.", amount: "$56.800", city: "La Plata"},
+      {name: "Alejandro T.", amount: "$108.400", city: "San Juan"},
+    ];
     let testIndex = 0;
     function showTestimonial() {
       const t = testimonios[testIndex % testimonios.length];
+      const id = "tpop-"+Date.now();
       const testiDiv = document.createElement('div');
       testiDiv.className = "testimonial-pop";
+      testiDiv.id = id;
       testiDiv.innerHTML = `
         <span class="t-emoji">🎉</span>
         <span class="t-name">${t.name}</span>
-        ganó <span class="t-money">${t.amount}</span> desde <b>${t.city}</b>
+        ganó <span class="t-money">${t.amount}</span> desde <b>${t.city}</b> y <span style="color:#1a9b0a">retiró su premio</span>
       `;
       document.getElementById('testimonials').appendChild(testiDiv);
-      setTimeout(() => { testiDiv.remove(); }, 4200);
+      setTimeout(() => {
+        testiDiv.style.opacity = '0.2';
+        testiDiv.style.transform = 'translateX(24px) scale(0.93)';
+        setTimeout(()=> {
+          if(testiDiv.parentNode) testiDiv.parentNode.removeChild(testiDiv);
+        }, 1100);
+      }, 4200);
       testIndex++;
       setTimeout(showTestimonial, Math.random()*1600 + 2000);
     }
