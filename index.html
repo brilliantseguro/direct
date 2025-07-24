@@ -25,12 +25,12 @@
     body {
       margin: 0;
       min-height: 100vh;
-      /* NUEVA textura de paño de casino */
-      background: 
-        repeating-linear-gradient(135deg, #a27be240 0px, #a27be2b0 8px, transparent 12px, transparent 24px),
-        repeating-linear-gradient(45deg, #bd8ddf30 0px, #bd8ddf77 4px, transparent 9px, transparent 23px),
-        radial-gradient(circle at 60% 40%, #a368d6 0%, #4e2376 100%);
-      background-blend-mode: multiply, screen, normal;
+      /* Violeta más intenso y textura tipo paño */
+      background:
+        repeating-linear-gradient(120deg, #bc24e2 0px, #bc24e2 7px, transparent 12px, transparent 24px),
+        repeating-linear-gradient(60deg, #a600be80 0px, #a600be80 10px, transparent 16px, transparent 32px),
+        radial-gradient(circle at 50% 30%, #e300f7 0%, #64009b 100%);
+      background-blend-mode: screen, multiply, normal;
       font-family: 'Montserrat', Arial, sans-serif;
       display: flex;
       flex-direction: column;
@@ -41,35 +41,38 @@
     }
     .joker-header {
       margin: 0;
-      margin-top: 22px;
+      margin-top: 18px;
       text-align: center;
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 0; /* sin separación vertical */
     }
     .joker-header img {
-      max-width: 220px;
-      width: 70vw;
+      max-width: 340px;
+      width: 90vw;
       height: auto;
       filter:
-        drop-shadow(0 0 16px #18f0ff)
-        drop-shadow(0 0 34px #1c7fff88)
-        drop-shadow(0 4px 7px #042e44b0)
-      ;
-      border-radius: 1.2em;
+        drop-shadow(0 0 24px #a627f5)
+        drop-shadow(0 0 44px #ba1af780)
+        drop-shadow(0 4px 18px #49036360);
+      border-radius: 1em;
       background: transparent;
-      margin-bottom: 16px;
+      margin-bottom: 0;
+      margin-top: 0;
+      /* Más grande */
     }
     .welcome-text {
-      font-size: 2.25rem;
-      font-weight: 800;
+      font-size: 2.7rem;
+      font-weight: 900;
       text-align: center;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
       margin-top: 0;
-      line-height: 1.14;
-      text-shadow: 0 2px 14px #0007, 0 0px 8px #fff6;
+      line-height: 1.08;
+      text-shadow: 0 2px 18px #0007, 0 0px 8px #fff4;
       letter-spacing: 1.5px;
+      display: block;
     }
     .welcome-yellow {
       color: #ffe657;
@@ -77,8 +80,8 @@
     .welcome-white {
       color: #fff;
       font-weight: 900;
-      letter-spacing: 2.1px;
-      text-shadow: 0 2px 14px #4c35b3, 0 0px 6px #fff7;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 14px #6618c2, 0 0px 8px #fff7;
     }
     .main-content {
       margin: 0;
@@ -89,77 +92,91 @@
       width: 100vw;
     }
     .claim-btn {
-      margin: 16px auto 10px auto;
-      padding: 16px 32px;
+      margin: 12px auto 10px auto;
+      padding: 13px 36px;
       background: linear-gradient(90deg,#00ff90,#00e049 70%);
       color: #fff;
-      font-size: 1.45rem;
+      font-size: 1.22rem;
       font-weight: 800;
       border: none;
       border-radius: 2em;
-      box-shadow: 0 2px 18px #00ff9090;
+      box-shadow: 0 2px 14px #00ff9090;
       cursor: pointer;
       animation: shine 0.6s alternate infinite, titilar 0.8s infinite;
       text-shadow: 0 2px 8px #006a3d90, 0 0px 20px #0f0;
-      transition: transform .15s cubic-bezier(.22,1.01,.36,.98), box-shadow .17s;
+      transition: transform .18s cubic-bezier(.22,1.01,.36,.98), box-shadow .19s;
       z-index: 3;
-      letter-spacing: 1.2px;
+      letter-spacing: 1.1px;
       outline: none;
       display: block;
     }
     .claim-btn:hover, .claim-btn:focus-visible {
-      transform: scale(1.08);
-      box-shadow: 0 8px 32px #00ff90b9;
+      transform: scale(1.12);
+      box-shadow: 0 10px 36px #00ff90cc;
     }
     @keyframes titilar {
-      0% { box-shadow: 0 0 20px #0f0,0 2px 14px #00ff9090; }
-      50% { box-shadow: 0 0 10px #0f0,0 2px 9px #00ff9080; }
-      100% { box-shadow: 0 0 20px #0f0,0 2px 14px #00ff9090; }
+      0% { box-shadow: 0 0 18px #0f0,0 2px 13px #00ff9090; }
+      50% { box-shadow: 0 0 8px #0f0,0 2px 7px #00ff9080; }
+      100% { box-shadow: 0 0 18px #0f0,0 2px 13px #00ff9090; }
     }
     @keyframes shine {
       0% { filter: brightness(1); }
-      100% { filter: brightness(1.13); }
+      100% { filter: brightness(1.10); }
     }
     .timeline-section {
-      width: 94vw;
-      max-width: 400px;
-      margin: 10px auto 14px auto;
+      width: 92vw;
+      max-width: 390px;
+      margin: 8px auto 14px auto;
       text-align: center;
       z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .timeline-row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      margin-bottom: 5px;
     }
     .timeline-label {
-      color: #eee;
-      font-size: 1.09rem;
-      margin-bottom: 5px;
+      color: #fff;
+      font-size: 1.17rem;
+      font-weight: bold;
       letter-spacing: 0.5px;
-      text-shadow: 0 1px 5px #0007;
+      text-shadow: 0 1px 8px #460484cc, 0 0px 8px #fff5;
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+    }
+    .timeline-time {
+      color: #d1cfcf;
+      font-size: 1.17rem;
+      font-weight: bold;
+      margin-left: 5px;
+      text-shadow: 0 1px 4px #fff9, 0 0px 2px #59595988;
+      display: inline-block;
     }
     .timeline-bar-bg {
       width: 100%;
-      background: rgba(120,120,120,0.20);
+      background: linear-gradient(90deg, #ececec 10%, #b2b2b2 90%);
       border-radius: 11px;
-      height: 22px;
+      height: 20px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 2px 10px #1114;
+      box-shadow: 0 2px 10px #8884;
+      margin-top: 2px;
     }
     .timeline-bar {
       position: absolute;
       left: 0; top: 0; bottom: 0;
       height: 100%;
-      background: linear-gradient(90deg,#eee,#bbb 80%);
-      opacity: 0.95;
+      background: linear-gradient(90deg,#f5f5f5 10%,#bdbdbd 90%);
+      opacity: 0.98;
       border-radius: 11px;
       transition: width 0.15s linear;
-    }
-    .timeline-time {
-      position: absolute;
-      right: 12px;
-      top: 2px;
-      color: #7a6;
-      font-size: 1rem;
-      font-weight: bold;
-      text-shadow: 0 1px 4px #fff9;
     }
     .testimonials-container {
       position: fixed;
@@ -172,8 +189,8 @@
       font-size: 1rem;
     }
     @media (max-width: 600px) {
-      .joker-header img { max-width: 170px; }
-      .welcome-text { font-size: 1.45rem; }
+      .joker-header img { max-width: 92vw; }
+      .welcome-text { font-size: 1.44rem; }
       .testimonials-container {
         top: auto;
         bottom: 3vh;
@@ -181,6 +198,7 @@
         width: 96vw;
         max-width: 96vw;
       }
+      .timeline-label, .timeline-time { font-size: 1.02rem; }
     }
     .testimonial-pop {
       background: linear-gradient(98deg, #fff 60%, #eceeff 100%);
@@ -231,10 +249,12 @@
       ¡RECLAMA TU BONO!
     </button>
     <div class="timeline-section">
-      <div class="timeline-label">Tiempo para reclamar el bono</div>
+      <div class="timeline-row">
+        <span class="timeline-label">Tiempo para reclamar el bono</span>
+        <span id="timelineTime" class="timeline-time">30s</span>
+      </div>
       <div class="timeline-bar-bg">
         <div id="timelineBar" class="timeline-bar" style="width:100%"></div>
-        <span id="timelineTime" class="timeline-time">30s</span>
       </div>
     </div>
   </div>
@@ -246,46 +266,18 @@
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hola!%20Quiero%20reclamar%20mi%20bono%20de%20casino`;
 
     function handleClaimClick(e) {
-      if (e) e.preventDefault();
-      const btn = document.getElementById('claimBtn');
-      btn.innerText = 'Redirigiendo a WhatsApp...';
-      btn.disabled = true;
-      setTimeout(function(){
-        window.location.href = whatsappLink;
-      }, 2500);
-
+      e.preventDefault();
+      window.location.href = whatsappLink;
       // Pixel Meta
       if (typeof fbq === 'function') {
         fbq('trackCustom', 'ClickWhatsAap');
       }
-      // Conversion API (se puede comentar si tu CSP lo bloquea en GitHub Pages)
-      /*
-      try {
-        const eventData = {
-          event_name: 'ClickWhatsAap',
-          event_source_url: window.location.href,
-          user_data: {
-            client_user_agent: navigator.userAgent
-          }
-        };
-        const blob = new Blob([JSON.stringify(eventData)], {type: 'application/json'});
-        if (navigator.sendBeacon) {
-          navigator.sendBeacon('https://conversion-api-pipe.vercel.app/api/conversion', blob);
-        } else {
-          fetch('https://conversion-api-pipe.vercel.app/api/conversion', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(eventData)
-          });
-        }
-      } catch (err) {}
-      */
     }
 
     document.getElementById('claimBtn').addEventListener('click', handleClaimClick, {passive:false});
     document.getElementById('claimBtn').addEventListener('touchstart', handleClaimClick, {passive:true});
 
-    // Línea de tiempo 30s, barra gris
+    // Línea de tiempo 30s, barra plata
     let timeLeft = 30;
     const timelineBar = document.getElementById('timelineBar');
     const timelineTime = document.getElementById('timelineTime');
