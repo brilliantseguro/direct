@@ -79,6 +79,7 @@
       align-items: center;
       justify-content: flex-start;
       box-sizing: border-box;
+      padding-top: 45px; /* para dejar espacio arriba para la barra de notif */
     }
     .joker-header {
       display: flex;
@@ -90,15 +91,14 @@
     }
     .joker-header img {
       margin-top: 0;
-      margin-bottom: -125px; /* MÁS ARRIBA */
-      max-width: 320px;
-      width: 70vw;
+      margin-bottom: 6px;  /* Espacio mínimo sin negativos */
+      max-width: 340px;
+      width: 80vw;
       height: auto;
       display: block;
       filter: drop-shadow(0 0 13px #330050);
       pointer-events: none;
       user-select: none;
-      transition: margin-bottom .3s;
     }
     .welcome-text {
       font-size: 12vw;
@@ -194,7 +194,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      margin-top: 68px; /* MÁS ABAJO */
+      margin-top: 68px;
       margin-bottom: 0;
       transition: margin-top .2s;
     }
