@@ -262,7 +262,7 @@
       filter: drop-shadow(0 0 20px #1a0937b0);
       pointer-events: none;
       user-select: none;
-      transition: width .2s, margin .2s;
+      transition: width .2s;
     }
     @media (max-width: 600px) {
       .ws-notif-bar { font-size: 15.5px; height: 27px;}
@@ -334,4 +334,40 @@
       if(timeLeft > 0) setTimeout(updateTimeline, 1000);
       else timelineBar.style.width = "0%";
     }
-   
+    setTimeout(updateTimeline, 1000);
+
+    // Notificaciones simuladas de clientes
+    const notifList = [
+      {nombre: "Sofía G.", ciudad: "Córdoba", monto: "$137.200"},
+      {nombre: "Emiliano R.", ciudad: "Rosario", monto: "$72.900"},
+      {nombre: "Pamela L.", ciudad: "CABA", monto: "$210.500"},
+      {nombre: "Franco D.", ciudad: "Mar del Plata", monto: "$48.000"},
+      {nombre: "Lucía V.", ciudad: "Tucumán", monto: "$89.400"},
+      {nombre: "Gabriel S.", ciudad: "Mendoza", monto: "$127.000"},
+      {nombre: "Nicolás P.", ciudad: "Salta", monto: "$93.200"},
+      {nombre: "Martina C.", ciudad: "Santa Fe", monto: "$161.600"},
+      {nombre: "Florencia B.", ciudad: "La Plata", monto: "$56.800"},
+      {nombre: "Alejandro T.", ciudad: "San Juan", monto: "$108.400"},
+    ];
+    function buildNotifHTML(obj) {
+      return `<span class="ws-notif-ico">
+        <svg viewBox="0 0 32 32" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16.022 3.063c-6.931 0-12.548 5.538-12.548 12.354 0 2.181.591 4.313 1.71 6.174L3.12 28.151a1.268 1.268 0 0 0 1.227 1.643c.187 0 .381-.04.561-.126l6.821-3.092a12.494 12.494 0 0 0 4.293.747c6.931 0 12.548-5.538 12.548-12.354S22.953 3.063 16.022 3.063Zm0 22.406c-1.363 0-2.707-.239-3.981-.71a1.253 1.253 0 0 0-1.021.035l-5.16 2.338 1.094-4.486a1.26 1.26 0 0 0-.136-.925 10.11 10.11 0 0 1-1.532-5.294c0-5.529 4.529-10.026 10.084-10.026 5.555 0 10.084 4.497 10.084 10.026 0 5.529-4.529 10.026-10.084 10.026Zm5.027-7.495c-.274-.137-1.627-.802-1.879-.893-.252-.09-.436-.137-.62.137s-.713.893-.875 1.076c-.162.183-.324.206-.598.069-.274-.137-1.155-.425-2.199-1.355-.813-.722-1.363-1.615-1.524-1.888-.162-.274-.017-.422.122-.557.126-.124.274-.324.41-.487a1.937 1.937 0 0 0 .273-.459c.09-.183.018-.344-.043-.48-.062-.137-.62-1.49-.85-2.04-.224-.538-.454-.463-.62-.47a.505.505 0 0 0-.435-.009c-.136.067-.516.202-.788.486-.272.284-1.04 1.019-1.04 2.482 0 1.462 1.065 2.876 1.215 3.075.15.198 2.098 3.21 5.082 4.376.71.306 1.263.489 1.695.626.713.227 1.362.196 1.874.119.572-.085 1.627-.665 1.857-1.307.23-.641.23-1.19.16-1.308-.068-.117-.249-.188-.523-.325Z"/>
+        </svg>
+      </span>
+      <span class="ws-notif-msg">
+        ${obj.nombre} de ${obj.ciudad} ganó <b>${obj.monto}</b> y retiró su premio por WhatsApp 🥳
+      </span>`;
+    }
+    // Animación con cambio de notificación
+    const notifBar = document.getElementById('ws-notif-content');
+    let notifIndex = 0;
+    function setNotif() {
+      notifBar.innerHTML = buildNotifHTML(notifList[notifIndex % notifList.length]);
+      notifIndex++;
+    }
+    setNotif();
+    setInterval(setNotif, 7000); // Cambia cada 7 segundos
+  </script>
+</body>
+</html>
