@@ -45,24 +45,21 @@
     }
     .joker-header img {
       margin-top: 0;
-      margin-bottom: -45px; /* ¡Ajusta este valor para más/menos pegado! */
+      margin-bottom: -38px;
       max-width: 320px;
       width: 70vw;
       height: auto;
       display: block;
-      background: none !important;
-      border: none !important;
-      box-shadow: none !important;
       filter: drop-shadow(0 0 13px #330050);
       pointer-events: none;
       user-select: none;
     }
     .welcome-text {
-      font-size: 10vw;
+      font-size: 12vw;
       font-weight: 900;
       text-align: center;
       margin-top: 0;
-      margin-bottom: 18px;
+      margin-bottom: 25px;
       line-height: 1;
       letter-spacing: 1px;
       color: #ffe657;
@@ -85,15 +82,15 @@
       100% { transform: translateX(0.5px);}
     }
     .claim-btn {
-      margin: 0 0 10px 0;
-      padding: 15px 40px;
+      margin: 0 0 18px 0;
+      padding: 22px 64px;
       background: linear-gradient(90deg,#00ff90,#00e049 70%);
       color: #fff;
-      font-size: 1.15rem;
+      font-size: 1.45rem;
       font-weight: 900;
       border: none;
       border-radius: 2em;
-      box-shadow: 0 2px 18px #00ff90e7, 0 0 24px #35ff9aab;
+      box-shadow: 0 2px 22px #00ff90e7, 0 0 28px #35ff9aab;
       cursor: pointer;
       animation: titilarGrande 1.14s infinite cubic-bezier(.6,1.22,.4,1.02), shine 0.7s alternate infinite;
       text-shadow: 0 2px 12px #00ffbf, 0 0px 18px #0f0, 0 2px 7px #009954d0;
@@ -103,7 +100,7 @@
       display: block;
     }
     .claim-btn:hover, .claim-btn:focus-visible {
-      transform: scale(1.12);
+      transform: scale(1.10);
       box-shadow: 0 12px 28px #00ff90fa, 0 0 34px #7cffc2;
     }
     @keyframes titilarGrande {
@@ -117,28 +114,40 @@
     }
     .extra-neon {
       margin-top: 0;
-      margin-bottom: 7px;
-      font-size: 2.6rem;
+      margin-bottom: 13px;
+      font-size: 3.8rem;
       font-weight: 900;
       text-align: center;
       color: #fff;
-      text-shadow: 0 0 20px #fff, 0 0 22px #fff, 0 0 13px #a8f8e6b3;
+      text-shadow: 0 0 20px #fff, 0 0 28px #fff, 0 0 13px #a8f8e6b3;
       letter-spacing: 2px;
       filter: brightness(1.13) drop-shadow(0 0 14px #fff);
       user-select: none;
       pointer-events: none;
       font-family: 'Montserrat', Arial, sans-serif;
       transition: font-size .28s;
-      line-height: 1.06;
+      line-height: 1.08;
+    }
+    .logo-ganamos-footer {
+      width: 340px;
+      max-width: 84vw;
+      margin: 24px auto 0 auto;
+      display: block;
+      opacity: 0.99;
+      filter: drop-shadow(0 0 20px #1a0937b0);
+      pointer-events: none;
+      user-select: none;
+      transition: width .2s;
     }
     .timeline-section {
       width: 96vw;
-      max-width: 390px;
+      max-width: 420px;
       margin: 4px auto 0 auto;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-bottom: 0px;
     }
     .timeline-row {
       display: flex;
@@ -171,37 +180,18 @@
       width: 100%;
       background: linear-gradient(90deg, #ececec 10%, #b2b2b2 90%);
       border-radius: 11px;
-      height: 12px;
+      height: 13px;
       position: relative;
       overflow: hidden;
       box-shadow: 0 2px 8px #8884;
-      margin-top: 2px;
-    }
-    .timeline-bar {
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      height: 100%;
-      background: linear-gradient(90deg,#f5f5f5 10%,#bdbdbd 90%);
-      opacity: 0.98;
-      border-radius: 11px;
-      transition: width 0.15s linear;
-    }
-    .logo-ganamos-footer {
-      width: 330px;
-      max-width: 84vw;
-      margin: 15px auto 0 auto;
-      display: block;
-      opacity: 0.99;
-      filter: drop-shadow(0 0 20px #1a0937b0);
-      pointer-events: none;
-      user-select: none;
-      transition: width .2s;
+      margin-top: 4px;
+      margin-bottom: 4px; /* ¡Pegada al logo! */
     }
     @media (max-width: 600px) {
       .joker-header img { max-width: 93vw; }
-      .welcome-text { font-size: 10vw; }
-      .logo-ganamos-footer { width: 80vw; margin-top: 14px;}
-      .extra-neon { font-size: 7vw;}
+      .welcome-text { font-size: 11vw; }
+      .logo-ganamos-footer { width: 85vw; margin-top: 17px;}
+      .extra-neon { font-size: 8vw;}
     }
   </style>
 </head>
@@ -217,6 +207,7 @@
       ¡RECLAMA TU BONO!
     </button>
     <div class="extra-neon">20% EXTRA</div>
+    <img src="logo_Mesa de trabajo 1.png" alt="Ganamos.net" class="logo-ganamos-footer">
     <div class="timeline-section">
       <div class="timeline-row">
         <span class="timeline-label">Tiempo para reclamar el bono</span>
@@ -226,7 +217,6 @@
         <div id="timelineBar" class="timeline-bar" style="width:100%"></div>
       </div>
     </div>
-    <img src="logo_Mesa de trabajo 1.png" alt="Ganamos.net" class="logo-ganamos-footer">
   </div>
   <script>
     // WhatsApp config
