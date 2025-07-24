@@ -2,22 +2,15 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>¡Reclama tu Bono! | Joker Jewels Casino</title>
+  <title>¡Reclama tu Bono! | Ganamos.net</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Tipografías y estilos estéticos -->
+  <!-- Import Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Anton&family=Caveat&display=swap" rel="stylesheet">
   <style>
-    /* Import Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
-
     /* Reset básico */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* 1. Cuerpo con fondo sólido #ae2cdc */
     body {
       min-height: 100vh;
       background: #ae2cdc;
@@ -26,13 +19,30 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      position: relative;
       overflow-x: hidden;
     }
 
-    /* 2. Header con hover */
+    /* Menú principal */
+    .main-menu {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+    .main-menu .welcome-yellow { color: #ff0; font-weight: 600; }
+    .main-menu .welcome-white { color: #fff; font-weight: 800; }
+
+    /* Oferta extra */
+    .extra-offer {
+      font-family: 'Anton', sans-serif;
+      font-size: 3rem;
+      text-align: center;
+      color: #fff;
+      margin: 10px 0 30px;
+    }
+
+    /* Header */
     .joker-header {
-      margin: 40px 0 20px;
+      margin-bottom: 20px;
       text-align: center;
     }
     .joker-header img {
@@ -51,17 +61,16 @@
         drop-shadow(0 0 80px rgba(28,127,255,0.6));
     }
 
-    /* 3. Contenedor principal */
+    /* Contenido principal */
     .main-content {
       width: 100vw;
       max-width: 480px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
     }
 
-    /* 4. Botón con micro-interacciones */
+    /* Botón Reclamar */
     .claim-btn {
       margin: 40px auto 20px;
       padding: 20px 50px;
@@ -83,7 +92,7 @@
       box-shadow: 0 6px 24px rgba(0,255,144,0.6);
     }
 
-    /* 5. Timeline estilizado */
+    /* Timeline */
     .timeline-section {
       width: 90vw;
       max-width: 480px;
@@ -91,14 +100,14 @@
       text-align: center;
     }
     .timeline-label {
-      color: #ddd;
-      font-size: 1.1rem;
+      font-weight: bold;
+      font-size: 1.3rem;
       margin-bottom: 8px;
     }
     .timeline-bar-bg {
       position: relative;
       height: 20px;
-      background: rgba(255,255,255,0.1);
+      background: #ccc;
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
@@ -107,20 +116,21 @@
       position: absolute;
       left: 0; top: 0;
       height: 100%;
-      background: linear-gradient(90deg, #fff, #ccc);
+      background: #fff;
       border-radius: 12px;
       transition: width .2s linear;
     }
     .timeline-time {
       position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #b2ff59;
-      font-weight: 600;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Caveat', cursive;
+      font-size: 1.2rem;
+      color: #fff;
+      text-align: center;
     }
 
-    /* 6. Testimonios flotantes */
+    /* Testimonios flotantes */
     .testimonials-container {
       position: fixed;
       top: 25vh;
@@ -162,13 +172,15 @@
   </style>
 </head>
 <body>
+  <div class="main-menu">
+    <span class="welcome-yellow">¡BIENVENID@S A</span> <span class="welcome-white">GANAMOS.NET!</span>
+  </div>
+  <div class="extra-offer">20% EXTRA</div>
   <div class="joker-header">
     <img src="jokers-jewels.png" alt="Joker's Jewels" draggable="false">
   </div>
   <div class="main-content">
-    <button id="claimBtn" class="claim-btn">
-      ¡RECLAMA TU BONO!
-    </button>
+    <button id="claimBtn" class="claim-btn">¡RECLAMA TU BONO!</button>
     <div class="timeline-section">
       <div class="timeline-label">Tiempo para reclamar el bono</div>
       <div class="timeline-bar-bg">
@@ -222,7 +234,6 @@
         window.location.href = whatsappLink;
       }, 2500);
     }
-
     document.getElementById('claimBtn').addEventListener('click', handleClaimClick, { passive:false });
     document.getElementById('claimBtn').addEventListener('touchstart', handleClaimClick, { passive:true });
 
