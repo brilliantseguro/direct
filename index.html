@@ -90,7 +90,7 @@
     }
     .joker-header img {
       margin-top: 0;
-      margin-bottom: -90px; /* Más arriba aún */
+      margin-bottom: -125px; /* MÁS ARRIBA */
       max-width: 320px;
       width: 70vw;
       height: auto;
@@ -173,7 +173,7 @@
       100% { filter: brightness(1.13);}
     }
     .extra-neon {
-      margin-top: 12px;
+      margin-top: 20px; /* Bajada */
       margin-bottom: 20px;
       font-size: 4.6rem;
       font-weight: 900;
@@ -185,7 +185,7 @@
       user-select: none;
       pointer-events: none;
       font-family: 'Montserrat', Arial, sans-serif;
-      transition: font-size .28s;
+      transition: font-size .28s, margin-top .2s;
       line-height: 1.09;
     }
     .ganamos-barra-bloque {
@@ -194,8 +194,9 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      margin-top: 36px;
+      margin-top: 68px; /* MÁS ABAJO */
       margin-bottom: 0;
+      transition: margin-top .2s;
     }
     .timeline-section {
       width: 96vw;
@@ -256,7 +257,7 @@
     .logo-ganamos-footer {
       width: 200px;
       max-width: 54vw;
-      margin: 22px auto 0 auto; /* Bajado un poco */
+      margin: 22px auto 0 auto;
       display: block;
       opacity: 0.99;
       filter: drop-shadow(0 0 20px #1a0937b0);
