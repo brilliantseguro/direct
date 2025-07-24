@@ -25,7 +25,6 @@
     body {
       margin: 0;
       min-height: 100vh;
-      /* Violeta más intenso y textura tipo paño */
       background:
         repeating-linear-gradient(120deg, #bc24e2 0px, #bc24e2 7px, transparent 12px, transparent 24px),
         repeating-linear-gradient(60deg, #a600be80 0px, #a600be80 10px, transparent 16px, transparent 32px),
@@ -40,39 +39,39 @@
       overflow-x: hidden;
     }
     .joker-header {
-      margin: 0;
-      margin-top: 18px;
-      text-align: center;
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0; /* sin separación vertical */
+      gap: 0;
+      margin: 0;
+      padding: 0;
     }
     .joker-header img {
-      max-width: 340px;
-      width: 90vw;
+      margin: 0;
+      margin-top: 0;
+      max-width: 440px;
+      width: 96vw;
       height: auto;
+      display: block;
+      border-radius: 1.2em;
+      background: transparent;
+      box-shadow: 0 0 44px #b500e399, 0 4px 20px #3f014c80;
       filter:
         drop-shadow(0 0 24px #a627f5)
-        drop-shadow(0 0 44px #ba1af780)
-        drop-shadow(0 4px 18px #49036360);
-      border-radius: 1em;
-      background: transparent;
-      margin-bottom: 0;
-      margin-top: 0;
-      /* Más grande */
+        drop-shadow(0 0 44px #ba1af780);
     }
     .welcome-text {
-      font-size: 2.7rem;
+      font-size: 3.2rem;
       font-weight: 900;
       text-align: center;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       margin-top: 0;
-      line-height: 1.08;
-      text-shadow: 0 2px 18px #0007, 0 0px 8px #fff4;
-      letter-spacing: 1.5px;
+      line-height: 1.02;
+      text-shadow: 0 2px 22px #0007, 0 0px 16px #fff4;
+      letter-spacing: 2px;
       display: block;
+      padding: 0;
     }
     .welcome-yellow {
       color: #ffe657;
@@ -80,7 +79,7 @@
     .welcome-white {
       color: #fff;
       font-weight: 900;
-      letter-spacing: 2px;
+      letter-spacing: 2.5px;
       text-shadow: 0 2px 14px #6618c2, 0 0px 8px #fff7;
     }
     .main-content {
@@ -91,12 +90,30 @@
       justify-content: flex-start;
       width: 100vw;
     }
+    .extra-neon {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-size: 2.3rem;
+      font-weight: 800;
+      text-align: center;
+      color: #39ff14;
+      text-shadow:
+        0 0 10px #39ff148a,
+        0 0 22px #1cffb5b3,
+        0 0 7px #fff,
+        0 0 42px #25ff0099;
+      letter-spacing: 2px;
+      filter: brightness(1.1) drop-shadow(0 0 8px #41ff2a);
+      user-select: none;
+      pointer-events: none;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
     .claim-btn {
-      margin: 12px auto 10px auto;
-      padding: 13px 36px;
+      margin: 8px auto 15px auto;
+      padding: 16px 38px;
       background: linear-gradient(90deg,#00ff90,#00e049 70%);
       color: #fff;
-      font-size: 1.22rem;
+      font-size: 1.35rem;
       font-weight: 800;
       border: none;
       border-radius: 2em;
@@ -111,7 +128,7 @@
       display: block;
     }
     .claim-btn:hover, .claim-btn:focus-visible {
-      transform: scale(1.12);
+      transform: scale(1.14);
       box-shadow: 0 10px 36px #00ff90cc;
     }
     @keyframes titilar {
@@ -126,7 +143,7 @@
     .timeline-section {
       width: 92vw;
       max-width: 390px;
-      margin: 8px auto 14px auto;
+      margin: 8px auto 16px auto;
       text-align: center;
       z-index: 2;
       display: flex;
@@ -178,49 +195,57 @@
       border-radius: 11px;
       transition: width 0.15s linear;
     }
+
+    /* Testimonios flotando arriba y deslizando de izquierda a derecha */
     .testimonials-container {
       position: fixed;
-      top: 17vh;
-      right: 12px;
-      width: 330px;
-      max-width: 87vw;
+      top: 12px;
+      left: 0;
+      width: 100vw;
       z-index: 999;
       pointer-events: none;
-      font-size: 1rem;
-    }
-    @media (max-width: 600px) {
-      .joker-header img { max-width: 92vw; }
-      .welcome-text { font-size: 1.44rem; }
-      .testimonials-container {
-        top: auto;
-        bottom: 3vh;
-        right: 2vw;
-        width: 96vw;
-        max-width: 96vw;
-      }
-      .timeline-label, .timeline-time { font-size: 1.02rem; }
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 9px;
     }
     .testimonial-pop {
       background: linear-gradient(98deg, #fff 60%, #eceeff 100%);
       border-radius: 18px 8px 22px 18px;
       box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21;
-      margin-bottom: 14px;
       padding: 13px 17px 12px 15px;
-      animation: fadeInRight 0.5s, popTesti 2s infinite alternate;
       border-left: 6px solid #35d841;
-      position: relative;
+      position: absolute;
+      top: 0;
+      left: -400px;
+      min-width: 260px;
+      max-width: 330px;
+      font-size: 1.05rem;
+      opacity: 0.98;
+      animation: testimonial-slide 14s linear forwards;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 7px;
     }
-    @keyframes fadeInRight {
-      from { opacity: 0; transform: translateX(120px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes popTesti {
-      0% { box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21; }
-      50% { box-shadow: 0 6px 32px #0004,0 12px 18px #0f0c; }
-      100% { box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21; }
+    @keyframes testimonial-slide {
+      0% {
+        left: -400px;
+        opacity: 0.2;
+      }
+      5% {
+        opacity: 1;
+      }
+      85% {
+        opacity: 1;
+      }
+      100% {
+        left: 100vw;
+        opacity: 0.1;
+      }
     }
     .testimonial-pop .t-emoji {
-      font-size: 1.4em;
+      font-size: 1.2em;
       margin-right: 4px;
       vertical-align: bottom;
     }
@@ -235,6 +260,18 @@
       font-weight: bold;
       margin-left: 3px;
     }
+
+    @media (max-width: 600px) {
+      .joker-header img { max-width: 98vw; }
+      .welcome-text { font-size: 1.6rem; }
+      .extra-neon { font-size: 1.2rem; }
+      .testimonial-pop {
+        font-size: 0.99rem;
+        min-width: 170px;
+        max-width: 99vw;
+        padding: 9px 7px 9px 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -245,6 +282,7 @@
     </div>
   </div>
   <div class="main-content">
+    <div class="extra-neon">20% EXTRA</div>
     <button id="claimBtn" class="claim-btn">
       ¡RECLAMA TU BONO!
     </button>
@@ -268,12 +306,10 @@
     function handleClaimClick(e) {
       e.preventDefault();
       window.location.href = whatsappLink;
-      // Pixel Meta
       if (typeof fbq === 'function') {
         fbq('trackCustom', 'ClickWhatsAap');
       }
     }
-
     document.getElementById('claimBtn').addEventListener('click', handleClaimClick, {passive:false});
     document.getElementById('claimBtn').addEventListener('touchstart', handleClaimClick, {passive:true});
 
@@ -291,7 +327,7 @@
     }
     setTimeout(updateTimeline, 1000);
 
-    // Testimonios automáticos
+    // Testimonios flotantes, parte superior, deslizando lentamente de izq a der
     const testimonios = [
       {name: "Sofía G.", amount: "$137.200", city: "Córdoba"},
       {name: "Emiliano R.", amount: "$72.900", city: "Rosario"},
@@ -307,10 +343,9 @@
     let testIndex = 0;
     function showTestimonial() {
       const t = testimonios[testIndex % testimonios.length];
-      const id = "tpop-"+Date.now();
       const testiDiv = document.createElement('div');
       testiDiv.className = "testimonial-pop";
-      testiDiv.id = id;
+      testiDiv.style.top = `${testIndex * 48}px`; // Apilan hacia abajo
       testiDiv.innerHTML = `
         <span class="t-emoji">🎉</span>
         <span class="t-name">${t.name}</span>
@@ -318,16 +353,12 @@
       `;
       document.getElementById('testimonials').appendChild(testiDiv);
       setTimeout(() => {
-        testiDiv.style.opacity = '0.2';
-        testiDiv.style.transform = 'translateX(24px) scale(0.93)';
-        setTimeout(()=> {
-          if(testiDiv.parentNode) testiDiv.parentNode.removeChild(testiDiv);
-        }, 1100);
-      }, 4200);
-      testIndex++;
-      setTimeout(showTestimonial, Math.random()*1600 + 2000);
+        if (testiDiv.parentNode) testiDiv.parentNode.removeChild(testiDiv);
+      }, 14000); // 14 segundos para cruzar toda la pantalla
+      testIndex = (testIndex + 1) % testimonios.length;
+      setTimeout(showTestimonial, 4000); // Cada 4 segundos aparece uno nuevo (apilados)
     }
-    setTimeout(showTestimonial, 1200);
+    setTimeout(showTestimonial, 1100);
   </script>
 </body>
 </html>
