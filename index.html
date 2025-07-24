@@ -44,7 +44,7 @@
       display: flex;
       align-items: center;
       white-space: nowrap;
-      gap: 7px;
+      gap: 8px;
       min-width: 100vw;
       height: 33px;
       padding-left: 18px;
@@ -55,9 +55,9 @@
       100% { transform: translateX(-140vw);}
     }
     .ws-notif-ico {
-      width: 25px;
-      height: 25px;
-      margin-right: 3px;
+      width: 27px;
+      height: 27px;
+      margin-right: 4px;
       display: inline-block;
       vertical-align: middle;
       fill: #fff;
@@ -68,7 +68,7 @@
       font-size: 18px;
       font-weight: 600;
       letter-spacing: 0.2px;
-      padding-right: 14px;
+      padding-right: 10px;
       display: inline-block;
       vertical-align: middle;
     }
@@ -91,7 +91,7 @@
     }
     .joker-header img {
       margin-top: 0;
-      margin-bottom: -65px;
+      margin-bottom: -69px; /* más arriba */
       max-width: 320px;
       width: 70vw;
       height: auto;
@@ -129,10 +129,10 @@
     }
     .claim-btn {
       margin: 0 0 18px 0;
-      padding: 16px 38px;
+      padding: 14px 30px;
       background: linear-gradient(90deg,#00ff90,#00e049 70%);
       color: #fff;
-      font-size: 1.30rem;
+      font-size: 1.20rem;
       font-weight: 900;
       border: none;
       border-radius: 2em;
@@ -150,8 +150,8 @@
       gap: 0;
     }
     .claim-btn svg {
-      width: 34px;
-      height: 34px;
+      width: 28px;
+      height: 28px;
       margin-right: 2px;
       fill: #fff;
       display: inline-block;
@@ -244,6 +244,15 @@
       margin-top: 4px;
       margin-bottom: 6px;
     }
+    .timeline-bar {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      height: 100%;
+      background: linear-gradient(90deg,#13fa7a,#ffd900 80%,#ff3c00 100%);
+      opacity: 0.99;
+      border-radius: 11px;
+      transition: width 0.19s linear, background 0.2s linear;
+    }
     .logo-ganamos-footer {
       width: 200px;
       max-width: 54vw;
@@ -312,7 +321,7 @@
     document.getElementById('claimBtn').addEventListener('click', handleClaimClick, {passive:false});
     document.getElementById('claimBtn').addEventListener('touchstart', handleClaimClick, {passive:true});
 
-    // Línea de tiempo 30s, barra plata
+    // Línea de tiempo degradable: barra color cambia y se achica con el tiempo
     let timeLeft = 30;
     const timelineBar = document.getElementById('timelineBar');
     const timelineTime = document.getElementById('timelineTime');
@@ -320,6 +329,14 @@
       timeLeft -= 1;
       const pct = Math.max(0, (timeLeft / 30) * 100);
       timelineBar.style.width = pct + "%";
+      // Color de la barra: verde -> amarillo -> rojo
+      if (pct > 60) {
+        timelineBar.style.background = "linear-gradient(90deg,#13fa7a,#ffd900 80%,#ff3c00 100%)";
+      } else if (pct > 30) {
+        timelineBar.style.background = "linear-gradient(90deg,#ffd900 30%,#ff9500 100%)";
+      } else {
+        timelineBar.style.background = "linear-gradient(90deg,#ff3c00,#ff9500 80%)";
+      }
       timelineTime.textContent = (timeLeft > 0 ? timeLeft + "s" : "¡Finalizó!");
       if(timeLeft > 0) setTimeout(updateTimeline, 1000);
       else timelineBar.style.width = "0%";
