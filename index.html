@@ -25,9 +25,14 @@
     body {
       margin: 0;
       min-height: 100vh;
-      /* Fondo: imagen que enviaste, repeat */
-      background: url('logo-07.png') repeat center center, #060015;
-      background-size: 340px 340px;
+      /* Fondo violeta oscuro con textura tipo “paño casino” generada en CSS */
+      background: 
+        repeating-linear-gradient(120deg, #5d1c8a 0 5px, transparent 9px 17px),
+        repeating-linear-gradient(-25deg, #280c37 0 3px, transparent 7px 21px),
+        radial-gradient(circle at 20% 32%, #432063 0%, transparent 55%),
+        radial-gradient(circle at 80% 66%, #6f26c0 0%, transparent 65%),
+        linear-gradient(120deg, #a23ee3 0%, #21002b 100%);
+      background-blend-mode: multiply, screen, multiply, multiply, normal;
       font-family: 'Montserrat', Arial, sans-serif;
       display: flex;
       flex-direction: column;
@@ -35,6 +40,7 @@
       justify-content: flex-start;
       position: relative;
       overflow-x: hidden;
+      height: 100vh;
     }
     .joker-header {
       width: 100%;
@@ -44,39 +50,117 @@
       gap: 0;
       margin: 0;
       padding: 0;
+      position: relative;
     }
     .joker-header img {
       margin: 0;
-      margin-top: 0;
-      max-width: 460px;
-      width: 99vw;
+      margin-top: 18px;
+      max-width: 340px;
+      width: 67vw;
       height: auto;
       display: block;
       border-radius: 1.2em;
       background: transparent;
-      box-shadow: 0 0 44px #b500e399, 0 4px 20px #3f014c80;
-      filter: drop-shadow(0 0 22px #330050);
+      box-shadow: 0 0 36px #b500e399, 0 3px 18px #3f014c80;
+      filter: drop-shadow(0 0 17px #330050);
+      position: relative;
+      z-index: 3;
     }
     .welcome-text {
-      font-size: 3.5rem;
+      font-size: 4.2rem;
       font-weight: 900;
       text-align: center;
-      margin-bottom: 12px;
-      margin-top: 0;
-      line-height: 1.05;
-      text-shadow: 0 2px 22px #0008, 0 0px 14px #fff4;
-      letter-spacing: 2px;
+      margin-bottom: 24px;
+      margin-top: 6px;
+      line-height: 0.98;
+      letter-spacing: 2.2px;
+      position: relative;
       display: block;
-      padding: 0;
-    }
-    .welcome-yellow {
       color: #ffe657;
+      text-shadow:
+        2px 0 8px #fff,
+        -2px 0 8px #fff,
+        0 0 18px #9408efcc,
+        4px 0 16px #34006688,
+        -4px 0 13px #fff7;
+      animation: bienvenida-glitch 2.1s infinite alternate linear;
+      z-index: 4;
     }
     .welcome-white {
       color: #fff;
       font-weight: 900;
       letter-spacing: 2.5px;
-      text-shadow: 0 2px 14px #6618c2, 0 0px 8px #fff7;
+      text-shadow:
+        2px 0 8px #ffe657b6,
+        -2px 0 8px #ffe657b6,
+        0 0 18px #bc8df1cc,
+        4px 0 16px #fff7;
+    }
+    @keyframes bienvenida-glitch {
+      0% { 
+        transform: translateX(0px); 
+        text-shadow:
+          2px 0 8px #fff,
+          -2px 0 8px #fff,
+          0 0 18px #9408efcc,
+          4px 0 16px #34006688,
+          -4px 0 13px #fff7;
+      }
+      14% { 
+        transform: translateX(-2px);
+        text-shadow:
+          4px 0 14px #fff, 
+          -3px 0 8px #ffe657, 
+          1px 0 16px #fff7;
+      }
+      27% { 
+        transform: translateX(2.5px); 
+        text-shadow: 
+          0 0 10px #ffe657, 
+          2px 0 8px #fff7,
+          -2px 0 8px #9408efcc;
+      }
+      40% { 
+        transform: translateX(-1.5px); 
+        text-shadow: 
+          4px 0 16px #34006688,
+          -3px 0 12px #fff7,
+          1px 0 7px #ffe657; 
+      }
+      54% { 
+        transform: translateX(2px); 
+        text-shadow: 
+          2px 0 18px #fff, 
+          -2px 0 8px #fff, 
+          0 0 8px #ffe657cc;
+      }
+      67% { 
+        transform: translateX(-2px);
+        text-shadow: 
+          0 0 18px #9408efcc,
+          2px 0 8px #fff7,
+          -2px 0 8px #ffe657cc;
+      }
+      80% { 
+        transform: translateX(1.5px); 
+        text-shadow:
+          3px 0 13px #fff7,
+          -2px 0 9px #ffe657,
+          0 0 10px #fff7; 
+      }
+      100% { 
+        transform: translateX(0.5px); 
+        text-shadow:
+          2px 0 8px #fff,
+          -2px 0 8px #fff,
+          0 0 18px #9408efcc,
+          4px 0 16px #34006688,
+          -4px 0 13px #fff7;
+      }
+    }
+    @media (max-width: 600px) {
+      .joker-header img { max-width: 92vw; }
+      .welcome-text { font-size: 2.1rem; }
     }
     .main-content {
       margin: 0;
@@ -87,9 +171,9 @@
       width: 100vw;
     }
     .extra-neon {
-      margin-top: 10px;
-      margin-bottom: 10px;
-      font-size: 2.5rem;
+      margin-top: 0px;
+      margin-bottom: 16px;
+      font-size: 2.3rem;
       font-weight: 800;
       text-align: center;
       color: #39ff14;
@@ -105,11 +189,11 @@
       font-family: 'Montserrat', Arial, sans-serif;
     }
     .claim-btn {
-      margin: 8px auto 15px auto;
+      margin: 8px auto 20px auto;
       padding: 16px 38px;
       background: linear-gradient(90deg,#00ff90,#00e049 70%);
       color: #fff;
-      font-size: 1.35rem;
+      font-size: 1.38rem;
       font-weight: 800;
       border: none;
       border-radius: 2em;
@@ -191,90 +275,13 @@
       border-radius: 11px;
       transition: width 0.15s linear;
     }
-
-    /* Testimonios flotando arriba y deslizando de izquierda a derecha */
-    .testimonials-container {
-      position: fixed;
-      top: 12px;
-      left: 0;
-      width: 100vw;
-      z-index: 999;
-      pointer-events: none;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 9px;
-    }
-    .testimonial-pop {
-      background: linear-gradient(98deg, #fff 60%, #eceeff 100%);
-      border-radius: 18px 8px 22px 18px;
-      box-shadow: 0 2px 22px #0002,0 4px 10px #00c09a21;
-      padding: 13px 17px 12px 15px;
-      border-left: 6px solid #35d841;
-      position: absolute;
-      top: 0;
-      left: -400px;
-      min-width: 260px;
-      max-width: 330px;
-      font-size: 1.05rem;
-      opacity: 0.98;
-      animation: testimonial-slide 14s linear forwards;
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-    @keyframes testimonial-slide {
-      0% {
-        left: -400px;
-        opacity: 0.2;
-      }
-      5% {
-        opacity: 1;
-      }
-      85% {
-        opacity: 1;
-      }
-      100% {
-        left: 100vw;
-        opacity: 0.1;
-      }
-    }
-    .testimonial-pop .t-emoji {
-      font-size: 1.2em;
-      margin-right: 4px;
-      vertical-align: bottom;
-    }
-    .testimonial-pop .t-name {
-      font-weight: bold;
-      color: #2c7a34;
-      margin-right: 4px;
-      font-size: 1.09em;
-    }
-    .testimonial-pop .t-money {
-      color: #e4b70b;
-      font-weight: bold;
-      margin-left: 3px;
-    }
-
-    @media (max-width: 600px) {
-      .joker-header img { max-width: 98vw; }
-      .welcome-text { font-size: 1.65rem; }
-      .extra-neon { font-size: 1.2rem; }
-      .testimonial-pop {
-        font-size: 0.99rem;
-        min-width: 170px;
-        max-width: 99vw;
-        padding: 9px 7px 9px 10px;
-      }
-    }
   </style>
 </head>
 <body>
   <div class="joker-header">
     <img src="jokers-jewels-logo.webp" alt="Joker's Jewels" draggable="false">
     <div class="welcome-text">
-      <span class="welcome-yellow">¡Bienvenid@s a </span><span class="welcome-white">Ganamos.net!</span>
+      ¡Bienvenid@s a <span class="welcome-white">Ganamos.net!</span>
     </div>
   </div>
   <div class="main-content">
@@ -292,8 +299,6 @@
       </div>
     </div>
   </div>
-  <div class="testimonials-container" id="testimonials"></div>
-
   <script>
     // WhatsApp config
     const whatsappNumber = "3413673839";
@@ -322,39 +327,6 @@
       else timelineBar.style.width = "0%";
     }
     setTimeout(updateTimeline, 1000);
-
-    // Testimonios flotantes, parte superior, deslizando lentamente de izq a der
-    const testimonios = [
-      {name: "Sofía G.", amount: "$137.200", city: "Córdoba"},
-      {name: "Emiliano R.", amount: "$72.900", city: "Rosario"},
-      {name: "Pamela L.", amount: "$210.500", city: "CABA"},
-      {name: "Franco D.", amount: "$48.000", city: "Mar del Plata"},
-      {name: "Lucía V.", amount: "$89.400", city: "Tucumán"},
-      {name: "Gabriel S.", amount: "$127.000", city: "Mendoza"},
-      {name: "Nicolás P.", amount: "$93.200", city: "Salta"},
-      {name: "Martina C.", amount: "$161.600", city: "Santa Fe"},
-      {name: "Florencia B.", amount: "$56.800", city: "La Plata"},
-      {name: "Alejandro T.", amount: "$108.400", city: "San Juan"},
-    ];
-    let testIndex = 0;
-    function showTestimonial() {
-      const t = testimonios[testIndex % testimonios.length];
-      const testiDiv = document.createElement('div');
-      testiDiv.className = "testimonial-pop";
-      testiDiv.style.top = `${testIndex * 48}px`; // Apilan hacia abajo
-      testiDiv.innerHTML = `
-        <span class="t-emoji">🎉</span>
-        <span class="t-name">${t.name}</span>
-        ganó <span class="t-money">${t.amount}</span> desde <b>${t.city}</b> y <span style="color:#1a9b0a">retiró su premio</span>
-      `;
-      document.getElementById('testimonials').appendChild(testiDiv);
-      setTimeout(() => {
-        if (testiDiv.parentNode) testiDiv.parentNode.removeChild(testiDiv);
-      }, 14000); // 14 segundos para cruzar toda la pantalla
-      testIndex = (testIndex + 1) % testimonios.length;
-      setTimeout(showTestimonial, 4000); // Cada 4 segundos aparece uno nuevo (apilados)
-    }
-    setTimeout(showTestimonial, 1100);
   </script>
 </body>
 </html>
