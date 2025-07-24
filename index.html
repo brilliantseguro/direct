@@ -181,12 +181,12 @@
       overflow: hidden;
       box-shadow: 0 2px 8px #8884;
       margin-top: 4px;
-      margin-bottom: -200px; /* ¡Pegadísima al logo! */
+      margin-bottom: 8px; /* Ultra pegado al logo, sin superponer */
     }
     .logo-ganamos-footer {
       width: 340px;
       max-width: 84vw;
-      margin: 5px auto 0 auto;
+      margin: 0 auto 0 auto;  /* El logo queda fijo, sin margen negativo */
       display: block;
       opacity: 0.99;
       filter: drop-shadow(0 0 20px #1a0937b0);
@@ -197,8 +197,9 @@
     @media (max-width: 600px) {
       .joker-header img { max-width: 93vw; }
       .welcome-text { font-size: 13vw; }
-      .logo-ganamos-footer { width: 85vw; margin-top: 4px;}
+      .logo-ganamos-footer { width: 85vw; margin-top: 0;}
       .extra-neon { font-size: 10vw;}
+      .timeline-bar-bg { margin-bottom: 6px; }
     }
   </style>
 </head>
