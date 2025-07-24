@@ -16,29 +16,39 @@
         linear-gradient(120deg, #a23ee3 0%, #21002b 100%);
       background-blend-mode: multiply, screen, multiply, multiply, normal;
       font-family: 'Montserrat', Arial, sans-serif;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
       position: relative;
       overflow-x: hidden;
-      height: 100vh;
     }
-    .joker-header {
-      width: 100%;
+    .contenido-central {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0;
+      min-height: 100vh;
+      width: 100vw;
+      justify-content: flex-start;
+      /* "Empuja" la zona central hacia arriba */
+      padding-top: 3vw;
+      box-sizing: border-box;
+    }
+    .joker-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
       margin: 0;
       padding: 0;
       position: relative;
     }
     .joker-header img {
       margin: 0;
-      margin-top: 2vw;
-      max-width: 320px;
-      width: 69vw;
+      margin-top: 0.7vw; /* casi pegado arriba */
+      max-width: 300px;
+      width: 58vw;
       height: auto;
       display: block;
       background: none !important;
@@ -47,14 +57,16 @@
       filter: drop-shadow(0 0 17px #330050);
       position: relative;
       z-index: 3;
+      pointer-events: none;
+      user-select: none;
     }
     .welcome-text {
-      font-size: 8vw;
+      font-size: 7.2vw;
       font-weight: 900;
       text-align: center;
-      margin-bottom: 30px;
-      margin-top: 9px;
-      line-height: 1.02;
+      margin-bottom: 18px;
+      margin-top: 0.3em;
+      line-height: 1.04;
       letter-spacing: 2.5px;
       position: relative;
       display: block;
@@ -70,12 +82,12 @@
       transition: font-size .28s cubic-bezier(.42,1.3,.8,1.01);
     }
     @media (min-width: 600px) {
-      .welcome-text { font-size: 4.5rem; }
-      .joker-header img { max-width: 320px; }
+      .welcome-text { font-size: 3.5rem; }
+      .joker-header img { max-width: 300px; }
     }
     @media (min-width: 950px) {
-      .welcome-text { font-size: 6.1rem; }
-      .joker-header img { max-width: 340px; }
+      .welcome-text { font-size: 5rem; }
+      .joker-header img { max-width: 320px; }
     }
     .welcome-white {
       color: #fff;
@@ -150,19 +162,18 @@
       }
     }
     .main-content {
-      margin: 0;
+      width: 100vw;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      width: 100vw;
+      margin-top: 7vh; /* "empuja" el botón al centro */
     }
     .claim-btn {
-      margin: 8px auto 20px auto;
-      padding: 22px 54px;
+      margin: 20vh auto 12px auto;
+      padding: 14px 36px;
       background: linear-gradient(90deg,#00ff90,#00e049 70%);
       color: #fff;
-      font-size: 2rem;
+      font-size: 1.12rem;
       font-weight: 900;
       border: none;
       border-radius: 2.5em;
@@ -172,7 +183,7 @@
       text-shadow: 0 2px 24px #00ffbf, 0 0px 32px #0f0, 0 2px 9px #009954d0;
       transition: transform .18s cubic-bezier(.22,1.01,.36,.98), box-shadow .19s;
       z-index: 3;
-      letter-spacing: 1.2px;
+      letter-spacing: 1.1px;
       outline: none;
       display: block;
     }
@@ -182,7 +193,7 @@
     }
     @keyframes titilarGrande {
       0% { transform: scale(1); box-shadow: 0 4px 36px #00ff90e7, 0 0 48px #35ff9aab, 0 0 70px #00ff90d0; }
-      60% { transform: scale(1.09); box-shadow: 0 9px 65px #00ff90f0, 0 0 90px #35ff9abb, 0 0 100px #00ff90f9; }
+      60% { transform: scale(1.14); box-shadow: 0 14px 85px #00ff90fa, 0 0 90px #35ff9abb, 0 0 100px #00ff90f9; }
       100% { transform: scale(1); box-shadow: 0 4px 36px #00ff90e7, 0 0 48px #35ff9aab, 0 0 70px #00ff90d0; }
     }
     @keyframes shine {
@@ -190,9 +201,9 @@
       100% { filter: brightness(1.13); }
     }
     .extra-neon {
-      margin-top: 18px;
+      margin-top: 16px;
       margin-bottom: 0px;
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       font-weight: 900;
       text-align: center;
       color: #fff;
@@ -264,24 +275,26 @@
   </style>
 </head>
 <body>
-  <div class="joker-header">
-    <img src="jokers-jewels-logo.webp" alt="Joker's Jewels" draggable="false">
-    <div class="welcome-text">
-      ¡Bienvenid@s a <span class="welcome-white">Ganamos.net!</span>
-    </div>
-  </div>
-  <div class="main-content">
-    <button id="claimBtn" class="claim-btn">
-      ¡RECLAMA TU BONO!
-    </button>
-    <div class="extra-neon">20% EXTRA</div>
-    <div class="timeline-section">
-      <div class="timeline-row">
-        <span class="timeline-label">Tiempo para reclamar el bono</span>
-        <span id="timelineTime" class="timeline-time">30s</span>
+  <div class="contenido-central">
+    <div class="joker-header">
+      <img src="jokers-jewels-logo.webp" alt="Joker's Jewels" draggable="false">
+      <div class="welcome-text">
+        ¡Bienvenid@s a <span class="welcome-white">Ganamos.net!</span>
       </div>
-      <div class="timeline-bar-bg">
-        <div id="timelineBar" class="timeline-bar" style="width:100%"></div>
+    </div>
+    <div class="main-content">
+      <button id="claimBtn" class="claim-btn">
+        ¡RECLAMA TU BONO!
+      </button>
+      <div class="extra-neon">20% EXTRA</div>
+      <div class="timeline-section">
+        <div class="timeline-row">
+          <span class="timeline-label">Tiempo para reclamar el bono</span>
+          <span id="timelineTime" class="timeline-time">30s</span>
+        </div>
+        <div class="timeline-bar-bg">
+          <div id="timelineBar" class="timeline-bar" style="width:100%"></div>
+        </div>
       </div>
     </div>
   </div>
