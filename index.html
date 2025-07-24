@@ -129,14 +129,14 @@
       line-height: 1.09;
     }
 
-    .footer-bar-logo {
+    .ganamos-barra-bloque {
       width: 100vw;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-end;
-      margin-bottom: 32px;
-      margin-top: auto;
+      justify-content: flex-start;
+      margin-top: -18px;
+      margin-bottom: 0;
     }
     .timeline-section {
       width: 96vw;
@@ -201,7 +201,7 @@
       .welcome-text { font-size: 13vw; }
       .logo-ganamos-footer { width: 70vw; margin-top: 0;}
       .extra-neon { font-size: 10vw;}
-      .footer-bar-logo { margin-bottom: 8vw;}
+      .ganamos-barra-bloque { margin-top: -7vw;}
     }
   </style>
 </head>
@@ -217,20 +217,20 @@
       ¡RECLAMA TU BONO!
     </button>
     <div class="extra-neon">20% EXTRA</div>
-  </main>
-  <footer class="footer-bar-logo">
-    <div class="timeline-section">
-      <div class="timeline-row">
-        <span class="timeline-label">Tiempo para reclamar el bono</span>
-        <span id="timelineTime" class="timeline-time">30s</span>
+    <!-- Barra de tiempo + logo juntos y arriba -->
+    <div class="ganamos-barra-bloque">
+      <div class="timeline-section">
+        <div class="timeline-row">
+          <span class="timeline-label">Tiempo para reclamar el bono</span>
+          <span id="timelineTime" class="timeline-time">30s</span>
+        </div>
+        <div class="timeline-bar-bg">
+          <div id="timelineBar" class="timeline-bar" style="width:100%"></div>
+        </div>
       </div>
-      <div class="timeline-bar-bg">
-        <div id="timelineBar" class="timeline-bar" style="width:100%"></div>
-      </div>
+      <img src="pngcortado-removebg-preview.png" alt="Ganamos.net" class="logo-ganamos-footer">
     </div>
-    <!-- Logo sin fondo, achicado -->
-    <img src="pngcortado-removebg-preview.png" alt="Ganamos.net" class="logo-ganamos-footer">
-  </footer>
+  </main>
   <script>
     // WhatsApp config
     const whatsappNumber = "3413673839";
