@@ -8,6 +8,7 @@
     html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
       min-height: 100vh;
       background:
         repeating-linear-gradient(120deg, #5d1c8a 0 5px, transparent 9px 17px),
@@ -17,23 +18,20 @@
         linear-gradient(120deg, #a23ee3 0%, #21002b 100%);
       background-blend-mode: multiply, screen, multiply, multiply, normal;
       font-family: 'Montserrat', Arial, sans-serif;
-      min-height: 100vh;
       width: 100vw;
-      overflow-x: hidden;
       box-sizing: border-box;
+      overflow-x: hidden;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .main-wrapper {
-      width: 100vw;
       min-height: 100vh;
+    }
+    main {
+      flex: 1 0 auto;
+      width: 100vw;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      flex: 1 0 auto;
       box-sizing: border-box;
     }
     .joker-header {
@@ -43,7 +41,6 @@
       width: 100vw;
       margin: 0;
       padding: 0;
-      position: relative;
     }
     .joker-header img {
       margin-top: 0;
@@ -100,6 +97,7 @@
       letter-spacing: 1px;
       outline: none;
       display: block;
+      align-self: center;
     }
     .claim-btn:hover, .claim-btn:focus-visible {
       transform: scale(1.10);
@@ -130,24 +128,25 @@
       transition: font-size .28s;
       line-height: 1.09;
     }
+
+    /* FOOTER */
     .footer-bar-logo {
       width: 100vw;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-end;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       margin-top: auto;
     }
     .timeline-section {
       width: 96vw;
       max-width: 420px;
-      margin: 0 auto 0 auto;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 2px;
+      margin-bottom: 0;
     }
     .timeline-row {
       display: flex;
@@ -185,12 +184,12 @@
       overflow: hidden;
       box-shadow: 0 2px 8px #8884;
       margin-top: 4px;
-      margin-bottom: 2px; /* Pegadita al logo, ajusta si quieres más/menos espacio */
+      margin-bottom: 6px; /* Casi tocando el logo */
     }
     .logo-ganamos-footer {
       width: 340px;
       max-width: 84vw;
-      margin: 2px auto 0 auto;
+      margin: 0 auto 0 auto;
       display: block;
       opacity: 0.99;
       filter: drop-shadow(0 0 20px #1a0937b0);
@@ -208,33 +207,31 @@
   </style>
 </head>
 <body>
-  <div class="main-wrapper">
-    <div>
-      <div class="joker-header">
-        <img src="jokers-jewels-logo.webp" alt="Joker's Jewels" draggable="false">
-        <div class="welcome-text">
-          ¡Bienvenid@s a <span class="welcome-white">Ganamos.net!</span>
-        </div>
+  <main>
+    <div class="joker-header">
+      <img src="jokers-jewels-logo.webp" alt="Joker's Jewels" draggable="false">
+      <div class="welcome-text">
+        ¡Bienvenid@s a <span class="welcome-white">Ganamos.net!</span>
       </div>
-      <button id="claimBtn" class="claim-btn">
-        ¡RECLAMA TU BONO!
-      </button>
-      <div class="extra-neon">20% EXTRA</div>
     </div>
-    <!-- Footer fijo abajo con barra + logo -->
-    <div class="footer-bar-logo">
-      <div class="timeline-section">
-        <div class="timeline-row">
-          <span class="timeline-label">Tiempo para reclamar el bono</span>
-          <span id="timelineTime" class="timeline-time">30s</span>
-        </div>
-        <div class="timeline-bar-bg">
-          <div id="timelineBar" class="timeline-bar" style="width:100%"></div>
-        </div>
+    <button id="claimBtn" class="claim-btn">
+      ¡RECLAMA TU BONO!
+    </button>
+    <div class="extra-neon">20% EXTRA</div>
+  </main>
+  <!-- Footer: barra de tiempo + logo, juntos y centrados -->
+  <footer class="footer-bar-logo">
+    <div class="timeline-section">
+      <div class="timeline-row">
+        <span class="timeline-label">Tiempo para reclamar el bono</span>
+        <span id="timelineTime" class="timeline-time">30s</span>
       </div>
-      <img src="logo_Mesa de trabajo 1.png" alt="Ganamos.net" class="logo-ganamos-footer">
+      <div class="timeline-bar-bg">
+        <div id="timelineBar" class="timeline-bar" style="width:100%"></div>
+      </div>
     </div>
-  </div>
+    <img src="logo_Mesa de trabajo 1.png" alt="Ganamos.net" class="logo-ganamos-footer">
+  </footer>
   <script>
     // WhatsApp config
     const whatsappNumber = "3413673839";
