@@ -17,6 +17,16 @@
     fbq('init', '587660557560617');
     fbq('track', 'PageView');
   </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0226GHV8MT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0226GHV8MT');
+</script>
+
   <noscript>
     <img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=587660557560617&ev=PageView&noscript=1"/>
@@ -342,7 +352,17 @@
         if (typeof fbq === 'function') {
           fbq('trackCustom', 'ClickWhatsAap');
         }
-        window.location.href = whatsappLink;
+        
+        // Google Analytics 4 - Click a WhatsApp
+        if (typeof gtag === 'function') {
+          gtag('event', 'click_whatsapp', {
+            event_category: 'engagement',
+            event_label: 'Botón WhatsApp',
+            value: 1
+          });
+        }
+
+window.location.href = whatsappLink;
       }, 2500);
     }
     document.getElementById('claimBtn').addEventListener('click', handleClaimClick, {passive:false});
