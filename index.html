@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Reclama tu bono del 20% | WhatsApp Casino</title>
+  <title>Reclama tu bono del 20% | WhatsApp</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <!-- Pixel Meta -->
@@ -121,6 +121,7 @@
       margin-top: 30px;
       font-size: 0.8rem;
       color: #aaa;
+      display: none; /* Oculto por completo */
     }
   </style>
 </head>
@@ -131,7 +132,7 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="wa-icon" loading="lazy">
 
     <h1>¡Hablemos por WhatsApp!</h1>
-    <p class="subtitle">Reclama tu <strong>bono del 20%</strong> exclusivo para <strong>casino online</strong></p>
+    <p class="subtitle">Reclama tu <strong>bono del 20%</strong> exclusivo para <strong>jugadores online</strong></p>
 
     <p class="urgency">⏰ Solo por hoy</p>
     <p class="cta">Activa tu bono + giros gratis 🎰</p>
@@ -146,14 +147,15 @@
     </div>
 
     <div class="footer-note">
-      bono-casino.com
+      <!-- Eliminado visualmente -->
     </div>
 
   </div>
 
   <script>
     const whatsappNumber = "3413673839";
-    const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hola!%20Quiero%20reclamar%20mi%20bono%20de%20casino`;
+    const whatsappMessage = "Hola, vi el anuncio y quiero jug4r con ustedes! 20% B0NO mi codigo es: BR1LLT.";
+    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
     function handleClaimClick(e) {
       if (e) e.preventDefault();
