@@ -2,9 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>¡Reclama tu Bono! | Joker Jewels Casino</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Pixel Meta: para máxima compatibilidad en móviles y escritorio -->
+  <title>Reclama tu bono del 20% | WhatsApp Casino</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- Pixel Meta -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -17,404 +18,177 @@
     fbq('init', '587660557560617');
     fbq('track', 'PageView');
   </script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0226GHV8MT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-0226GHV8MT');
-</script>
-
   <noscript>
     <img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=587660557560617&ev=PageView&noscript=1"/>
   </noscript>
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     html, body {
       margin: 0;
       padding: 0;
-      min-height: 100vh;
-      background:
-        repeating-linear-gradient(120deg, #5d1c8a 0 5px, transparent 9px 17px),
-        repeating-linear-gradient(-25deg, #280c37 0 3px, transparent 7px 21px),
-        radial-gradient(circle at 20% 32%, #432063 0%, transparent 55%),
-        radial-gradient(circle at 80% 66%, #6f26c0 0%, transparent 65%),
-        linear-gradient(120deg, #a23ee3 0%, #21002b 100%);
-      background-blend-mode: multiply, screen, multiply, multiply, normal;
-      font-family: 'Montserrat', Arial, sans-serif;
-      box-sizing: border-box;
-      overflow-x: hidden;
-      display: flex;
-      flex-direction: column;
+      font-family: system-ui, sans-serif;
+      background-color: #ffffff;
+      color: #111;
+      height: 100%;
     }
-    .ws-notif-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 33px;
-      background: #111;
-      color: #fff;
-      z-index: 1002;
-      font-size: 17px;
-      font-weight: 600;
+
+    body {
       display: flex;
+      justify-content: center;
       align-items: center;
-      overflow: hidden;
-      box-shadow: 0 2px 10px #0005;
-      padding: 0;
-    }
-    .ws-notif-content {
-      display: flex;
-      align-items: center;
-      white-space: nowrap;
-      gap: 8px;
-      min-width: 100vw;
-      height: 33px;
-      padding-left: 18px;
-      animation: notif-slide 9s linear infinite;
-    }
-    @keyframes notif-slide {
-      0%   { transform: translateX(100vw);}
-      100% { transform: translateX(-140vw);}
-    }
-    .ws-notif-ico {
-      width: 27px;
-      height: 27px;
-      margin-right: 4px;
-      display: inline-block;
-      vertical-align: middle;
-      fill: #fff;
-    }
-    .ws-notif-msg {
-      color: #fff;
-      text-shadow: 0 1px 5px #000a;
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-      padding-right: 10px;
-      display: inline-block;
-      vertical-align: middle;
-    }
-    main {
-      flex: 1 0 auto;
-      width: 100vw;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      box-sizing: border-box;
-      padding-top: 45px;
-    }
-    .joker-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100vw;
-      margin: 0;
-      padding: 0;
-    }
-    .joker-header img {
-      margin-top: 0;
-      margin-bottom: 6px;
-      max-width: 340px;
-      width: 80vw;
-      height: auto;
-      display: block;
-      filter: drop-shadow(0 0 13px #330050);
-      pointer-events: none;
-      user-select: none;
-    }
-    .welcome-text {
-      font-size: 12vw;
-      font-weight: 900;
       text-align: center;
-      margin-top: 0;
-      margin-bottom: 22px;
-      line-height: 1;
-      letter-spacing: 1px;
-      color: #ffe657;
-      text-shadow: 2px 0 10px #fff, -2px 0 10px #fff, 0 0 12px #9408efcc;
-      animation: bienvenida-glitch 2.1s infinite alternate linear;
-      z-index: 4;
-      overflow: hidden;
-      word-break: break-word;
+      padding: 20px;
     }
-    .welcome-white {
-      color: #fff;
-      font-weight: 900;
-      letter-spacing: 2px;
-      text-shadow: 2px 0 10px #ffe657b6, -2px 0 10px #ffe657b6, 0 0 24px #bc8df1cc;
+
+    .container {
+      max-width: 480px;
+      width: 100%;
     }
-    @keyframes bienvenida-glitch {
-      0% { transform: translateX(0px);}
-      27% { transform: translateX(2.5px);}
-      54% { transform: translateX(-2px);}
-      100% { transform: translateX(0.5px);}
+
+    img.wa-icon {
+      width: 84px;
+      height: 84px;
+      margin-bottom: 20px;
     }
-    .claim-btn {
-      margin: 0 0 18px 0;
-      padding: 14px 30px;
-      background: linear-gradient(90deg,#00ff90,#00e049 70%);
-      color: #fff;
-      font-size: 1.20rem;
-      font-weight: 900;
-      border: none;
-      border-radius: 2em;
-      box-shadow: 0 2px 22px #00ff90e7, 0 0 28px #35ff9aab;
-      cursor: pointer;
-      animation: titilarGrande 1.14s infinite cubic-bezier(.6,1.22,.4,1.02), shine 0.7s alternate infinite;
-      text-shadow: 0 2px 12px #00ffbf, 0 0px 18px #0f0, 0 2px 7px #009954d0;
-      transition: transform .18s cubic-bezier(.22,1.01,.36,.98), box-shadow .19s;
-      letter-spacing: 1px;
-      outline: none;
-      display: flex;
+
+    h1 {
+      font-size: 1.8rem;
+      color: #128c7e;
+      margin-bottom: 14px;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      color: #444;
+      margin-bottom: 18px;
+    }
+
+    .urgency {
+      font-size: 1.1rem;
+      color: #c00;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .cta {
+      font-size: 1.2rem;
+      color: #128c7e;
+      font-weight: bold;
+      margin-bottom: 28px;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      align-self: center;
-      gap: 0;
+      background-color: #25D366;
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 12px;
+      padding: 18px 30px;
+      width: 100%;
+      max-width: 100%;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+      transition: background-color 0.2s ease;
     }
-    .claim-btn svg {
+
+    .whatsapp-btn:hover {
+      background-color: #20c15c;
+    }
+
+    .whatsapp-btn svg {
       width: 28px;
       height: 28px;
-      margin-right: 2px;
-      fill: #fff;
-      display: inline-block;
-      vertical-align: middle;
-      filter: drop-shadow(0 0 9px #fff) brightness(2);
-      flex-shrink: 0;
+      margin-right: 12px;
+      fill: white;
     }
-    .claim-btn:hover, .claim-btn:focus-visible {
-      transform: scale(1.10);
-      box-shadow: 0 12px 28px #00ff90fa, 0 0 34px #7cffc2;
-    }
-    @keyframes titilarGrande {
-      0% { transform: scale(1); box-shadow: 0 2px 18px #00ff90e7, 0 0 24px #35ff9aab; }
-      60% { transform: scale(1.09); box-shadow: 0 8px 32px #00ff90fa, 0 0 38px #35ff9abb; }
-      100% { transform: scale(1); box-shadow: 0 2px 18px #00ff90e7, 0 0 24px #35ff9aab; }
-    }
-    @keyframes shine {
-      0% { filter: brightness(1);}
-      100% { filter: brightness(1.13);}
-    }
-    .extra-neon {
+
+    .trust-copy {
       margin-top: 20px;
-      margin-bottom: 20px;
-      font-size: 4.6rem;
-      font-weight: 900;
-      text-align: center;
-      color: #fff;
-      text-shadow: 0 0 20px #fff, 0 0 28px #fff, 0 0 13px #a8f8e6b3;
-      letter-spacing: 2px;
-      filter: brightness(1.13) drop-shadow(0 0 14px #fff);
-      user-select: none;
-      pointer-events: none;
-      font-family: 'Montserrat', Arial, sans-serif;
-      transition: font-size .28s, margin-top .2s;
-      line-height: 1.09;
+      font-size: 0.95rem;
+      color: #666;
     }
-    .ganamos-barra-bloque {
-      width: 100vw;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      margin-top: 90px; /* <-- BAJADO UN POCO MÁS */
-      margin-bottom: 0;
-      transition: margin-top .2s;
-    }
-    .timeline-section {
-      width: 96vw;
-      max-width: 420px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 0;
-    }
-    .timeline-row {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      margin-bottom: 2px;
-      font-size: 1.05rem;
-    }
-    .timeline-label {
-      color: #fff;
-      font-size: 1em;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-      text-shadow: 0 1px 6px #460484cc, 0 0px 6px #fff5;
-      margin: 0;
-      padding: 0;
-      display: inline-block;
-    }
-    .timeline-time {
-      color: #d1cfcf;
-      font-size: 1em;
-      font-weight: bold;
-      margin-left: 3px;
-      text-shadow: 0 1px 4px #fff9, 0 0px 2px #59595988;
-      display: inline-block;
-    }
-    .timeline-bar-bg {
-      width: 100%;
-      background: linear-gradient(90deg, #ececec 10%, #b2b2b2 90%);
-      border-radius: 11px;
-      height: 13px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 2px 8px #8884;
-      margin-top: 4px;
-      margin-bottom: 6px;
-    }
-    .timeline-bar {
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      height: 100%;
-      background: linear-gradient(90deg,#ececec 0%,#b2b2b2 100%);
-      opacity: 0.99;
-      border-radius: 11px;
-      transition: width 0.19s linear, background 0.2s linear;
-    }
-    .logo-ganamos-footer {
-      width: 200px;
-      max-width: 54vw;
-      margin: 22px auto 0 auto;
-      display: block;
-      opacity: 0.99;
-      filter: drop-shadow(0 0 20px #1a0937b0);
-      pointer-events: none;
-      user-select: none;
-      transition: width .2s;
-    }
-    @media (max-width: 600px) {
-      .ws-notif-bar { font-size: 15.5px; height: 27px;}
-      .ws-notif-ico { width: 19px; height: 19px;}
-      .ws-notif-content {height: 27px;}
-      .ws-notif-msg { font-size: 14.5px;}
-      .joker-header img { max-width: 93vw; }
-      .welcome-text { font-size: 13vw; }
-      .logo-ganamos-footer { width: 54vw; margin-top: 14px;}
-      .extra-neon { font-size: 10vw;}
-      .ganamos-barra-bloque { margin-top: 12vw;}
+
+    .footer-note {
+      margin-top: 30px;
+      font-size: 0.8rem;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
-  <!-- Notificaciones arriba de todo -->
-  <div class="ws-notif-bar">
-    <div class="ws-notif-content" id="ws-notif-content"></div>
-  </div>
-  <main>
-    <div class="joker-header">
-      <img src="joker-cropped.png" alt="Joker's Jewels" draggable="false">
-      <div class="welcome-text">
-        ¡Bienvenid@s a <span class="welcome-white">Ganamos.net!</span>
-      </div>
-    </div>
-    <button id="claimBtn" class="claim-btn">
-      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16.022 3.063c-6.931 0-12.548 5.538-12.548 12.354 0 2.181.591 4.313 1.71 6.174L3.12 28.151a1.268 1.268 0 0 0 1.227 1.643c.187 0 .381-.04.561-.126l6.821-3.092a12.494 12.494 0 0 0 4.293.747c6.931 0 12.548-5.538 12.548-12.354S22.953 3.063 16.022 3.063Zm0 22.406c-1.363 0-2.707-.239-3.981-.71a1.253 1.253 0 0 0-1.021.035l-5.16 2.338 1.094-4.486a1.26 1.26 0 0 0-.136-.925 10.11 10.11 0 0 1-1.532-5.294c0-5.529 4.529-10.026 10.084-10.026 5.555 0 10.084 4.497 10.084 10.026 0 5.529-4.529 10.026-10.084 10.026Zm5.027-7.495c-.274-.137-1.627-.802-1.879-.893-.252-.09-.436-.137-.62.137s-.713.893-.875 1.076c-.162.183-.324.206-.598.069-.274-.137-1.155-.425-2.199-1.355-.813-.722-1.363-1.615-1.524-1.888-.162-.274-.017-.422.122-.557.126-.124.274-.324.41-.487a1.937 1.937 0 0 0 .273-.459c.09-.183.018-.344-.043-.48-.062-.137-.62-1.49-.85-2.04-.224-.538-.454-.463-.62-.47a.505.505 0 0 0-.435-.009c-.136.067-.516.202-.788.486-.272.284-1.04 1.019-1.04 2.482 0 1.462 1.065 2.876 1.215 3.075.15.198 2.098 3.21 5.082 4.376.71.306 1.263.489 1.695.626.713.227 1.362.196 1.874.119.572-.085 1.627-.665 1.857-1.307.23-.641.23-1.19.16-1.308-.068-.117-.249-.188-.523-.325Z"/>
-      </svg>
-      ¡RECLAMA TU BONO!
+
+  <div class="container">
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="wa-icon" loading="lazy">
+
+    <h1>¡Hablemos por WhatsApp!</h1>
+    <p class="subtitle">Reclama tu <strong>bono del 20%</strong> exclusivo para <strong>casino online</strong></p>
+
+    <p class="urgency">⏰ Solo por hoy</p>
+    <p class="cta">Activa tu bono + giros gratis 🎰</p>
+
+    <button class="whatsapp-btn" onclick="handleClaimClick(event)">
+      <svg viewBox="0 0 32 32"><path d="M16.003 2.003C8.276 2.003 2 8.276 2 15.997c0 2.722.795 5.238 2.144 7.36L2 30l6.825-2.112A13.91 13.91 0 0 0 16.003 30c7.727 0 14-6.273 14-14.003S23.73 2.003 16.003 2.003zm0 25.454c-2.234 0-4.321-.645-6.072-1.76l-.433-.27-4.048 1.253 1.285-3.943-.283-.451a11.372 11.372 0 0 1-1.758-6.028c0-6.263 5.097-11.36 11.36-11.36s11.36 5.097 11.36 11.36c0 6.263-5.097 11.36-11.36 11.36zm6.174-8.526c-.338-.169-2.003-.986-2.314-1.1-.31-.113-.537-.169-.763.17-.226.338-.876 1.1-1.074 1.325-.197.226-.394.253-.732.084-.338-.17-1.428-.526-2.72-1.676-1.006-.898-1.684-2.007-1.88-2.345-.197-.338-.022-.521.147-.69.151-.15.338-.394.507-.592.17-.197.226-.338.338-.563.113-.226.056-.422-.028-.59-.085-.169-.763-1.84-1.046-2.52-.276-.662-.557-.57-.763-.58l-.65-.011c-.226 0-.59.084-.897.394s-1.18 1.152-1.18 2.809c0 1.657 1.208 3.259 1.376 3.484.169.226 2.381 3.629 5.77 5.088.807.348 1.438.557 1.93.712.811.257 1.549.221 2.133.135.651-.097 2.003-.819 2.288-1.611.282-.787.282-1.462.197-1.611-.084-.15-.31-.237-.648-.406z"/></svg>
+      Ir a WhatsApp
     </button>
-    <div class="extra-neon">20% EXTRA 🎁</div>
-    <div class="ganamos-barra-bloque">
-      <div class="timeline-section">
-        <div class="timeline-row">
-          <span class="timeline-label">Tiempo para reclamar el bono</span>
-          <span id="timelineTime" class="timeline-time">30s</span>
-        </div>
-        <div class="timeline-bar-bg">
-          <div id="timelineBar" class="timeline-bar" style="width:100%"></div>
-        </div>
-      </div>
-      <img src="pngcortado-removebg-preview.png" alt="Ganamos.net" class="logo-ganamos-footer">
+
+    <div class="trust-copy">
+      Sin registro. Chateá directo con un asesor de bonos.
     </div>
-  </main>
+
+    <div class="footer-note">
+      bono-casino.com
+    </div>
+
+  </div>
+
   <script>
-    // WhatsApp config
     const whatsappNumber = "3413673839";
-    const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hola,%20quiero%20carg4r%20en%20su%20plataforma`;
+    const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hola!%20Quiero%20reclamar%20mi%20bono%20de%20casino`;
 
     function handleClaimClick(e) {
       if (e) e.preventDefault();
-      const btn = document.getElementById('claimBtn');
-      btn.innerText = 'Redirigiendo a WhatsApp...';
-      btn.disabled = true;
-      setTimeout(function(){
-        // Pixel Meta: trackear el evento
-        if (typeof fbq === 'function') {
-          fbq('trackCustom', 'ClickWhatsAap');
-        }
-        
-        // Google Analytics 4 - Click a WhatsApp
-        if (typeof gtag === 'function') {
-          gtag('event', 'click_whatsapp', {
-            event_category: 'engagement',
-            event_label: 'Botón WhatsApp',
-            value: 1
+
+      // Pixel Meta
+      if (typeof fbq === 'function') {
+        fbq('trackCustom', 'ClickWhatsAap');
+      }
+
+      // Conversion API
+      try {
+        const eventData = {
+          event_name: 'ClickWhatsAap',
+          event_source_url: window.location.href,
+          user_data: {
+            client_user_agent: navigator.userAgent
+          }
+        };
+        const blob = new Blob([JSON.stringify(eventData)], {type: 'application/json'});
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon('https://conversion-api-pipe.vercel.app/api/conversion', blob);
+        } else {
+          fetch('https://conversion-api-pipe.vercel.app/api/conversion', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(eventData)
           });
         }
+      } catch (err) {}
 
-window.location.href = whatsappLink;
-      }, 2500);
+      setTimeout(() => {
+        window.location.href = whatsappLink;
+      }, 1500);
     }
-    document.getElementById('claimBtn').addEventListener('click', handleClaimClick, {passive:false});
-    document.getElementById('claimBtn').addEventListener('touchstart', handleClaimClick, {passive:true});
-
-    // Línea de tiempo degradable: barra plata a plata más oscuro
-    let timeLeft = 30;
-    const timelineBar = document.getElementById('timelineBar');
-    const timelineTime = document.getElementById('timelineTime');
-    function updateTimeline() {
-      timeLeft -= 1;
-      const pct = Math.max(0, (timeLeft / 30) * 100);
-      timelineBar.style.width = pct + "%";
-      timelineBar.style.background = "linear-gradient(90deg,#ececec 0%,#b2b2b2 100%)";
-      timelineTime.textContent = (timeLeft > 0 ? timeLeft + "s" : "¡Finalizó!");
-      if(timeLeft > 0) setTimeout(updateTimeline, 1000);
-      else timelineBar.style.width = "0%";
-    }
-    setTimeout(updateTimeline, 1000);
-
-    // Notificaciones simuladas de clientes (lo dejo igual que lo tenías)
-    const notifList = [
-      {nombre: "Sofía G.", ciudad: "Córdoba", monto: "$137.200"},
-      {nombre: "Emiliano R.", ciudad: "Rosario", monto: "$72.900"},
-      {nombre: "Pamela L.", ciudad: "CABA", monto: "$210.500"},
-      {nombre: "Franco D.", ciudad: "Mar del Plata", monto: "$48.000"},
-      {nombre: "Lucía V.", ciudad: "Tucumán", monto: "$89.400"},
-      {nombre: "Gabriel S.", ciudad: "Mendoza", monto: "$127.000"},
-      {nombre: "Nicolás P.", ciudad: "Salta", monto: "$93.200"},
-      {nombre: "Martina C.", ciudad: "Santa Fe", monto: "$161.600"},
-      {nombre: "Florencia B.", ciudad: "La Plata", monto: "$56.800"},
-      {nombre: "Alejandro T.", ciudad: "San Juan", monto: "$108.400"},
-    ];
-    function buildNotifHTML(obj) {
-      return `<span class="ws-notif-ico">
-        <svg viewBox="0 0 32 32" fill="#fff" xmlns="http://www.w3.org/2000/svg">
-          <path d="M16.022 3.063c-6.931 0-12.548 5.538-12.548 12.354 0 2.181.591 4.313 1.71 6.174L3.12 28.151a1.268 1.268 0 0 0 1.227 1.643c.187 0 .381-.04.561-.126l6.821-3.092a12.494 12.494 0 0 0 4.293.747c6.931 0 12.548-5.538 12.548-12.354S22.953 3.063 16.022 3.063Zm0 22.406c-1.363 0-2.707-.239-3.981-.71a1.253 1.253 0 0 0-1.021.035l-5.16 2.338 1.094-4.486a1.26 1.26 0 0 0-.136-.925 10.11 10.11 0 0 1-1.532-5.294c0-5.529 4.529-10.026 10.084-10.026 5.555 0 10.084 4.497 10.084 10.026 0 5.529-4.529 10.026-10.084 10.026Zm5.027-7.495c-.274-.137-1.627-.802-1.879-.893-.252-.09-.436-.137-.62.137s-.713.893-.875 1.076c-.162.183-.324.206-.598.069-.274-.137-1.155-.425-2.199-1.355-.813-.722-1.363-1.615-1.524-1.888-.162-.274-.017-.422.122-.557.126-.124.274-.324.41-.487a1.937 1.937 0 0 0 .273-.459c.09-.183.018-.344-.043-.48-.062-.137-.62-1.49-.85-2.04-.224-.538-.454-.463-.62-.47a.505.505 0 0 0-.435-.009c-.136.067-.516.202-.788.486-.272.284-1.04 1.019-1.04 2.482 0 1.462 1.065 2.876 1.215 3.075.15.198 2.098 3.21 5.082 4.376.71.306 1.263.489 1.695.626.713.227 1.362.196 1.874.119.572-.085 1.627-.665 1.857-1.307.23-.641.23-1.19.16-1.308-.068-.117-.249-.188-.523-.325Z"/>
-        </svg>
-      </span>
-      <span class="ws-notif-msg">
-        ${obj.nombre} de ${obj.ciudad} ganó <b>${obj.monto}</b> y retiró su premio por WhatsApp 🥳
-      </span>`;
-    }
-    // Animación con cambio de notificación
-    const notifBar = document.getElementById('ws-notif-content');
-    let notifIndex = 0;
-    function setNotif() {
-      notifBar.innerHTML = buildNotifHTML(notifList[notifIndex % notifList.length]);
-      notifIndex++;
-    }
-    setNotif();
-    setInterval(setNotif, 7000);
   </script>
+
 </body>
 </html>
